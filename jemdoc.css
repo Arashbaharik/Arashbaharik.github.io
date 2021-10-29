@@ -365,9 +365,6 @@ table.imgtable, table.imgtable td {
     border: none;
     text-align: left;
 }
-body{
- background-color:red !important;
-}
 .imgtable img{
  border-radius: 100px !important;
 }
