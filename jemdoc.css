@@ -334,6 +334,9 @@ img.eqwl {
 	padding-bottom: 0.2em;
 	margin: 0;
 }
+imgtable.img{
+	border-radius:50px;
+}
 
 table {
     border: 2px solid black;
@@ -364,4 +367,8 @@ img {
 table.imgtable, table.imgtable td {
     border: none;
     text-align: left;
+}
+
+.imgtable img{
+border-radius: 50px !important;
 }
