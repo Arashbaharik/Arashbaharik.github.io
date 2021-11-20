@@ -366,5 +366,5 @@ table.imgtable, table.imgtable td {
     text-align: left;
 }
 .imgtable img{
- border-radius: 50px !important;
+ border-radius: 0px !important;
 }
