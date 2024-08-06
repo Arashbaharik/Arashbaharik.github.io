@@ -25,23 +25,21 @@
 <h1>Research directions</h1>
 
 <h2> Stochastic Systems under Signal Temporal Logic Tasks </h2>
- <p> Signal Temporal Logic (STL) offers an expressive formalism for describing complex high-level spatio-temporal tasks in dynamical systems. This research aims to provide probabilistic guarantees for
-    stochastic dynamics to fulfill a given STL task. <a href="#fig1">Figure 1</a>-right shows an STL task and the left illustrates different trajectories and reaching time histogram for satisfying an STL formula with deadlines.
-The  
+ <p> Signal Temporal Logic (STL) provides a powerful framework for specifying complex high-level spatio-temporal tasks in dynamical systems. This research focuses on offering probabilistic guarantees that stochastic dynamics will meet a given STL task. <a href="#fig1">Figure 1</a>-right displays an STL task, while the left side shows various trajectories and a histogram of reaching times for satisfying an STL formula with deadlines.
+ 
 
  <figure>
         <img src="https://raw.githubusercontent.com/Arashbaharik/Arashbaharik.github.io/main/STL.png" width="600" alt="MPC-based RL" id="fig1">
         <figcaption>Fig 1: Schematic of MPC-based RL algorithm.
     </figure>
 
- <p> Barrier functions offer Lyapunov-like guarantees on system behavior for safety verification. In particular, Control Barrier Functions (CBFs) have proven valuable in synthesizing control strategies for safety-critical systems. In stochastic systems, CBFs are designed using the
-concept of supermartingales. One idea is to investigate time-varying CBFs in a robust optimization problem to provide a lower bound on the satisfaction probability of a given STL specification with a predetermined robustness level.
+ <p> Barrier functions provide Lyapunov-like assurances for system behavior, aiding in safety verification. Specifically, Control Barrier Functions (CBFs) are valuable for developing control strategies in safety-critical systems. In the context of stochastic systems, CBFs are constructed using the concept of supermartingales. One approach is to explore time-varying CBFs within a robust optimization framework to establish a lower bound on the probability of satisfying a given STL specification with a specified robustness level.
 
-Another direction is to solve a chance-constrained program (CCP) directly, providing the lower bound on the STL satisfaction. Different methods, such as concentration of measure theory and conditional value at risk can be used to transform the CCP to stochastic programming with expectation constraints. Then a data-driven Wasserstein distributionally robust program can be used to provide guarantees based on a finite number of disturbance realizations. See <a href="#fig2">Figure 2</a>.
+<p> Another approach involves directly solving a chance-constrained program (CCP) to provide a lower bound on STL satisfaction. Techniques such as concentration of measure theory and conditional value at risk can be employed to transform the CCP into a stochastic programming problem with expectation constraints. Subsequently, a data-driven Wasserstein distributionally robust program can be used to offer guarantees based on a finite set of disturbance realizations. See <a href="#fig2">Figure 2</a>.
 
  <figure>
-        <img src="https://raw.githubusercontent.com/Arashbaharik/Arashbaharik.github.io/main/STL.png" width="600" alt="MPC-based RL" id="fig2">
-        <figcaption>Fig 2:.
+        <img src="https://raw.githubusercontent.com/Arashbaharik/Arashbaharik.github.io/main/DRO.png" width="600" alt="MPC-based RL" id="fig2">
+        <figcaption>Fig 2: STL specifications can be guaranteed using a chance-constrained program (CCP). This CCP can be solved with techniques such as concentration of measure theory and conditional value at risk, combined with a distributionally robust approach.
     </figure>
 
 
