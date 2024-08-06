@@ -24,7 +24,10 @@
 <div id="toptitle">
 <h1>MPC-based Reinforcement learning</h1>
 
- <p> See <a href="#image1">Image 1</a>
+ <p> This research plays around the idea of optimizing the closed-loop performance of an MPC-based policy by tuning the <i>entire</i> MPC scheme (model, cost, and constraints). Reinforcement Learning (RL) is then proposed to optimize the closed-loop performance of the MPC scheme using data from the real system. This approach is arguably unique in the field of learning-based MPC, as it does not focus purely on improving the MPC model accuracy but rather on improving the MPC closed-loop performance. Moreover, it ties the learning directly to the closed-loop performance of the resulting MPC policy. 
+
+
+From an RL perspective, this approach can be seen as a doorway to developing safe, stable, and explainable RL methods, which is not possible in classical Deep RL, where Deep Neural Networks (DNNs) are employed to generate the policies. In the RL context, using MPC as an approximation of the optimal policy can be construed as a way of introducing a strong structure in RL, as opposed to the more classical way of approximating the optimal policy via DNNs. A different perspective is to see RL as a rich toolbox for adjusting the MPC scheme from data to improve its closed-loop performance. <a href="#image1">Figure 1</a> summarizes the idea.
 
  <figure>
         <img src="https://raw.githubusercontent.com/Arashbaharik/Arashbaharik.github.io/main/RLMPC.png" width="600" alt="MPC-based RL" id="image1">
