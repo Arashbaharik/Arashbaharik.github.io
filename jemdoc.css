@@ -16,7 +16,7 @@ body {
 #layout-menu {
     position: sticky; /* Make the element sticky */
     top: 0; /* The element will stick to the top when you scroll down */
-    background: #f6f6f6;
+    background: #FFFFE0;
     border: 1px solid #dddddd;
     padding-top: 0.5em;
     padding-left: 8px;
