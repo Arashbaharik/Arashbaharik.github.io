@@ -24,22 +24,43 @@
 <div id="toptitle">
 <h1>Research directions</h1>
 
+<h2> Stochastic Systems under Signal Temporal Logic Tasks </h2>
+ <p> Signal Temporal Logic (STL) offers an expressive formalism for describing complex high-level spatio-temporal tasks in dynamical systems. This research aims to provide probabilistic guarantees for
+    stochastic dynamics to fulfill a given STL task. <a href="#fig1">Figure 1</a>-right shows an STL task and the left illustrates different trajectories and reaching time histogram for satisfying an STL formula with deadlines.
+The  
+
+ <figure>
+        <img src="https://raw.githubusercontent.com/Arashbaharik/Arashbaharik.github.io/main/STL.png" width="600" alt="MPC-based RL" id="fig1">
+        <figcaption>Fig 1: Schematic of MPC-based RL algorithm.
+    </figure>
+
+ <p> Barrier functions offer Lyapunov-like guarantees on system behavior for safety verification. In particular, Control Barrier Functions (CBFs) have proven valuable in synthesizing control strategies for safety-critical systems. In stochastic systems, CBFs are designed using the
+concept of supermartingales. One idea is to investigate time-varying CBFs in a robust optimization problem to provide a lower bound on the satisfaction probability of a given STL specification with a predetermined robustness level.
+
+Another direction is to solve a chance-constrained program (CCP) directly, providing the lower bound on the STL satisfaction. Different methods, such as concentration of measure theory and conditional value at risk can be used to transform the CCP to stochastic programming with expectation constraints. Then a data-driven Wasserstein distributionally robust program can be used to provide guarantees based on a finite number of disturbance realizations. See <a href="#fig2">Figure 2</a>.
+
+ <figure>
+        <img src="https://raw.githubusercontent.com/Arashbaharik/Arashbaharik.github.io/main/STL.png" width="600" alt="MPC-based RL" id="fig2">
+        <figcaption>Fig 2:.
+    </figure>
+
+
 <h2>MPC-based Reinforcement learning </h2>
  <p> This research plays around the idea of optimizing the closed-loop performance of an MPC-based policy by tuning the <i>entire</i> MPC scheme (model, cost, and constraints). Reinforcement Learning (RL) is then proposed to optimize the closed-loop performance of the MPC scheme using data from the real system. This approach is arguably unique in the field of learning-based MPC, as it does not focus purely on improving the MPC model accuracy but rather on improving the MPC closed-loop performance. Moreover, it ties the learning directly to the closed-loop performance of the resulting MPC policy. 
 
 
-From an RL perspective, this approach can be seen as a doorway to developing safe, stable, and explainable RL methods, which is not possible in classical Deep RL, where Deep Neural Networks (DNNs) are employed to generate the policies. In the RL context, using MPC as an approximation of the optimal policy can be construed as a way of introducing a strong structure in RL, as opposed to the more classical way of approximating the optimal policy via DNNs. A different perspective is to see RL as a rich toolbox for adjusting the MPC scheme from data to improve its closed-loop performance. <a href="#image1">Figure 1</a> summarizes the idea.
+From an RL perspective, this approach can be seen as a doorway to developing safe, stable, and explainable RL methods, which is not possible in classical Deep RL, where Deep Neural Networks (DNNs) are employed to generate the policies. In the RL context, using MPC as an approximation of the optimal policy can be construed as a way of introducing a strong structure in RL, as opposed to the more classical way of approximating the optimal policy via DNNs. A different perspective is to see RL as a rich toolbox for adjusting the MPC scheme from data to improve its closed-loop performance. <a href="#image1">Figure 3</a> summarizes the idea.
 
  <figure>
         <img src="https://raw.githubusercontent.com/Arashbaharik/Arashbaharik.github.io/main/RLMPC.png" width="600" alt="MPC-based RL" id="image1">
-        <figcaption>Fig 1: Schematic of MPC-based RL algorithm.
+        <figcaption>Fig 3: Schematic of MPC-based RL algorithm.
     </figure>
 
-The research has garnered both theoretical interest, such as showing the optimality equivalency, and practical interest as illustrated in <a href="#image2">Figure 2</a>.
+The research has garnered both theoretical interest, such as showing the optimality equivalency, and practical interest as illustrated in <a href="#image2">Figure 4</a>.
 
  <figure>
         <img src="https://raw.githubusercontent.com/Arashbaharik/Arashbaharik.github.io/main/RLMPC2.png" width="600" alt="MPC-based RL" id="image2">
-        <figcaption>Fig 2: Application area of MPC-based RL. From left to right: multi-agent smart-grid system, autonomous surface vehicle, and battery storage.
+        <figcaption>Fig 4: Application area of MPC-based RL. From left to right: multi-agent smart-grid system, autonomous surface vehicle, and battery storage.
     </figure>
 
 
