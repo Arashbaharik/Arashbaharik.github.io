@@ -22,8 +22,9 @@
 </td>
 <td id="layout-content">
 <div id="toptitle">
-<h1>MPC-based Reinforcement learning</h1>
+<h1>Research directions</h1>
 
+<h2>MPC-based Reinforcement learning </h2>
  <p> This research plays around the idea of optimizing the closed-loop performance of an MPC-based policy by tuning the <i>entire</i> MPC scheme (model, cost, and constraints). Reinforcement Learning (RL) is then proposed to optimize the closed-loop performance of the MPC scheme using data from the real system. This approach is arguably unique in the field of learning-based MPC, as it does not focus purely on improving the MPC model accuracy but rather on improving the MPC closed-loop performance. Moreover, it ties the learning directly to the closed-loop performance of the resulting MPC policy. 
 
 
@@ -31,9 +32,15 @@ From an RL perspective, this approach can be seen as a doorway to developing saf
 
  <figure>
         <img src="https://raw.githubusercontent.com/Arashbaharik/Arashbaharik.github.io/main/RLMPC.png" width="600" alt="MPC-based RL" id="image1">
-        <figcaption>Fig 1: MPC-based RL
+        <figcaption>Fig 1: Schematic of MPC-based RL algorithm.
     </figure>
 
+The research has garnered both theoretical interest, such as showing the optimality equivalency, and practical interest as illustrated in <a href="#image2">Figure 2</a>.
+
+ <figure>
+        <img src="https://raw.githubusercontent.com/Arashbaharik/Arashbaharik.github.io/main/RLMPC2.png" width="600" alt="MPC-based RL" id="image2">
+        <figcaption>Fig 2: Application area of MPC-based RL. From left to right: multi-agent smart-grid system, autonomous surface vehicle, and battery storage.
+    </figure>
 
 
 <div id="footer">
