@@ -15,7 +15,7 @@ padding: 0;
 
 #layout-menu {
     position: -webkit-sticky; /*-webkit-sticky; /* For Safari */
- /*   position: sticky;*/
+    position: sticky;*/
     
     top: 0; /* Stick to the top of the viewport */
     z-index: 1000; /* Ensures the menu stays above other content */
