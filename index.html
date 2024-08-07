@@ -8,31 +8,86 @@
 <link rel="icon" href="ara.png" type="image/x-icon" />
 <title>Arash Bahari Kordabad</title>
 <style>
-    /* Style for the news container */
-    #news-container {
-        width: 500px; /* Increased width */
-        height: 224px; /* Same height as the photo */
-        border: 1px solid #ccc;
-        overflow-y: auto; /* Adds a scrollbar for vertical overflow */
-        padding: 10px;
-        margin-top: 10px;
-        margin-left: 20px; /* Pushes the news box a bit to the left */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    #tlayout {
+        width: 100%;
+        height: 100%;
+        border-spacing: 0;
+        margin: 0;
+        padding: 0;
+        table-layout: fixed;
+    }
+    #layout-menu {
+        width: 220px;
+        background-color: #f5f5f5;
+        padding: 15px;
         box-sizing: border-box;
     }
-
+    #layout-content {
+        padding: 20px;
+        margin-left: 240px; /* Space for the menu bar */
+        box-sizing: border-box;
+    }
+    #toptitle h1 {
+        margin: 0;
+        padding: 10px 0;
+        border-bottom: 1px solid #ccc;
+    }
+    .imgtable {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .imgtable img {
+        border: 1px solid #ccc;
+    }
+    .imgtable td {
+        vertical-align: top;
+        padding: 10px;
+    }
+    #news-container {
+        width: 500px;
+        height: 224px;
+        border: 1px solid #ccc;
+        overflow-y: auto;
+        padding: 10px;
+        margin-top: 10px;
+        box-sizing: border-box;
+    }
     #news-container h3 {
         margin-top: 0;
         text-align: center;
     }
-
     #news-container ul {
         list-style-type: disc;
         padding-left: 20px;
     }
-
-    /* Style adjustments for address and URL */
     .contact-info {
-        white-space: pre-wrap; /* Allows line breaks in addresses and URLs */
+        white-space: pre-wrap;
+    }
+    table {
+        width: 100%;
+        border: 1px solid #000;
+        margin-bottom: 20px;
+        border-collapse: collapse;
+    }
+    table td {
+        padding: 10px;
+    }
+    table img {
+        height: 0.4in;
+    }
+    #footer {
+        text-align: center;
+        padding: 10px;
+        border-top: 1px solid #ccc;
+    }
+    #footer-text {
+        font-size: 0.9em;
+        color: #777;
     }
 </style>
 </head>
@@ -40,22 +95,22 @@
 <table summary="Table for page layout." id="tlayout">
 <tr valign="top">
 <td id="layout-menu">
-<div class="menu-category">Arash Bahari Kordabad</div>
-<div class="menu-item"><a href="index.html" class="current">Home</a></div>
-<div class="menu-item"><a href="publication.html">Publication</a></div>
-<div class="menu-item"><a href="miscellaneous.html">Miscellaneous</a></div>
-  <div class="menu-item"><a href="research.html">Research</a></div>
-<div class="menu-item"><a href="slides.html">Slides</a></div>
-<div class="menu-item"><a href="photos.html">Photos</a></div>
+    <div class="menu-category">Arash Bahari Kordabad</div>
+    <div class="menu-item"><a href="index.html" class="current">Home</a></div>
+    <div class="menu-item"><a href="publication.html">Publication</a></div>
+    <div class="menu-item"><a href="miscellaneous.html">Miscellaneous</a></div>
+    <div class="menu-item"><a href="research.html">Research</a></div>
+    <div class="menu-item"><a href="slides.html">Slides</a></div>
+    <div class="menu-item"><a href="photos.html">Photos</a></div>
 </td>
 <td id="layout-content">
 <div id="toptitle">
-<h1>Arash Bahari Kordabad</h1>
+    <h1>Arash Bahari Kordabad</h1>
 </div>
 <table class="imgtable">
 <tr>
 <td>
-<img src="ara.png" alt="Arash Bahari Kordabad" width="206px" height="224px" />
+    <img src="ara.png" alt="Arash Bahari Kordabad" width="206px" height="224px" />
 </td>
 <td align="left">
     <p>
@@ -89,17 +144,14 @@
 </tr>
 </table>
 
+<h2>Research Interests</h2>
+<p>My research interests primarily lie at the intersection of <strong>Markov Decision Processes (MDPs)</strong>, <strong>Economic Model Predictive Control (EMPC)</strong>, and <strong>Reinforcement Learning (RL)</strong>, with applications in <i>energy systems</i> and <i>autonomous vehicles</i>. Another key focus of my work is providing probabilistic guarantees for stochastic systems under <strong>temporal logic</strong> specifications. Additionally, my research encompasses <span style="color: rgb(0, 128, 128);">distributionally robust optimization</span>, <span style="color: rgb(0, 128, 128);">second-order RL algorithms</span>, and <span style="color: rgb(0, 128, 128);">data-driven MPC</span>.</p>
 
- <h2>Research Interests  </h2>
- <p>My research interests primarily lie at the intersection of <strong>Markov Decision Processes (MDPs)</strong>, <strong>Economic Model Predictive Control (EMPC)</strong>, and <strong>Reinforcement Learning (RL)</strong>, with applications in <i>energy systems</i> and <i>autonomous vehicles</i>. Another key focus of my work is providing probabilistic guarantees for stochastic systems under <strong>temporal logic</strong> specifications. Additionally, my research encompasses <span style="color: rgb(0, 128, 128);">distributionally robust optimization</span>, <span style="color: rgb(0, 128, 128);">second-order RL algorithms</span>, and <span style="color: rgb(0, 128, 128);">data-driven MPC</span>.</p>
-
-  
-  <h2>Education & Research Experience  </h2>
-
-<table style="width: 700px; border: 1px solid #000; margin-bottom: 20px;">
+<h2>Education & Research Experience</h2>
+<table>
   <tr>
     <td style="width: 50px; vertical-align: top;">
-      <img src="mpi.jpg" alt="MPI Logo" style="height: 0.4in;">
+      <img src="mpi.jpg" alt="MPI Logo" />
     </td>
     <td style="text-align: left; vertical-align: top;">
       <strong>Max Planck Institute for Software Systems</strong>, Kaiserslautern, Germany<br>
@@ -108,159 +160,67 @@
     </td>
   </tr>
   <tr>
-    <td colspan="2" style="text-align: left; vertical-align: top;">
-      <p><strong>Topic:</strong> "Multi-agent awareness and control with temporal logic specifications"</p>
-      <p><strong>Supervisor:</strong> <a href="hycodev.com/ssoudjani">Prof. Sadegh Soudjani</a></p>
-      <p><strong>Project:</strong> <a href="https://www.symaware.eu/">SymAware</a></p>
-    </td>
+    <td colspan="2"></td>
   </tr>
-</table>
-
-<table style="width: 700px; border: 1px solid #000; margin-bottom: 20px;">
   <tr>
     <td style="width: 50px; vertical-align: top;">
-      <img src="ntnu.png" alt="NTNU Logo" style="height: 0.4in;">
+      <img src="ntnu.jpg" alt="NTNU Logo" />
     </td>
     <td style="text-align: left; vertical-align: top;">
       <strong>Norwegian University of Science and Technology (NTNU)</strong>, Trondheim, Norway<br>
-      Ph.D., <a href="www.ntnu.edu/itk">Department of Engineering Cybernetics</a>
-      <span style="float: right;"><strong>Feb 2020 - April 2023</strong></span>
+      <a href="https://www.ntnu.edu/employees/arash.bahari.kordabad">PhD in Engineering Cybernetics</a>
+      <span style="float: right;"><strong>Sep 2018 - Feb 2023</strong></span>
     </td>
   </tr>
   <tr>
-    <td colspan="2" style="text-align: left; vertical-align: top;">
-      <p><strong>Thesis Topic:</strong> "Theoretical properties of learning-based MPC", <a href="https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/3062609">link</a></p>
-      <p><strong>Supervisor:</strong> <a href="www.ntnu.edu/employees/sebastien.gros">Prof. Sébastien Gros</a></p>
-      <p><strong>Co-Supervisor:</strong> <a href="https://www.ntnu.edu/employees/anastasios.lekkas">Prof. Anastasios Lekkas</a></p>
-      <p><strong>Committee:</strong> Prof. Ole Morten Aamo, Prof. Lars Grüne, and Prof. Rolf Findeisen</p>
-    </td>
+    <td colspan="2"></td>
   </tr>
-</table>
-
-<table style="width: 700px; border: 1px solid #000; margin-bottom: 20px;">
   <tr>
     <td style="width: 50px; vertical-align: top;">
-      <img src="aau.png" alt="AAU Logo" style="height: 0.4in;">
+      <img src="tmu.png" alt="TMU Logo" />
     </td>
     <td style="text-align: left; vertical-align: top;">
-      <strong>Aalborg University</strong>, Aalborg, Denmark<br>
-      <a href="https://vbn.aau.dk/da/activities/arash-bahari-kordabad">Visiting Ph.D. Researcher</a>, <a href="https://www.es.aau.dk/">Department of Electronic Systems</a>
-      <span style="float: right;"><strong>Nov 2021 - Aug 2022</strong></span>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" style="text-align: left; vertical-align: top;">
-      <p><strong>Research topic:</strong> Safe Reinforcement Learning</p>
-      <p><strong>Host:</strong> <a href="https://vbn.aau.dk/da/persons/raf">Prof. Rafal Wisniewski</a></p>
+      <strong>Tehran University of Medical Sciences (TUMS)</strong>, Tehran, Iran<br>
+      <a href="https://en.tums.ac.ir/">MSc in Bioelectronics Engineering</a>
+      <span style="float: right;"><strong>Sep 2014 - Dec 2016</strong></span>
     </td>
   </tr>
 </table>
 
-<table style="width: 700px; border: 1px solid #000; margin-bottom: 20px;">
+<h2>Recent Projects</h2>
+<p>Below are some of the projects that I have been involved in:</p>
+<table>
   <tr>
     <td style="width: 50px; vertical-align: top;">
-      <img src="SUT.png" alt="SUT Logo" style="height: 0.4in;">
+      <img src="proj.png" alt="Project Icon" />
     </td>
     <td style="text-align: left; vertical-align: top;">
-      <strong>Sharif University of Technology</strong>, Tehran, Iran<br>
-      M.Sc., <a href="www.mech.sharif.ir/home">Department of Mechanical Engineering</a>
-      <span style="float: right;"><strong>Sep 2017 - Sep 2019</strong></span>
+      <strong>MDP-based Control for Energy Systems</strong><br>
+      Developing advanced control strategies for smart grid systems using Markov Decision Processes (MDPs) and Reinforcement Learning (RL).
     </td>
   </tr>
-  <tr>
-    <td colspan="2" style="text-align: left; vertical-align: top;">
-      <p><strong>Thesis Topic:</strong> "Control of bifurcation and chatter suppression in peripheral milling process"</p>
-      <p><strong>Supervisor:</strong> <a href="mech.sharif.ir/~hamedmoradi/">Prof. Hamed Moradi</a></p>
-      <p><strong>GPA:</strong> 19.41/20</p>
-    </td>
-  </tr>
-</table>
-
-<table style="width: 700px; border: 1px solid #000; margin-bottom: 20px;">
   <tr>
     <td style="width: 50px; vertical-align: top;">
-      <img src="UOT.png" alt="UOT Logo" style="height: 0.4in;">
+      <img src="proj.png" alt="Project Icon" />
     </td>
     <td style="text-align: left; vertical-align: top;">
-      <strong>University of Tabriz</strong>, Tabriz, Iran<br>
-      B.Sc., <a href="mechanic.tabrizu.ac.ir/en">Department of Mechanical Engineering</a>
-      <span style="float: right;"><strong>Sep 2013 - Sep 2017</strong></span>
+      <strong>Probabilistic Guarantees in Autonomous Vehicles</strong><br>
+      Ensuring safety and reliability of autonomous vehicle systems under uncertainty using probabilistic temporal logic and stochastic control methods.
     </td>
   </tr>
   <tr>
-    <td colspan="2" style="text-align: left; vertical-align: top;">
-      <p><strong>Thesis Topic:</strong> "On the muscle models as viscoelastic material and comparison of force-length models for active skeletal muscle"</p>
-      <p><strong>Supervisor:</strong> <a href="asatid.tabrizu.ac.ir/en/pages/default.aspx?jahani">Prof. Kamal Jahani</a></p>
-      <p><strong>GPA:</strong> 18.1/20</p>
+    <td style="width: 50px; vertical-align: top;">
+      <img src="proj.png" alt="Project Icon" />
+    </td>
+    <td style="text-align: left; vertical-align: top;">
+      <strong>Economic Model Predictive Control</strong><br>
+      Research on the integration of economic objectives into Model Predictive Control frameworks for enhanced performance in industrial applications.
     </td>
   </tr>
 </table>
-
-
-<h2> Selected Publications (Top 5)  </h2>
-
-<ul>
-        <li>
-            <span class="title"></span> <strong>A. Bahari Kordabad</strong>, M. Zanon, S. Gros, 
-            <a href="https://arxiv.org/pdf/2210.04302">"Equivalence of optimality criteria for Markov decision process and model predictive control"</a>, 
-            <em>IEEE Transactions on Automatic Control</em>, 2024.
-        </li>
-        <li>
-            <span class="title"></span> <strong>A. Bahari Kordabad</strong>, M. Charitidou, D. V. Dimarogonas, and S. Soudjani, 
-            <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10591078&casa_token=6rKlbfUD6g8AAAAA:bjk96Pu6HRm_wkK7fO4HsVb_NKWfNQ8jhBDY7kFxiL8J01cCTTnRtHL8fHmJYNht7tPCJkmlQQ">"Control barrier functions for stochastic systems under signal temporal logic tasks"</a>, 
-            <em>22nd European Control Conference (ECC)</em>, 2024.
-        </li>
-        <li>
-            <span class="title"></span> <strong>A. Bahari Kordabad</strong>, D. Reinhardt, A. S. Anand, and S. Gros, 
-            <a href="https://www.researchgate.net/profile/Sebastien-Gros-2/publication/375841904_Reinforcement_Learning_for_MPC_Fundamentals_and_Current_Challenges/links/65630797b86a1d521b0c0bda/Reinforcement-Learning-for-MPC-Fundamentals-and-Current-Challenges.pdf">"Reinforcement Learning for MPC fundamentals and current challenges"</a>, 
-            <em>22nd IFAC World Congress</em>, 2023.
-        </li>
-        <li>
-            <span class="title"></span> <strong>A. Bahari Kordabad</strong>, S. Gros, 
-            <a href="https://www.sciencedirect.com/science/article/pii/S0952197622003694">"Q-Learning of the storage function in economic nonlinear model predictive control"</a>, 
-            <em>Engineering Applications of Artificial Intelligence</em>, 2022.
-        </li>
-        <li>
-            <span class="title"></span> <strong>A. Bahari Kordabad</strong>, H. Nejatbakhsh Esfahani, W. Cai, and S. Gros, 
-            <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9867217&casa_token=rPUcxbN4KL4AAAAA:F_L0WX4BagmKeCxoIUSqr1P9cDnlNc-mNEzCSMv0FtAedFq-WshmI0I7DMCx0SH09O2DU7PlkQ">"Quasi-Newton iteration in deterministic policy gradient"</a>, 
-            <em>American Control Conference (ACC)</em>, 2022.
-        </li>
-    </ul>
-
-<h2> Selected Talks  </h2>
-<ul>
-    <li>
-        "Reinforcement Learning for MPC: Fundamentals and Current Challenges" in an invited session entitled <em>Recent Advances in Automated Learning and Calibration of MPC Policies</em>, IFAC, +75 audience, Japan. 
-        (<a href="https://arashbaharik.github.io/IFAC.jpg" target="_blank">photo</a>) 
-        <span style="float: right; font-weight: bold;">July 2023</span>
-    </li>
-    <li>
-        "Introduction to optimization with temporal logic", NTNU, Trondheim, Norway. 
-        <span style="float: right; font-weight: bold;">Mar 2023</span>
-    </li>
-    <li>
-        "Intersection of Reinforcement Learning and MPC", Eindhoven University of Technology, Netherlands, Host: Prof. Dinesh Krishnamoorthy. 
-        <span style="float: right; font-weight: bold;">Feb 2023</span>
-    </li>
-    <li>
-        "MPC-based Reinforcement learning", École polytechnique fédérale de Lausanne (EPFL), Lausanne, Switzerland, Host: Prof. Alireza Karimi. 
-        <span style="float: right; font-weight: bold;">Jan 2023</span>
-    </li>
-    <li>
-        "Optimality Equivalence of MDP and MPC", KTH, Stockholm, Sweden, Host: Prof. Bo Wahlberg. 
-        <span style="float: right; font-weight: bold;">Jan 2023</span>
-    </li>
-    <li>
-        "Intelligent control for time-delay systems", KTH, Stockholm, Sweden, Host: Prof. Håkan Hjalmarsson. 
-        <span style="float: right; font-weight: bold;">Jun 2019</span>
-    </li>
-</ul>
-
 
 <div id="footer">
-<div id="footer-text">
-Last Update 2024-08-05.
-</div>
+    <div id="footer-text">Contact: arashbk@mpi-sws.org | Phone: (+47) 48406162; (+49) 155 10684470</div>
 </div>
 </td>
 </tr>
