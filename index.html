@@ -1,270 +1,805 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
 <head>
-<meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<link rel="stylesheet" href="jemdoc.css" type="text/css" />
-<link rel="icon" href="ara.png" type="image/x-icon" />
-<title>Arash Bahari Kordabad</title>
-<style>
-    /* Style for the news container */
-    #news-container {
-        width: 500px; /* Increased width */
-        height: 224px; /* Same height as the photo */
-        border: 1px solid #ccc;
-        overflow-y: auto; /* Adds a scrollbar for vertical overflow */
-        padding: 10px;
-        margin-top: 10px;
-        margin-left: 20px; /* Pushes the news box a bit to the left */
-        box-sizing: border-box;
-    }
+    <meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" href="jemdoc.css" type="text/css" />
+    <link rel="icon" href="ara.png" type="image/x-icon" />
+    <title>Arash Bahari Kordabad</title>
 
-    #news-container h3 {
-        margin-top: 0;
-        text-align: center;
-    }
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"></script>
 
-    #news-container ul {
-        list-style-type: disc;
-        padding-left: 20px;
-    }
+    <script type="text/javascript">
+        $(window).scroll(function() {
+            if ($(window).scrollTop() >= 200) {    // offset?
+               $(".left-menu-section").addClass("fixed");
+            } else { 
+                $(".left-menu-section").removeClass("fixed");
+            }
+        });
+    </script>
 
-    /* Style adjustments for address and URL */
-    .contact-info {
-        white-space: pre-wrap; /* Allows line breaks in addresses and URLs */
-    }
-</style>
+
+    <style>
+        .profile-img{
+            width: 128px;
+            height: 128px;
+            border-radius: 50%;
+        }
+        .left-menu-section{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        div.menu-item{
+            width: 100%;
+        }
+        
+        .left-menu-section div a{
+            width: 100%;
+                padding: 9px;
+                background-color: #fff;
+                border-radius: 11px;
+                line-height: 2;
+                text-align: center;
+                margin-bottom: 10px;
+                display: inline-block;
+        }
+        #layout-menu{
+            min-width: 15%;
+        }
+        .fixed{
+            position: fixed;
+            left: 30px;
+            top:30px;
+        }
+        table#tlayout {
+            border: none;
+            border-collapse: separate;
+            background: white;
+        }
+
+        body {
+            background: white;
+            font-family: Georgia, serif;
+            padding-bottom: 8px;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        #layout-menu {
+            position: -webkit-sticky;
+            /*-webkit-sticky; /* For Safari */
+            position: sticky;
+            */ top: 0;
+            /* Stick to the top of the viewport */
+            z-index: 1000;
+            /* Ensures the menu stays above other content */
+            background: #FFFFE0;
+            border: 1px solid #dddddd;
+            padding-top: 0.5em;
+            padding-left: 8px;
+            padding-right: 8px;
+            font-size: 1.0em;
+            width: auto;
+            white-space: nowrap;
+            text-align: left;
+            vertical-align: top;
+        }
+
+
+
+        #layout-menu td {
+            background: #f4f4f4;
+            vertical-align: top;
+        }
+
+        #layout-content {
+            /* padding-top: 0.0em; */
+            /* padding-left: 1.0em; */
+            /* padding-right: 1.0em; */
+            /* border: none; */
+            /* background: white; */
+            /* text-align: left; */
+            /* vertical-align: top; */
+        }
+
+        #layout-menu a {
+            line-height: 1.5em;
+            margin-left: 0.5em;
+        }
+
+        tt {
+            background: #ffffdd;
+        }
+
+        pre,
+        tt {
+            font-size: 90%;
+            font-family: monaco, monospace;
+        }
+
+        a,
+        a>tt {
+            color: #224b8d;
+            text-decoration: none;
+        }
+
+        a:hover {
+            border-bottom: 1px gray dotted;
+        }
+
+        #layout-menu a.current:link,
+        #layout-menu a.current:visited {
+            color: #022b6d;
+            border-bottom: 1px gray solid;
+        }
+
+        #layout-menu a:link,
+        #layout-menu a:visited,
+        #layout-menu a:hover {
+            color: #800080;
+            text-decoration: none;
+        }
+
+        #layout-menu a:hover {
+            text-decoration: none;
+        }
+
+        div.menu-category {
+            border-bottom: 1px solid gray;
+            margin-top: 0.8em;
+            padding-top: 0.2em;
+            padding-bottom: 0.1em;
+            font-weight: bold;
+        }
+
+        div.menu-item {
+            padding-left: 16px;
+            text-indent: -16px;
+        }
+
+        div#toptitle {
+            padding-bottom: 0.2em;
+            margin-bottom: 1.5em;
+            border-bottom: 3px double gray;
+        }
+
+        /* Reduce space if we begin the page with a title. */
+        div#toptitle+h2,
+        div#toptitle+h3 {
+            margin-top: -0.7em;
+        }
+
+        div#subtitle {
+            margin-top: 0.0em;
+            margin-bottom: 0.0em;
+            padding-top: 0em;
+            padding-bottom: 0.1em;
+        }
+
+        em {
+            font-style: italic;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+
+        h1,
+        h2,
+        h3 {
+            color: #800080;
+            margin-top: 0.7em;
+            margin-bottom: 0.3em;
+            padding-bottom: 0.2em;
+            line-height: 1.0;
+            padding-top: 0.5em;
+            border-bottom: 1px solid #aaaaaa;
+        }
+
+        h1 {
+            font-size: 165%;
+        }
+
+        h2 {
+            padding-top: 0.8em;
+            font-size: 125%;
+        }
+
+        h2+h3 {
+            padding-top: 0.2em;
+        }
+
+        h3 {
+            font-size: 110%;
+            border-bottom: none;
+        }
+
+        p {
+            margin-top: 0.0em;
+            margin-bottom: 0.8em;
+            padding: 0;
+            line-height: 1.3;
+        }
+
+        pre {
+            padding: 0;
+            margin: 0;
+        }
+
+        div#footer {
+            font-size: small;
+            border-top: 1px solid #c0c0c0;
+            padding-top: 0.1em;
+            margin-top: 4.0em;
+            color: #c0c0c0;
+        }
+
+        div#footer a {
+            color: #80a0b0;
+        }
+
+        div#footer-text {
+            float: left;
+            padding-bottom: 8px;
+        }
+
+        ul,
+        ol,
+        dl {
+            margin-top: 0.2em;
+            padding-top: 0;
+            margin-bottom: 0.8em;
+        }
+
+        dt {
+            margin-top: 0.5em;
+            margin-bottom: 0;
+        }
+
+        dl {
+            margin-left: 20px;
+        }
+
+        dd {
+            color: #222222;
+        }
+
+        dd>*:first-child {
+            margin-top: 0;
+        }
+
+        ul {
+            list-style-position: outside;
+            list-style-type: square;
+        }
+
+        p+ul,
+        p+ol {
+            margin-top: -0.5em;
+        }
+
+        li ul,
+        li ol {
+            margin-top: -0.3em;
+        }
+
+        ol {
+            list-style-position: outside;
+            list-style-type: decimal;
+        }
+
+        li p,
+        dd p {
+            margin-bottom: 0.3em;
+        }
+
+
+        ol ol {
+            list-style-type: lower-alpha;
+        }
+
+        ol ol ol {
+            list-style-type: lower-roman;
+        }
+
+        p+div.codeblock {
+            margin-top: -0.6em;
+        }
+
+        div.codeblock,
+        div.infoblock {
+            margin-right: 0%;
+            margin-top: 1.2em;
+            margin-bottom: 1.3em;
+        }
+
+        div.blocktitle {
+            font-weight: bold;
+            color: #cd7b62;
+            margin-top: 1.2em;
+            margin-bottom: 0.1em;
+        }
+
+        div.blockcontent {
+            border: 1px solid silver;
+            padding: 0.3em 0.5em;
+        }
+
+        div.infoblock>div.blockcontent {
+            background: #ffffee;
+        }
+
+        div.blockcontent p+ul,
+        div.blockcontent p+ol {
+            margin-top: 0.4em;
+        }
+
+        div.infoblock p {
+            margin-bottom: 0em;
+        }
+
+        div.infoblock li p,
+        div.infoblock dd p {
+            margin-bottom: 0.5em;
+        }
+
+        div.infoblock p+p {
+            margin-top: 0.8em;
+        }
+
+        div.codeblock>div.blockcontent {
+            background: #f6f6f6;
+        }
+
+        span.pycommand {
+            color: #000070;
+        }
+
+        span.statement {
+            color: #008800;
+        }
+
+        span.builtin {
+            color: #000088;
+        }
+
+        span.special {
+            color: #990000;
+        }
+
+        span.operator {
+            color: #880000;
+        }
+
+        span.error {
+            color: #aa0000;
+        }
+
+        span.comment,
+        span.comment>*,
+        span.string,
+        span.string>* {
+            color: #606060;
+        }
+
+        @media print {
+            #layout-menu {
+                display: none;
+            }
+        }
+
+        #fwtitle {
+            margin: 2px;
+        }
+
+        #fwtitle #toptitle {
+            padding-left: 0.5em;
+            margin-bottom: 0.5em;
+        }
+
+        #layout-content h1:first-child,
+        #layout-content h2:first-child,
+        #layout-content h3:first-child {
+            margin-top: -0.7em;
+        }
+
+        div#toptitle h1,
+        #layout-content div#toptitle h1 {
+            margin-bottom: 0.0em;
+            padding-bottom: 0.1em;
+            padding-top: 0;
+            margin-top: 0.5em;
+            border-bottom: none;
+        }
+
+        img.eq {
+            padding: 0;
+            padding-left: 0.1em;
+            padding-right: 0.1em;
+            margin: 0;
+        }
+
+        img.eqwl {
+            padding-left: 2em;
+            padding-top: 0.6em;
+            padding-bottom: 0.2em;
+            margin: 0;
+        }
+
+        table {
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 2px;
+            padding-left: 0.5em;
+            padding-right: 0.5em;
+            text-align: center;
+            border: 1px solid gray;
+        }
+
+        table+table {
+            margin-top: 1em;
+        }
+
+        tr.heading {
+            font-weight: bold;
+            border-bottom: 2px solid black;
+        }
+
+        img {
+            border: none;
+        }
+
+        table.imgtable,
+        table.imgtable td {
+            border: none;
+            text-align: left;
+        }
+    </style>
+
+    <style>
+        /* Style for the news container */
+        #news-container {
+            width: 500px;
+            /* Increased width */
+            height: 224px;
+            /* Same height as the photo */
+            border: 1px solid #ccc;
+            overflow-y: auto;
+            /* Adds a scrollbar for vertical overflow */
+            padding: 10px;
+            margin-top: 10px;
+            margin-left: 20px;
+            /* Pushes the news box a bit to the left */
+            box-sizing: border-box;
+        }
+
+        #news-container h3 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        #news-container ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        /* Style adjustments for address and URL */
+        .contact-info {
+            white-space: pre-wrap;
+            /* Allows line breaks in addresses and URLs */
+        }
+        #layout-menu{
+            border-radius: 20px;
+            border: none;
+            padding: 2rem;
+        }
+        .main-section{
+            display: flex;
+            gap: 2rem;
+        } 
+
+    </style>
 </head>
+
 <body>
-<table summary="Table for page layout." id="tlayout">
-<tr valign="top">
-<td id="layout-menu">
-<div class="menu-category">Arash Bahari Kordabad</div>
-<div class="menu-item"><a href="index.html" class="current">Home</a></div>
-<div class="menu-item"><a href="publication.html">Publication</a></div>
-<div class="menu-item"><a href="miscellaneous.html">Miscellaneous</a></div>
-  <div class="menu-item"><a href="research.html">Research</a></div>
-<div class="menu-item"><a href="slides.html">Slides</a></div>
-<div class="menu-item"><a href="photos.html">Photos</a></div>
-</td>
-<td id="layout-content">
-<div id="toptitle">
-<h1>Arash Bahari Kordabad</h1>
-</div>
-<table class="imgtable">
-<tr>
-<td>
-<img src="ara.png" alt="Arash Bahari Kordabad" width="206px" height="224px" />
-</td>
-<td align="left">
-    <p>
-    Arash Bahari Kordabad<br />
-    Postdoctoral Researcher<br />
-    <a href="https://www.mpi-sws.org/">Max Planck Institute for Software Systems</a><br />
-    Email: <a href="mailto:arashbk@mpi-sws.org">arashbk@mpi-sws.org</a><br />
-    Phone: (+47) 48406162; (+49) 155 10684470<br />
-    Office: Room 515, Building G 26,<br />
-    Paul-Ehrlich-Straße 26, 67663 Kaiserslautern,<br />
-    Germany<br />
-    URL: <a href="https://arashbaharik.github.io/">https://arashbaharik.github.io</a><br />
-    <a href="https://www.mpi-sws.org/people/arashbk">https://www.mpi-sws.org/people/arashbk</a><br />
-    <a href="https://scholar.google.com/citations?user=hEOInHkAAAAJ&hl=en"><img src="sch.png" alt="Google Scholar" width="30px" height="30px" /></a>&nbsp;&nbsp;&nbsp;
-    <a href="https://www.researchgate.net/profile/Arash-Bahari-Kordabad"><img src="rg.png" alt="ResearchGate" width="30px" height="30px" /></a>&nbsp;&nbsp;&nbsp;
-    <a href="https://www.linkedin.com/in/arash-bahari/"><img src="in.png" alt="LinkedIn" width="30px" height="30px" /></a>&nbsp;&nbsp;&nbsp;
-    <a href="https://twitter.com/kordabad"><img src="tw.png" alt="Twitter" width="30px" height="30px" /></a>&nbsp;&nbsp;&nbsp;
-    <a href="CV.pdf"><img src="cv.png" alt="CV" width="30px" height="30px" /></a>
-    </p>
-</td>
-<td align="left" valign="top">
-    <div id="news-container">
-        <h3>News</h3>
-        <ul>
-<li><strong>Aug 2024:</strong> Our paper entitled ``Robust Model Predictive Control for Aircraft Intent-Aware Collision Avoidance" is now available on Arxiv. [ <a href="https://arxiv.org/pdf/2408.06999"> Link </a>] </li>
-            <li><strong>Aug 2024:</strong> I will be a speaker on Safe RL for Smart Grids Workshop at <a href="https://sites.google.com/view/srl4sgsmartgridcomm24">SmartGridComm 2024 </a>, Oslo. </li>
-            <li><strong>July 2024:</strong> Our paper on "Distributionally Robust Control for Chance-Constrained Signal Temporal Logic Specifications" has been accepted at the 63rd IEEE Conference on Decision and Control (CDC) 2024.</li>
-            <li><strong>Jun 2024:</strong> I will present our paper <a href="https://ieeexplore.ieee.org/document/10591078">"Control Barrier Functions for Stochastic Systems under Signal Temporal Logic Tasks,"</a> at the European Control Conference (ECC), 2024, Stockholm, Sweden. </li>
-        </ul>
+    <div summary="Table for page layout." id="tlayout">
+        <div class="main-section">
+            <div id="layout-menu">
+                <div  class="left-menu-section">
+                    <img src="https://arashbaharik.github.io/ara.png" class="profile-img" alt="">
+                    <div class="menu-category">Arash Bahari Kordabad</div>
+                    <div class="menu-item"><a href="index.html" class="current">Home</a></div>
+                    <div class="menu-item"><a href="publication.html">Publication</a></div>
+                    <div class="menu-item"><a href="miscellaneous.html">Miscellaneous</a></div>
+                    <div class="menu-item"><a href="research.html">Research</a></div>
+                    <div class="menu-item"><a href="slides.html">Slides</a></div>
+                    <div class="menu-item"><a href="photos.html">Photos</a></div>
+                </div>
+            </div>
+            <div id="layout-content">
+                <div id="toptitle">
+                    <h1>Arash Bahari Kordabad</h1>
+                </div>
+                <table class="imgtable">
+                    <tr>
+                        <td>
+                            <img src="ara.png" alt="Arash Bahari Kordabad" width="206px" height="224px" />
+                        </td>
+                        <td align="left">
+                            <p>
+                                Arash Bahari Kordabad<br />
+                                Postdoctoral Researcher<br />
+                                <a href="https://www.mpi-sws.org/">Max Planck Institute for Software Systems</a><br />
+                                Email: <a href="mailto:arashbk@mpi-sws.org">arashbk@mpi-sws.org</a><br />
+                                Phone: (+47) 48406162; (+49) 155 10684470<br />
+                                Office: Room 515, Building G 26,<br />
+                                Paul-Ehrlich-Straße 26, 67663 Kaiserslautern,<br />
+                                Germany<br />
+                                URL: <a href="https://arashbaharik.github.io/">https://arashbaharik.github.io</a><br />
+                                <a
+                                    href="https://www.mpi-sws.org/people/arashbk">https://www.mpi-sws.org/people/arashbk</a><br />
+                                <a href="https://scholar.google.com/citations?user=hEOInHkAAAAJ&hl=en"><img
+                                        src="sch.png" alt="Google Scholar" width="30px"
+                                        height="30px" /></a>&nbsp;&nbsp;&nbsp;
+                                <a href="https://www.researchgate.net/profile/Arash-Bahari-Kordabad"><img src="rg.png"
+                                        alt="ResearchGate" width="30px" height="30px" /></a>&nbsp;&nbsp;&nbsp;
+                                <a href="https://www.linkedin.com/in/arash-bahari/"><img src="in.png" alt="LinkedIn"
+                                        width="30px" height="30px" /></a>&nbsp;&nbsp;&nbsp;
+                                <a href="https://twitter.com/kordabad"><img src="tw.png" alt="Twitter" width="30px"
+                                        height="30px" /></a>&nbsp;&nbsp;&nbsp;
+                                <a href="CV.pdf"><img src="cv.png" alt="CV" width="30px" height="30px" /></a>
+                            </p>
+                        </td>
+                        <td align="left" valign="top">
+                            <div id="news-container">
+                                <h3>News</h3>
+                                <ul>
+                                    <li><strong>Aug 2024:</strong> Our paper entitled ``Robust Model Predictive Control
+                                        for Aircraft Intent-Aware Collision Avoidance" is now available on Arxiv. [ <a
+                                            href="https://arxiv.org/pdf/2408.06999"> Link </a>] </li>
+                                    <li><strong>Aug 2024:</strong> I will be a speaker on Safe RL for Smart Grids
+                                        Workshop at <a
+                                            href="https://sites.google.com/view/srl4sgsmartgridcomm24">SmartGridComm
+                                            2024 </a>, Oslo. </li>
+                                    <li><strong>July 2024:</strong> Our paper on "Distributionally Robust Control for
+                                        Chance-Constrained Signal Temporal Logic Specifications" has been accepted at
+                                        the 63rd IEEE Conference on Decision and Control (CDC) 2024.</li>
+                                    <li><strong>Jun 2024:</strong> I will present our paper <a
+                                            href="https://ieeexplore.ieee.org/document/10591078">"Control Barrier
+                                            Functions for Stochastic Systems under Signal Temporal Logic Tasks,"</a> at
+                                        the European Control Conference (ECC), 2024, Stockholm, Sweden. </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+
+                <h2>Research Interests </h2>
+                <p>My research interests primarily lie at the intersection of <strong>Markov Decision Processes
+                        (MDPs)</strong>, <strong>Economic Model Predictive Control (EMPC)</strong>, and
+                    <strong>Reinforcement Learning (RL)</strong>, with applications in <i>energy systems</i> and
+                    <i>autonomous vehicles</i>. Another key focus of my work is providing probabilistic guarantees for
+                    stochastic systems under <strong>temporal logic</strong> specifications. Additionally, my research
+                    encompasses <span style="color: rgb(0, 128, 128);">distributionally robust optimization</span>,
+                    <span style="color: rgb(0, 128, 128);">second-order RL algorithms</span>, and <span
+                        style="color: rgb(0, 128, 128);">data-driven MPC</span>.</p>
+
+
+                <h2>Education & Research Experience </h2>
+
+                <table style="width: 700px; border: 1px solid #000; margin-bottom: 20px;">
+                    <tr>
+                        <td style="width: 50px; vertical-align: top;">
+                            <img src="mpi.jpg" alt="MPI Logo" style="height: 0.4in;">
+                        </td>
+                        <td style="text-align: left; vertical-align: top;">
+                            <strong>Max Planck Institute for Software Systems</strong>, Kaiserslautern, Germany<br>
+                            <a href="https://people.mpi-sws.org/~arashbk/">Postdoctoral Researcher</a>
+                            <span style="float: right;"><strong>May 2023 - present</strong></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left; vertical-align: top;">
+                            <p><strong>Topic:</strong> "Multi-agent awareness and control with temporal logic
+                                specifications"</p>
+                            <p><strong>Supervisor:</strong> <a href="hycodev.com/ssoudjani">Prof. Sadegh Soudjani</a>
+                            </p>
+                            <p><strong>Project:</strong> <a href="https://www.symaware.eu/">SymAware</a></p>
+                        </td>
+                    </tr>
+                </table>
+
+                <table style="width: 700px; border: 1px solid #000; margin-bottom: 20px;">
+                    <tr>
+                        <td style="width: 50px; vertical-align: top;">
+                            <img src="ntnu.png" alt="NTNU Logo" style="height: 0.4in;">
+                        </td>
+                        <td style="text-align: left; vertical-align: top;">
+                            <strong>Norwegian University of Science and Technology (NTNU)</strong>, Trondheim,
+                            Norway<br>
+                            Ph.D., <a href="www.ntnu.edu/itk">Department of Engineering Cybernetics</a>
+                            <span style="float: right;"><strong>Feb 2020 - April 2023</strong></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left; vertical-align: top;">
+                            <p><strong>Thesis Topic:</strong> "Theoretical properties of learning-based MPC", <a
+                                    href="https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/3062609">link</a></p>
+                            <p><strong>Supervisor:</strong> <a href="www.ntnu.edu/employees/sebastien.gros">Prof.
+                                    Sébastien Gros</a></p>
+                            <p><strong>Co-Supervisor:</strong> <a
+                                    href="https://www.ntnu.edu/employees/anastasios.lekkas">Prof. Anastasios Lekkas</a>
+                            </p>
+                            <p><strong>Committee:</strong> Prof. Ole Morten Aamo, Prof. Lars Grüne, and Prof. Rolf
+                                Findeisen</p>
+                        </td>
+                    </tr>
+                </table>
+
+                <table style="width: 700px; border: 1px solid #000; margin-bottom: 20px;">
+                    <tr>
+                        <td style="width: 50px; vertical-align: top;">
+                            <img src="aau.png" alt="AAU Logo" style="height: 0.4in;">
+                        </td>
+                        <td style="text-align: left; vertical-align: top;">
+                            <strong>Aalborg University</strong>, Aalborg, Denmark<br>
+                            <a href="https://vbn.aau.dk/da/activities/arash-bahari-kordabad">Visiting Ph.D.
+                                Researcher</a>, <a href="https://www.es.aau.dk/">Department of Electronic Systems</a>
+                            <span style="float: right;"><strong>Nov 2021 - Aug 2022</strong></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left; vertical-align: top;">
+                            <p><strong>Research topic:</strong> Safe Reinforcement Learning</p>
+                            <p><strong>Host:</strong> <a href="https://vbn.aau.dk/da/persons/raf">Prof. Rafal
+                                    Wisniewski</a></p>
+                        </td>
+                    </tr>
+                </table>
+
+                <table style="width: 700px; border: 1px solid #000; margin-bottom: 20px;">
+                    <tr>
+                        <td style="width: 50px; vertical-align: top;">
+                            <img src="SUT.png" alt="SUT Logo" style="height: 0.4in;">
+                        </td>
+                        <td style="text-align: left; vertical-align: top;">
+                            <strong>Sharif University of Technology</strong>, Tehran, Iran<br>
+                            M.Sc., <a href="www.mech.sharif.ir/home">Department of Mechanical Engineering</a>
+                            <span style="float: right;"><strong>Sep 2017 - Sep 2019</strong></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left; vertical-align: top;">
+                            <p><strong>Thesis Topic:</strong> "Control of bifurcation and chatter suppression in
+                                peripheral milling process"</p>
+                            <p><strong>Supervisor:</strong> <a href="mech.sharif.ir/~hamedmoradi/">Prof. Hamed
+                                    Moradi</a></p>
+                            <p><strong>GPA:</strong> 19.41/20</p>
+                        </td>
+                    </tr>
+                </table>
+
+                <table style="width: 700px; border: 1px solid #000; margin-bottom: 20px;">
+                    <tr>
+                        <td style="width: 50px; vertical-align: top;">
+                            <img src="UOT.png" alt="UOT Logo" style="height: 0.4in;">
+                        </td>
+                        <td style="text-align: left; vertical-align: top;">
+                            <strong>University of Tabriz</strong>, Tabriz, Iran<br>
+                            B.Sc., <a href="mechanic.tabrizu.ac.ir/en">Department of Mechanical Engineering</a>
+                            <span style="float: right;"><strong>Sep 2013 - Sep 2017</strong></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left; vertical-align: top;">
+                            <p><strong>Thesis Topic:</strong> "On the muscle models as viscoelastic material and
+                                comparison of force-length models for active skeletal muscle"</p>
+                            <p><strong>Supervisor:</strong> <a
+                                    href="asatid.tabrizu.ac.ir/en/pages/default.aspx?jahani">Prof. Kamal Jahani</a></p>
+                            <p><strong>GPA:</strong> 18.1/20</p>
+                        </td>
+                    </tr>
+                </table>
+
+
+                <h2> Selected Publications (Top 5) </h2>
+
+                <ul>
+                    <li>
+                        <span class="title"></span> <strong>A. Bahari Kordabad</strong>, M. Zanon, S. Gros,
+                        <a href="https://arxiv.org/pdf/2210.04302">"Equivalence of optimality criteria for Markov
+                            decision process and model predictive control"</a>,
+                        <em>IEEE Transactions on Automatic Control</em>, 2024.
+                    </li>
+                    <li>
+                        <span class="title"></span> <strong>A. Bahari Kordabad</strong>, M. Charitidou, D. V.
+                        Dimarogonas, and S. Soudjani,
+                        <a
+                            href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10591078&casa_token=6rKlbfUD6g8AAAAA:bjk96Pu6HRm_wkK7fO4HsVb_NKWfNQ8jhBDY7kFxiL8J01cCTTnRtHL8fHmJYNht7tPCJkmlQQ">"Control
+                            barrier functions for stochastic systems under signal temporal logic tasks"</a>,
+                        <em>22nd European Control Conference (ECC)</em>, 2024.
+                    </li>
+                    <li>
+                        <span class="title"></span> <strong>A. Bahari Kordabad</strong>, D. Reinhardt, A. S. Anand, and
+                        S. Gros,
+                        <a
+                            href="https://www.researchgate.net/profile/Sebastien-Gros-2/publication/375841904_Reinforcement_Learning_for_MPC_Fundamentals_and_Current_Challenges/links/65630797b86a1d521b0c0bda/Reinforcement-Learning-for-MPC-Fundamentals-and-Current-Challenges.pdf">"Reinforcement
+                            Learning for MPC fundamentals and current challenges"</a>,
+                        <em>22nd IFAC World Congress</em>, 2023.
+                    </li>
+                    <li>
+                        <span class="title"></span> <strong>A. Bahari Kordabad</strong>, S. Gros,
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0952197622003694">"Q-Learning of the
+                            storage function in economic nonlinear model predictive control"</a>,
+                        <em>Engineering Applications of Artificial Intelligence</em>, 2022.
+                    </li>
+                    <li>
+                        <span class="title"></span> <strong>A. Bahari Kordabad</strong>, H. Nejatbakhsh Esfahani, W.
+                        Cai, and S. Gros,
+                        <a
+                            href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9867217&casa_token=rPUcxbN4KL4AAAAA:F_L0WX4BagmKeCxoIUSqr1P9cDnlNc-mNEzCSMv0FtAedFq-WshmI0I7DMCx0SH09O2DU7PlkQ">"Quasi-Newton
+                            iteration in deterministic policy gradient"</a>,
+                        <em>American Control Conference (ACC)</em>, 2022.
+                    </li>
+                </ul>
+
+                <h2> Selected Talks </h2>
+                <ul>
+                    <li>
+                        "Reinforcement Learning for MPC: Fundamentals and Current Challenges" in an invited session
+                        entitled <em>Recent Advances in Automated Learning and Calibration of MPC Policies</em>, IFAC,
+                        +75 audience, Japan.
+                        (<a href="https://arashbaharik.github.io/IFAC.jpg" target="_blank">photo</a>)
+                        <span style="float: right; font-weight: bold;">July 2023</span>
+                    </li>
+                    <li>
+                        "Introduction to optimization with temporal logic", NTNU, Trondheim, Norway.
+                        <span style="float: right; font-weight: bold;">Mar 2023</span>
+                    </li>
+                    <li>
+                        "Intersection of Reinforcement Learning and MPC", Eindhoven University of Technology,
+                        Netherlands, Host: Prof. Dinesh Krishnamoorthy.
+                        <span style="float: right; font-weight: bold;">Feb 2023</span>
+                    </li>
+                    <li>
+                        "MPC-based Reinforcement learning", École polytechnique fédérale de Lausanne (EPFL), Lausanne,
+                        Switzerland, Host: Prof. Alireza Karimi.
+                        <span style="float: right; font-weight: bold;">Jan 2023</span>
+                    </li>
+                    <li>
+                        "Optimality Equivalence of MDP and MPC", KTH, Stockholm, Sweden, Host: Prof. Bo Wahlberg.
+                        <span style="float: right; font-weight: bold;">Jan 2023</span>
+                    </li>
+                    <li>
+                        "Intelligent control for time-delay systems", KTH, Stockholm, Sweden, Host: Prof. Håkan
+                        Hjalmarsson.
+                        <span style="float: right; font-weight: bold;">Jun 2019</span>
+                    </li>
+                </ul>
+
+
+                <div id="footer">
+                    <div id="footer-text">
+                        Last Update 2024-08-05.
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</td>
-</tr>
-</table>
-
-
- <h2>Research Interests  </h2>
- <p>My research interests primarily lie at the intersection of <strong>Markov Decision Processes (MDPs)</strong>, <strong>Economic Model Predictive Control (EMPC)</strong>, and <strong>Reinforcement Learning (RL)</strong>, with applications in <i>energy systems</i> and <i>autonomous vehicles</i>. Another key focus of my work is providing probabilistic guarantees for stochastic systems under <strong>temporal logic</strong> specifications. Additionally, my research encompasses <span style="color: rgb(0, 128, 128);">distributionally robust optimization</span>, <span style="color: rgb(0, 128, 128);">second-order RL algorithms</span>, and <span style="color: rgb(0, 128, 128);">data-driven MPC</span>.</p>
-
-  
-  <h2>Education & Research Experience  </h2>
-
-<table style="width: 700px; border: 1px solid #000; margin-bottom: 20px;">
-  <tr>
-    <td style="width: 50px; vertical-align: top;">
-      <img src="mpi.jpg" alt="MPI Logo" style="height: 0.4in;">
-    </td>
-    <td style="text-align: left; vertical-align: top;">
-      <strong>Max Planck Institute for Software Systems</strong>, Kaiserslautern, Germany<br>
-      <a href="https://people.mpi-sws.org/~arashbk/">Postdoctoral Researcher</a>
-      <span style="float: right;"><strong>May 2023 - present</strong></span>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" style="text-align: left; vertical-align: top;">
-      <p><strong>Topic:</strong> "Multi-agent awareness and control with temporal logic specifications"</p>
-      <p><strong>Supervisor:</strong> <a href="hycodev.com/ssoudjani">Prof. Sadegh Soudjani</a></p>
-      <p><strong>Project:</strong> <a href="https://www.symaware.eu/">SymAware</a></p>
-    </td>
-  </tr>
-</table>
-
-<table style="width: 700px; border: 1px solid #000; margin-bottom: 20px;">
-  <tr>
-    <td style="width: 50px; vertical-align: top;">
-      <img src="ntnu.png" alt="NTNU Logo" style="height: 0.4in;">
-    </td>
-    <td style="text-align: left; vertical-align: top;">
-      <strong>Norwegian University of Science and Technology (NTNU)</strong>, Trondheim, Norway<br>
-      Ph.D., <a href="www.ntnu.edu/itk">Department of Engineering Cybernetics</a>
-      <span style="float: right;"><strong>Feb 2020 - April 2023</strong></span>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" style="text-align: left; vertical-align: top;">
-      <p><strong>Thesis Topic:</strong> "Theoretical properties of learning-based MPC", <a href="https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/3062609">link</a></p>
-      <p><strong>Supervisor:</strong> <a href="www.ntnu.edu/employees/sebastien.gros">Prof. Sébastien Gros</a></p>
-      <p><strong>Co-Supervisor:</strong> <a href="https://www.ntnu.edu/employees/anastasios.lekkas">Prof. Anastasios Lekkas</a></p>
-      <p><strong>Committee:</strong> Prof. Ole Morten Aamo, Prof. Lars Grüne, and Prof. Rolf Findeisen</p>
-    </td>
-  </tr>
-</table>
-
-<table style="width: 700px; border: 1px solid #000; margin-bottom: 20px;">
-  <tr>
-    <td style="width: 50px; vertical-align: top;">
-      <img src="aau.png" alt="AAU Logo" style="height: 0.4in;">
-    </td>
-    <td style="text-align: left; vertical-align: top;">
-      <strong>Aalborg University</strong>, Aalborg, Denmark<br>
-      <a href="https://vbn.aau.dk/da/activities/arash-bahari-kordabad">Visiting Ph.D. Researcher</a>, <a href="https://www.es.aau.dk/">Department of Electronic Systems</a>
-      <span style="float: right;"><strong>Nov 2021 - Aug 2022</strong></span>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" style="text-align: left; vertical-align: top;">
-      <p><strong>Research topic:</strong> Safe Reinforcement Learning</p>
-      <p><strong>Host:</strong> <a href="https://vbn.aau.dk/da/persons/raf">Prof. Rafal Wisniewski</a></p>
-    </td>
-  </tr>
-</table>
-
-<table style="width: 700px; border: 1px solid #000; margin-bottom: 20px;">
-  <tr>
-    <td style="width: 50px; vertical-align: top;">
-      <img src="SUT.png" alt="SUT Logo" style="height: 0.4in;">
-    </td>
-    <td style="text-align: left; vertical-align: top;">
-      <strong>Sharif University of Technology</strong>, Tehran, Iran<br>
-      M.Sc., <a href="www.mech.sharif.ir/home">Department of Mechanical Engineering</a>
-      <span style="float: right;"><strong>Sep 2017 - Sep 2019</strong></span>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" style="text-align: left; vertical-align: top;">
-      <p><strong>Thesis Topic:</strong> "Control of bifurcation and chatter suppression in peripheral milling process"</p>
-      <p><strong>Supervisor:</strong> <a href="mech.sharif.ir/~hamedmoradi/">Prof. Hamed Moradi</a></p>
-      <p><strong>GPA:</strong> 19.41/20</p>
-    </td>
-  </tr>
-</table>
-
-<table style="width: 700px; border: 1px solid #000; margin-bottom: 20px;">
-  <tr>
-    <td style="width: 50px; vertical-align: top;">
-      <img src="UOT.png" alt="UOT Logo" style="height: 0.4in;">
-    </td>
-    <td style="text-align: left; vertical-align: top;">
-      <strong>University of Tabriz</strong>, Tabriz, Iran<br>
-      B.Sc., <a href="mechanic.tabrizu.ac.ir/en">Department of Mechanical Engineering</a>
-      <span style="float: right;"><strong>Sep 2013 - Sep 2017</strong></span>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" style="text-align: left; vertical-align: top;">
-      <p><strong>Thesis Topic:</strong> "On the muscle models as viscoelastic material and comparison of force-length models for active skeletal muscle"</p>
-      <p><strong>Supervisor:</strong> <a href="asatid.tabrizu.ac.ir/en/pages/default.aspx?jahani">Prof. Kamal Jahani</a></p>
-      <p><strong>GPA:</strong> 18.1/20</p>
-    </td>
-  </tr>
-</table>
-
-
-<h2> Selected Publications (Top 5)  </h2>
-
-<ul>
-        <li>
-            <span class="title"></span> <strong>A. Bahari Kordabad</strong>, M. Zanon, S. Gros, 
-            <a href="https://arxiv.org/pdf/2210.04302">"Equivalence of optimality criteria for Markov decision process and model predictive control"</a>, 
-            <em>IEEE Transactions on Automatic Control</em>, 2024.
-        </li>
-        <li>
-            <span class="title"></span> <strong>A. Bahari Kordabad</strong>, M. Charitidou, D. V. Dimarogonas, and S. Soudjani, 
-            <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10591078&casa_token=6rKlbfUD6g8AAAAA:bjk96Pu6HRm_wkK7fO4HsVb_NKWfNQ8jhBDY7kFxiL8J01cCTTnRtHL8fHmJYNht7tPCJkmlQQ">"Control barrier functions for stochastic systems under signal temporal logic tasks"</a>, 
-            <em>22nd European Control Conference (ECC)</em>, 2024.
-        </li>
-        <li>
-            <span class="title"></span> <strong>A. Bahari Kordabad</strong>, D. Reinhardt, A. S. Anand, and S. Gros, 
-            <a href="https://www.researchgate.net/profile/Sebastien-Gros-2/publication/375841904_Reinforcement_Learning_for_MPC_Fundamentals_and_Current_Challenges/links/65630797b86a1d521b0c0bda/Reinforcement-Learning-for-MPC-Fundamentals-and-Current-Challenges.pdf">"Reinforcement Learning for MPC fundamentals and current challenges"</a>, 
-            <em>22nd IFAC World Congress</em>, 2023.
-        </li>
-        <li>
-            <span class="title"></span> <strong>A. Bahari Kordabad</strong>, S. Gros, 
-            <a href="https://www.sciencedirect.com/science/article/pii/S0952197622003694">"Q-Learning of the storage function in economic nonlinear model predictive control"</a>, 
-            <em>Engineering Applications of Artificial Intelligence</em>, 2022.
-        </li>
-        <li>
-            <span class="title"></span> <strong>A. Bahari Kordabad</strong>, H. Nejatbakhsh Esfahani, W. Cai, and S. Gros, 
-            <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9867217&casa_token=rPUcxbN4KL4AAAAA:F_L0WX4BagmKeCxoIUSqr1P9cDnlNc-mNEzCSMv0FtAedFq-WshmI0I7DMCx0SH09O2DU7PlkQ">"Quasi-Newton iteration in deterministic policy gradient"</a>, 
-            <em>American Control Conference (ACC)</em>, 2022.
-        </li>
-    </ul>
-
-<h2> Selected Talks  </h2>
-<ul>
-    <li>
-        "Reinforcement Learning for MPC: Fundamentals and Current Challenges" in an invited session entitled <em>Recent Advances in Automated Learning and Calibration of MPC Policies</em>, IFAC, +75 audience, Japan. 
-        (<a href="https://arashbaharik.github.io/IFAC.jpg" target="_blank">photo</a>) 
-        <span style="float: right; font-weight: bold;">July 2023</span>
-    </li>
-    <li>
-        "Introduction to optimization with temporal logic", NTNU, Trondheim, Norway. 
-        <span style="float: right; font-weight: bold;">Mar 2023</span>
-    </li>
-    <li>
-        "Intersection of Reinforcement Learning and MPC", Eindhoven University of Technology, Netherlands, Host: Prof. Dinesh Krishnamoorthy. 
-        <span style="float: right; font-weight: bold;">Feb 2023</span>
-    </li>
-    <li>
-        "MPC-based Reinforcement learning", École polytechnique fédérale de Lausanne (EPFL), Lausanne, Switzerland, Host: Prof. Alireza Karimi. 
-        <span style="float: right; font-weight: bold;">Jan 2023</span>
-    </li>
-    <li>
-        "Optimality Equivalence of MDP and MPC", KTH, Stockholm, Sweden, Host: Prof. Bo Wahlberg. 
-        <span style="float: right; font-weight: bold;">Jan 2023</span>
-    </li>
-    <li>
-        "Intelligent control for time-delay systems", KTH, Stockholm, Sweden, Host: Prof. Håkan Hjalmarsson. 
-        <span style="float: right; font-weight: bold;">Jun 2019</span>
-    </li>
-</ul>
-
-
-<div id="footer">
-<div id="footer-text">
-Last Update 2024-08-05.
-</div>
-</div>
-</td>
-</tr>
-</table>
 </body>
+
 </html>
