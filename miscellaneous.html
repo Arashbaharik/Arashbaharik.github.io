@@ -1,185 +1,534 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
 <head>
-<meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<link rel="stylesheet" href="jemdoc.css" type="text/css" />
-<link rel="icon" href="ara.png" type="image/x-icon" />
-<title>Miscellaneous</title>
+    <meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" href="jemdoc.css" type="text/css" />
+    <link rel="icon" href="ara.png" type="image/x-icon" />
+    <title>Miscellaneous</title>
+
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(window).scroll(function() {
+            if ($(window).scrollTop() >= 200) {    // offset?
+               $(".left-menu-section").addClass("fixed");
+            } else { 
+                $(".left-menu-section").removeClass("fixed");
+            }
+        });
+    </script>
+
+
+    <style>
+        .profile-img{
+            width: 128px;
+            height: 128px;
+            border-radius: 50%;
+        }
+        .left-menu-section{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; 
+        }
+        div.menu-item{
+            width: 100%;
+        }
+        
+        .left-menu-section div a{
+            width: 100%;
+                padding: 9px;
+                background-color: #fff;
+                border-radius: 11px;
+                line-height: 2;
+                text-align: center;
+                margin-bottom: 10px;
+                display: inline-block;
+        }
+        #layout-menu{
+            min-width: 15%;
+        }
+        .fixed{
+            position: fixed;
+            left: 30px;
+            top:30px;
+            left: 35px;
+        }
+        table#tlayout {
+            border: none;
+            border-collapse: separate;
+            background: white;
+        }
+
+        body {
+            background: white;
+            font-family: Georgia, serif;
+            padding-bottom: 8px;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        #layout-menu {
+            position: -webkit-sticky;
+            /*-webkit-sticky; /* For Safari */
+            position: sticky;
+            */ top: 0;
+            /* Stick to the top of the viewport */
+            z-index: 1000;
+            /* Ensures the menu stays above other content */
+            background: #FFFFE0;
+            border: 1px solid #dddddd;
+            padding-top: 0.5em;
+            padding-left: 8px;
+            padding-right: 8px;
+            font-size: 1.0em;
+            width: auto;
+            white-space: nowrap;
+            text-align: left;
+            vertical-align: top;
+        }
+
+
+
+        #layout-menu td {
+            background: #f4f4f4;
+            vertical-align: top;
+        }
+
+        #layout-content {
+            /* padding-top: 0.0em; */
+            /* padding-left: 1.0em; */
+            /* padding-right: 1.0em; */
+            /* border: none; */
+            /* background: white; */
+            /* text-align: left; */
+            /* vertical-align: top; */
+        }
+
+        #layout-menu a {
+            line-height: 1.5em;
+        }
+
+        tt {
+            background: #ffffdd;
+        }
+
+        pre,
+        tt {
+            font-size: 90%;
+            font-family: monaco, monospace;
+        }
+
+        a,
+        a>tt {
+            color: #224b8d;
+            text-decoration: none;
+        }
+
+        a:hover {
+            border-bottom: 1px gray dotted;
+        }
+
+        #layout-menu a.current:link,
+        #layout-menu a.current:visited {
+            color: #022b6d;
+            border-bottom: 1px gray solid;
+        }
+
+        #layout-menu a:link,
+        #layout-menu a:visited,
+        #layout-menu a:hover {
+            color: #800080;
+            text-decoration: none;
+        }
+
+        #layout-menu a:hover {
+            text-decoration: none;
+        }
+
+        div.menu-category {
+            border-bottom: 1px solid gray;
+            margin-top: 0.8em;
+            padding-top: 0.2em;
+            padding-bottom: 0.1em;
+            font-weight: bold;
+            text-decoration: none !important;
+            margin-bottom: 1rem !important;
+        }
+
+        div.menu-item {
+            padding-left: 16px;
+            text-indent: -16px;
+        }
+
+        div#toptitle {
+            padding-bottom: 0.2em;
+            margin-bottom: 1.5em;
+            border-bottom: 3px double gray;
+        }
+
+        /* Reduce space if we begin the page with a title. */
+        div#toptitle+h2,
+        div#toptitle+h3 {
+            margin-top: -0.7em;
+        }
+
+        div#subtitle {
+            margin-top: 0.0em;
+            margin-bottom: 0.0em;
+            padding-top: 0em;
+            padding-bottom: 0.1em;
+        }
+
+        em {
+            font-style: italic;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+
+        h1,
+        h2,
+        h3 {
+            color: #800080;
+            margin-top: 0.7em;
+            margin-bottom: 0.3em;
+            padding-bottom: 0.2em;
+            line-height: 1.0;
+            padding-top: 0.5em;
+            border-bottom: 1px solid #aaaaaa;
+        }
+
+        h1 {
+            font-size: 165%;
+        }
+
+        h2 {
+            padding-top: 0.8em;
+            font-size: 125%;
+        }
+
+        h2+h3 {
+            padding-top: 0.2em;
+        }
+
+        h3 {
+            font-size: 110%;
+            border-bottom: none;
+        }
+
+        p {
+            margin-top: 0.0em;
+            margin-bottom: 0.8em;
+            padding: 0;
+            line-height: 1.3;
+        }
+
+        pre {
+            padding: 0;
+            margin: 0;
+        }
+
+        div#footer {
+            font-size: small;
+            border-top: 1px solid #c0c0c0;
+            padding-top: 0.1em;
+            margin-top: 4.0em;
+            color: #c0c0c0;
+        }
+
+        div#footer a {
+            color: #80a0b0;
+        }
+
+        div#footer-text {
+            float: left;
+            padding-bottom: 8px;
+        }
+
+        ul,
+        ol,
+        dl {
+            margin-top: 0.2em;
+            padding-top: 0;
+            margin-bottom: 0.8em;
+        }
+
+        dt {
+            margin-top: 0.5em;
+            margin-bottom: 0;
+        }
+
+        dl {
+            margin-left: 20px;
+        }
+
+        dd {
+            color: #222222;
+        }
+
+        dd>*:first-child {
+            margin-top: 0;
+        }
+
+        ul {
+            list-style-position: outside;
+            list-style-type: square;
+        }
+
+        p+ul,
+        p+ol {
+            margin-top: -0.5em;
+        }
+
+        li ul,
+        li ol {
+            margin-top: -0.3em;
+        }
+
+        ol {
+            list-style-position: outside;
+            list-style-type: decimal;
+        }
+
+        li p,
+        dd p {
+            margin-bottom: 0.3em;
+        }
+
+
+        ol ol {
+            list-style-type: lower-alpha;
+        }
+
+        ol ol ol {
+            list-style-type: lower-roman;
+        }
+
+        p+div.codeblock {
+            margin-top: -0.6em;
+        }
+
+        div.codeblock,
+        div.infoblock {
+            margin-right: 0%;
+            margin-top: 1.2em;
+            margin-bottom: 1.3em;
+        }
+
+        div.blocktitle {
+            font-weight: bold;
+            color: #cd7b62;
+            margin-top: 1.2em;
+            margin-bottom: 0.1em;
+        }
+
+        div.blockcontent {
+            border: 1px solid silver;
+            padding: 0.3em 0.5em;
+        }
+
+        div.infoblock>div.blockcontent {
+            background: #ffffee;
+        }
+
+        div.blockcontent p+ul,
+        div.blockcontent p+ol {
+            margin-top: 0.4em;
+        }
+
+        div.infoblock p {
+            margin-bottom: 0em;
+        }
+
+        div.infoblock li p,
+        div.infoblock dd p {
+            margin-bottom: 0.5em;
+        }
+
+        div.infoblock p+p {
+            margin-top: 0.8em;
+        }
+
+        div.codeblock>div.blockcontent {
+            background: #f6f6f6;
+        }
+
+        span.pycommand {
+            color: #000070;
+        }
+
+        span.statement {
+            color: #008800;
+        }
+
+        span.builtin {
+            color: #000088;
+        }
+
+        span.special {
+            color: #990000;
+        }
+
+        span.operator {
+            color: #880000;
+        }
+
+        span.error {
+            color: #aa0000;
+        }
+
+        span.comment,
+        span.comment>*,
+        span.string,
+        span.string>* {
+            color: #606060;
+        }
+
+        @media print {
+            #layout-menu {
+                display: none;
+            }
+        }
+
+        #fwtitle {
+            margin: 2px;
+        }
+
+        #fwtitle #toptitle {
+            padding-left: 0.5em;
+            margin-bottom: 0.5em;
+        }
+
+        #layout-content h1:first-child,
+        #layout-content h2:first-child,
+        #layout-content h3:first-child {
+            margin-top: -0.7em;
+        }
+
+        div#toptitle h1,
+        #layout-content div#toptitle h1 {
+            margin-bottom: 0.0em;
+            padding-bottom: 0.1em;
+            padding-top: 0;
+            margin-top: 0.5em;
+            border-bottom: none;
+        }
+
+        img.eq {
+            padding: 0;
+            padding-left: 0.1em;
+            padding-right: 0.1em;
+            margin: 0;
+        }
+
+        img.eqwl {
+            padding-left: 2em;
+            padding-top: 0.6em;
+            padding-bottom: 0.2em;
+            margin: 0;
+        }
+
+        table {
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 2px;
+            padding-left: 0.5em;
+            padding-right: 0.5em;
+            text-align: center;
+            border: 1px solid gray;
+        }
+
+        table+table {
+            margin-top: 1em;
+        }
+
+        tr.heading {
+            font-weight: bold;
+            border-bottom: 2px solid black;
+        }
+
+        img {
+            border: none;
+        }
+
+        table.imgtable,
+        table.imgtable td {
+            border: none;
+            text-align: left;
+        }
+    </style>
+
+
+
 </head>
+
 <body>
-<table summary="Table for page layout." id="tlayout">
-<tr valign="top">
-<td id="layout-menu">
-<div class="menu-category">Arash Bahari Kordabad</div>
-<div class="menu-item"><a href="index.html">Home</a></div>
-<div class="menu-item"><a href="publication.html">Publication</a></div>
-   <div class="menu-item"><a href="miscellaneous.html" class="current">Miscellaneous</a></div>
-  <div class="menu-item"><a href="research.html">Research</a></div>
-  <div class="menu-item"><a href="slides.html">Slides</a></div>
- <div class="menu-item"><a href="photos.html" >Photos</a></div>
+    <table summary="Table for page layout." id="tlayout">
+        <tr valign="top">
+            <div id="layout-menu">
+                <div  class="left-menu-section">
+                    <img src="https://arashbaharik.github.io/ara.png" class="profile-img" alt="">
+                    <div class="menu-category">Arash Bahari Kordabad</div>
+                    <div class="menu-item"><a href="index.html">Home</a></div>
+                    <div class="menu-item"><a href="publication.html">Publication</a></div>
+                    <div class="menu-item"><a href="miscellaneous.html"  class="current">Miscellaneous</a></div>
+                    <div class="menu-item"><a href="research.html">Research</a></div>
+                    <div class="menu-item"><a href="slides.html">Slides</a></div>
+                    <div class="menu-item"><a href="photos.html">Photos</a></div>
+                </div>
+            </div>
+            <div id="layout-content">
+                <div id="toptitle">
+                    <h1>Miscellaneous</h1>
+                </div>
+                <h2>Awards & Honors</h2>
+                <ul>
 
-</td>
-<td id="layout-content">
-<div id="toptitle">
-<h1>Miscellaneous</h1>
-</div>
-  <h2>Awards & Honors</h2>
-<ul>
-  
-<li>Having received the honor of first rank in Dynamics and Control (GPA. 19/41 out of 20) and third among all Mechanical Eng. Students of Mechanical Engineering at Sharif University of Technology, 2018.</li>
-<li>Selected among the top 40 Mechanical Engineering students nationwide to participate in the scientific Olympiads for university students in Iran, 2017.</li>
-<li>Ranked fifth among 99 Mechanical Engineering students in the Bachelor's program, 2017.</li>
-<li>Placed in the top 0.25% (669th) of over 250,000 participants in the <a href="https://en.wikipedia.org/wiki/Iranian_University_Entrance_Exam"> national universities entrance exam</a> known as "konkour" for B.Sc. degree, 2013.</li>
-<li>Has an honorary diploma for the <a href="https://www.turgor.ru/en/"> International Mathematics Tournament of Towns </a> which originated in Russia, 2013.</li>
-  
-   
-</ul>
-  
-  <h2>Review and Teaching Experience</h2>
- <ul> 
-   <li> Papers Review for ACC, ECC, CDC, and NMPC conferences and journals such as <a href="Certificate_ISATRA_Recognised.pdf"> ISA Transaction</a> and <a href="Certificate_EAAI_Recognised.pdf"> Engineering Applications of Artificial Intelligence</a> </li> 
-      <li> Teaching Assistant, Ordinary Differential Equation, Undergraduate students at University of Tabriz  </li>
-   <li> Teaching Assistant, Automatic Control, Undergraduate students at Sharif University of Technology </li>
-      <li> Teaching Mathematics and Physics, High School Students </li>
-   </ul>
-
-  <h2>Selected Scientific Courses</h2>
-<p> Advanced Nonlinear Systems,  Numerical Optimal Control, Intelligent Systems, Nonlinear Control,  Robust Control,
-Advanced Mathematics, Stochastic Control, Advanced Dynamics, Automatic Control, Modern Control, Robotic.
-
- <h2>Selected Training Courses</h2>
-<p> Basic University Didactics, Research Ethics, Research-Based Innovation,  Seminar.
-
-<h2>Projects</h2>
-    <ul>
-        <li>
-            <span class="project-title"><b>SymAware, 2023–</b></span>: I am a postdoctoral researcher in the <a href="https://www.symaware.eu/">SymAware</a> project, which addresses the need for a new framework for awareness in multi-agent systems. Funded by the European Union (European Innovation Council). The partners include Max Planck Institute for Software Systems, KTH, Uppsala University, Eindhoven University of Technology, and two companies:
-<ul>               
- <li>
-                    <span class="project-subtitle"><a href="https://www.nlr.org/">Netherlands Aerospace Centre (NLR)</a></span><br>
-                </li>
-                <li>
-                    <span class="project-subtitle"><a href="https://plm.sw.siemens.com/en-US/">Siemens Digital Industries Software</a></span><br>
-                </li>
-</ul>
-        </li>
-              
-        <li>
-            <span class="project-title"> <b>SARLEM, 2020–2023</b></span>: Part of the Ph.D. project "Safe Reinforcement Learning using Model Predictive Control" (SARLEM, project no. UV988962100) at NTNU. Supported by the Research Council of Norway (RCN, grant no. NFR 300172) with involvement from companies such as <span class="project-subtitle"><a href="https://www.dnv.com/">DNV GL</a></span> and <span class="project-subtitle"><a href="https://www.kongsberg.com/maritime/">Kongsberg Maritime</a></span> in Norway.
-        </li>
-              
-        <li>
-            <span class="project-title"><b>Machinery company, 2017–2019</b></span>: MSc project in Tehran, Iran, focused on controlling and reducing milling process vibration (chatter). The project, including thesis work and data modeling, was partially funded by a machinery company. The team included one professor and three students.
-        </li>
-    </ul>
+                    <li>Ranked first in the field of Dynamics and Control (GPA. 19/41 out of 20)and third among all
+                        Mechanical Eng. Students of Mechanical Engineering at Sharif University of Technology, 2018.
+                    </li>
+                    <li>Present among 40 top Mechanical Engineering Students from all over the country. (Scientific
+                        Olympiads for university student), 2017.</li>
+                    <li>Ranked Five (GPA. 18.1 out of 20) among 99 Mechanical Engineering Students in Bachelor Degree,
+                        2017.</li>
+                    <li>Ranked top 0.2% of 250,000 participants (669th) in the <a
+                            href="https://en.wikipedia.org/wiki/Iranian_University_Entrance_Exam"> National Universities
+                            Entrance Exam</a> known as "konkour" for B.Sc. degree, 2013.</li>
+                    <li>Has an honorary diploma for the <a href="https://www.turgor.ru/en/"> International Mathematics
+                            Tournament of Towns </a> which originated in Russia, 2013.</li>
 
 
-<h2>Collaborators</h2>
+                </ul>
 
-<style>
-  table {
-    border-collapse: collapse;
-    width: auto; /* Allow the table to be as wide as needed by the content */
-    border: none; /* Remove outer border */
-  }
-  td {
-    padding: 5px;
-    vertical-align: top;
-    text-align: left;
-    border: none; /* Remove cell borders */
-  }
-</style>
-
-<table>
-  <tr>
-    <td>
-      <a href="https://www.ntnu.edu/employees/sebastien.gros">Sebastien Gros</a>
-      <strong>(PhD supervisor)</strong>
-    </td>
-    <td>Head of the department (full Prof.),</td>
-    <td>NTNU,</td>
-    <td style="color: rgb(0, 128, 128);">Norway</td>
-  </tr>
-  <tr>
-    <td>
-      <a href="https://hycodev.com/ssoudjani">Sadegh Soudjani</a>
-      <strong>(PostDoc supervisor)</strong>
-    </td>
-    <td>Senior Research Group Leader,</td>
-    <td>MPI-SWS,</td>
-    <td style="color: rgb(0, 128, 128);">Germany</td>
-  </tr>
-  <tr>
-    <td>
-      <a href="https://scholar.google.com/citations?user=DPSPuH4AAAAJ&hl=en">Hossein Nejatbakhsh Esfahani</a>
-    </td>
-    <td>Research Fellow,</td>
-    <td>Clemson University,</td>
-    <td style="color: rgb(0, 128, 128);">USA</td>
-  </tr>
-  <tr>
-    <td>
-      <a href="https://scholar.google.com/citations?user=8wJ3_NYAAAAJ&hl=en">Wenqi Cai</a>
-    </td>
-    <td>ML/AI Engineer,</td>
-    <td>Elliptic Labs,</td>
-    <td style="color: rgb(0, 128, 128);">Norway</td>
-  </tr>
-  <tr>
-    <td>
-      <a href="https://www.ntnu.edu/employees/anastasios.lekkas">Anastasios Lekkas</a>
-    </td>
-    <td>Associate Prof.,</td>
-    <td>NTNU,</td>
-    <td style="color: rgb(0, 128, 128);">Norway</td>
-  </tr>
-  <tr>
-    <td>
-      <a href="https://vbn.aau.dk/da/persons/raf">Rafael Wisniewski</a>
-    </td>
-    <td>Full Prof.,</td>
-    <td>Aalborg University,</td>
-    <td style="color: rgb(0, 128, 128);">Denmark</td>
-  </tr>
-  <tr>
-    <td>
-      <a href="https://mariozanon.wordpress.com/">Mario Zanon</a>
-    </td>
-    <td>Associate Prof.,</td>
-    <td>IMT Lucca,</td>
-    <td style="color: rgb(0, 128, 128);">Italy</td>
-  </tr>
-  <tr>
-    <td>
-      <a href="https://people.kth.se/~dimos/">Dimos Dimarogonas</a>
-    </td>
-    <td>Full Prof.,</td>
-    <td>KTH,</td>
-    <td style="color: rgb(0, 128, 128);">Sweden</td>
-  </tr>
-  <tr>
-    <td>
-      <a href="https://www.researchgate.net/profile/Sybert-Stroeve">Sybert Stroeve</a>
-    </td>
-    <td>Senior Scientist,</td>
-    <td>Netherlands Aerospace Centre NLR,</td>
-    <td style="color: rgb(0, 128, 128);">Netherlands</td>
-  </tr>
-</table>
-
-
-
-
-
-<div id="footer">
-<div id="footer-text">
-Last Update 2024-08-05.
-</div>
-</div>
-</td>
-</tr>
-</table>
+                <h2>Experience</h2>
+                <ul>
+                    <li> Papers Review for ACC, ECC, CDC and NMPC conferences</li>
+                    <li> Teaching Assistant, Ordinary Differential Equation , Undergraduate students at University of
+                        Tabriz</li>
+                    <li> Teaching Assistant, Automatic Control, Undergraduate students at Sharif University of
+                        Technology </li>
+                    <li> Teaching Mathematics and Physics, High school students</li>
+                </ul>
+                <div id="footer">
+                    <div id="footer-text">
+                        Last Update 2021-10-27.
+                    </div>
+                </div>
+            </div>
+        </tr>
+    </table>
 </body>
+
 </html>
