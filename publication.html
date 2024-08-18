@@ -9,6 +9,93 @@
     <title>Publication</title>
 </head>
 
+     <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(window).scroll(function() {
+            if ($(window).scrollTop() >= 200) {    // offset?
+               $(".left-menu-section").addClass("fixed");
+            } else { 
+                $(".left-menu-section").removeClass("fixed");
+            }
+        });
+    </script>
+
+
+    <style>
+        .profile-img{
+            width: 128px;
+            height: 128px;
+            border-radius: 50%;
+        }
+        .left-menu-section{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; 
+        }
+        div.menu-item{
+            width: 100%;
+        }
+        
+        .left-menu-section div a{
+            width: 100%;
+                padding: 9px;
+                background-color: #fff;
+                border-radius: 11px;
+                line-height: 2;
+                text-align: center;
+                margin-bottom: 10px;
+                display: inline-block;
+        }
+        #layout-menu{
+            min-width: 15%;
+        }
+        .fixed{
+            position: fixed;
+            left: 30px;
+            top:30px;
+            left: 35px;
+        }
+        table#tlayout {
+            border: none;
+            border-collapse: separate;
+            background: white;
+        }
+
+        body {
+            background: white;
+            font-family: Georgia, serif;
+            padding-bottom: 8px;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        #layout-menu {
+            position: -webkit-sticky;
+            /*-webkit-sticky; /* For Safari */
+            position: sticky;
+            */ top: 0;
+            /* Stick to the top of the viewport */
+            z-index: 1000;
+            /* Ensures the menu stays above other content */
+            background: #FFFFE0;
+            border: 1px solid #dddddd;
+            padding-top: 0.5em;
+            padding-left: 8px;
+            padding-right: 8px;
+            font-size: 1.0em;
+            width: auto;
+            white-space: nowrap;
+            text-align: left;
+            vertical-align: top;
+        }
+</style>
+
 <body>
     <table summary="Table for page layout." id="tlayout">
         <tr valign="top">
