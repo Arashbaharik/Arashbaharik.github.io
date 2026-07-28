@@ -1,159 +1,101 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+from pathlib import Path
+from html import escape
 
-<head>
-    <meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <link rel="stylesheet" href="jemdoc.css" type="text/css" />
-    <link rel="icon" href="ara.png" type="image/x-icon" />
-    <title>Publication</title>
-</head>
+journals = [
+    ('J17', '2026', '<b>A. Bahari Kordabad</b>, S. P. Nayak, S. Soudjani, A.-K. Schmuck', 'Context-Triggered Robust MPC for Temporal Logic Specifications', 'https://arxiv.org/abs/2607.01515', 'submitted to <i>Nonlinear Analysis: Hybrid Systems (NAHS)</i>, 2026.'),
+    ('J16', '2026', 'E. E. Vlahakis, <b>A. Bahari Kordabad</b>, L. Lindemann, P. Sopasakis, S. Soudjani, D. V. Dimarogonas', 'Multi-Agent Temporal Logic Planning via Penalty Functions and Block-Coordinate Optimization', 'https://ieeexplore.ieee.org/abstract/document/11547164', '<i>IEEE Control Systems Letters</i>, 2026.'),
+    ('J15', '2026', '<b>A. Bahari Kordabad</b>, R. Majumdar, S. Soudjani', 'Almost Sure Reachability in Continuous-time Stochastic Systems', 'https://arxiv.org/abs/2605.03595', 'submitted to <i>Automatica</i>, 2026.'),
+    ('J14', '2026', 'H. Nejatbakhsh Esfahani, <b>A. Bahari Kordabad</b>, D. Moreno-Salinas', 'Advanced Control Strategies for Autonomous Maritime Systems', 'https://www.mdpi.com/2077-1312/14/3/315', '<i>Journal of Marine Science and Engineering</i>, vol. 14, no. 3, p. 315, 2026.'),
+    ('J13', '2025', 'A. Valaei, <b>A. Bahari Kordabad</b>, S. Soudjani', 'Second-Order Policy Gradient Methods for the Linear Quadratic Regulator', 'https://arxiv.org/abs/2511.02095', 'accepted for publication in <i>Engineering Applications of Artificial Intelligence (EAAI)</i>, 2025.'),
+    ('J12', '2025', '<b>A. Bahari Kordabad</b>, R. Majumdar, S. Soudjani', 'Sum-of-Squares Certificates for Almost-Sure Reachability of Stochastic Polynomial Systems', 'https://arxiv.org/abs/2510.25513', 'accepted for publication in <i>Nonlinear Analysis: Hybrid Systems (NAHS)</i>, 2025.'),
+    ('J11', '2025', '<b>A. Bahari Kordabad</b>, R. Majumdar, H. J. Motwani, S. Soudjani', 'On Certificates for Almost Sure Reachability in Stochastic Systems', 'https://arxiv.org/abs/2507.20194', 'accepted for publication in <i>IEEE Transactions on Automatic Control (TAC)</i>, 2025.'),
+    ('J10', '2025', '<b>A. Bahari Kordabad</b>, E. E. Vlahakis, L. Lindemann, S. Gros, D. V. Dimarogonas, S. Soudjani', 'Data-Driven Distributionally Robust Control for Interacting Agents under Logical Constraints', 'https://arxiv.org/abs/2503.09816', 'accepted for publication in <i>IEEE Transactions on Automatic Control (TAC)</i>, 2025.'),
+    ('J9', '2024', 'A. S. Anand, <b>A. Bahari Kordabad</b>, M. Zanon, S. Gros', 'Optimality Conditions for Model Predictive Control: Rethinking Predictive Model Design', 'https://arxiv.org/abs/2412.18268', 'accepted for publication in <i>Automatica</i>, 2024.'),
+    ('J8', '2024', '<b>A. Bahari Kordabad</b>, M. Zanon, S. Gros', 'Equivalence of optimality criteria for Markov decision process and model predictive control', 'https://arxiv.org/pdf/2210.04302', '<i>IEEE Transactions on Automatic Control</i>, 2024.'),
+    ('J7', '2024', '<b>A. Bahari Kordabad</b>, S. Gros', 'Lyapunov-based robust optimal control for time-delay systems with application in milling process', 'https://www.researchgate.net/profile/Arash-Bahari-Kordabad/publication/371109231_Lyapunov-based_robust_optimal_control_for_time-delay_systems_with_application_in_milling_process/links/647d10512cad460a1bf2e633/Lyapunov-based-robust-optimal-control-for-time-delay-systems-with-application-in-milling-process.pdf', '<i>International Journal of Dynamics and Control</i>, 2024.'),
+    ('J6', '2023', 'W. Cai, <b>A. Bahari Kordabad</b>, S. Gros', 'Energy management in residential microgrid using model predictive control-based reinforcement learning and shapely value', 'https://www.sciencedirect.com/science/article/pii/S0952197622007837', '<i>Engineering Applications of Artificial Intelligence</i>, 2023.'),
+    ('J5', '2023', 'H. Nejatbakhsh Esfahani, <b>A. Bahari Kordabad</b>, W. Cai, and S. Gros', 'Learning-based state estimation and control using MHE and MPC schemes with imperfect models', 'https://www.sciencedirect.com/science/article/pii/S0947358023001085', '<i>European Journal of Control</i>, 2023.'),
+    ('J4', '2022', 'K. Seel, <b>A. Bahari Kordabad</b>, S. Gros, J. T. Gravdahl', 'Convex neural network-based cost modifications for learning model predictive control', 'https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9944720', '<i>IEEE Open Journal of Control Systems</i>, 2022.'),
+    ('J3', '2022', '<b>A. Bahari Kordabad</b>, R. Wisniewski, S. Gros', 'Safe reinforcement learning using Wasserstein distributionally robust model predictive control', 'https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9982609', '<i>IEEE Access</i>, 2022.'),
+    ('J2', '2022', '<b>A. Bahari Kordabad</b>, S. Gros', 'Q-Learning of the storage function in economic nonlinear model predictive control', 'https://www.sciencedirect.com/science/article/pii/S0952197622003694', '<i>Engineering Applications of Artificial Intelligence</i>, 2022.'),
+    ('J1', '2019', '<b>A. Bahari Kordabad</b>, M. Boroushaki', 'Emotional Learning based intelligent controller for MIMO peripheral milling process', 'https://jacm.scu.ac.ir/article_14664_ea890919d7e100969689ea5539724004.pdf', '<i>Journal of Applied and Computational Mechanics</i>, 2019.'),
+]
 
-     <script
-    src="https://code.jquery.com/jquery-3.7.1.min.js"
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-    crossorigin="anonymous"></script>
+conferences = [
+    ('C20', '2026', '<b>A. Bahari Kordabad</b>, D. Brandner, S. Gros, S. Lucia, S. Soudjani', 'Quasi-Newton Compatible Actor-Critic for Deterministic Policies', 'https://arxiv.org/abs/2511.09509', '<i>Proceedings of the European Control Conference (ECC)</i>, 2026.'),
+    ('C19', '2025', '<b>A. Bahari Kordabad</b>, A. Ghosh, S. Stroeve, and S. Soudjani', 'Intent-Aware MPC for Aircraft Detect-and-Avoid with Response Delay: A Comparative Study with ACAS Xu.', 'https://www.sesarju.eu/sites/default/files/documents/sid/2025/papers/SIDs_2025_paper_49-final.pdf', '<i>SESAR Innovation Days (SIDs)</i>, 2025.'),
+    ('C18', '2025', '<b>A. Bahari Kordabad</b>, A. Da Col, A. Ghosh, S. Stroeve, and S. Soudjani', 'Robust Model Predictive Control for Aircraft Intent-Aware Collision Avoidance.', 'https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11186903', '<i>Proceedings of the European Control Conference (ECC)</i>, 2025.'),
+    ('C17', '2024', '<b>A. Bahari Kordabad</b>, E. E. Vlahakis, L. Lindemann, D. V. Dimarogonas, and S. Soudjani', 'Distributionally Robust Control for Chance-Constrained Signal Temporal Logic Specifications', 'https://ieeexplore.ieee.org/document/10886437/', '<i>Proceedings of the 63rd IEEE Conference on Decision and Control (CDC)</i>, 2024.'),
+    ('C16', '2024', '<b>A. Bahari Kordabad</b>, M. Charitidou, D. V. Dimarogonas, and S. Soudjani', 'Control barrier functions for stochastic systems under signal temporal logic tasks', 'https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10591078&casa_token=6rKlbfUD6g8AAAAA:bjk96Pu6HRm_wkK7fO4HsVb_NKWfNQ8jhBDY7kFxiL8J01cCTTnRtHL8fHmJYNht7tPCJkmlQQ', '<i>22nd European Control Conference (ECC)</i>, 2024.'),
+    ('C15', '2023', 'S. Sawant, D. Reinhardt, <b>A. Bahari Kordabad</b>, and S. Gros', 'Model-free Data-driven predictive control using reinforcement learning', 'https://www.researchgate.net/publication/371517205_Model-free_Data-driven_Predictive_Control_Using_Reinforcement_Learning', '<i>62nd Conference on Decision and Control (CDC)</i>, 2023.'),
+    ('C14', '2023', '<b>A. Bahari Kordabad</b>, D. Reinhardt, A. S. Anand, and S. Gros', 'Reinforcement Learning for MPC fundamentals and current challenges', 'https://www.researchgate.net/profile/Sebastien-Gros-2/publication/375841904_Reinforcement_Learning_for_MPC_Fundamentals_and_Current_Challenges/links/65630797b86a1d521b0c0bda/Reinforcement-Learning-for-MPC-Fundamentals-and-Current-Challenges.pdf', '<i>22nd IFAC World Congress</i>, 2023.'),
+    ('C13', '2023', '<b>A. Bahari Kordabad</b>, and S. Gros', 'Continuous-time chance-constrained stochastic model predictive control using multiple shooting and CVaR', 'https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10178324&casa_token=KHHOV7Gq6O0AAAAA:7nhh59CqT_8CBXlowWCHXbBbzUmsRJxDZNXks4YjCjDPKECYlB1J_qbWeMeWaA2pvgqrOk3f5A', '<i>21st European Control Conference (ECC)</i>, 2023.'),
+    ('C12', '2023', '<b>A. Bahari Kordabad</b>, and S. Gros', 'Bias correction of discounted optimal steady state using cost modification', 'https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10178359&casa_token=_3TkSrMIzUUAAAAA:RZbx9FQ0MQ9NHgLc8e-FYl5DFg5n5pI5lISrJJcELiwrXQ-7ZwovwlfosCun8ITU0tEs5kQmiA', '<i>21st European Control Conference (ECC)</i>, 2023.'),
+    ('C11', '2022', '<b>A. Bahari Kordabad</b>, and S. Gros', 'Functional stability of discounted MDPs using economic MPC dissipativity theory', 'https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9838064&casa_token=AsSWoZmzUlUAAAAA:1-DQjcIuHmbygOnapTNsvYgmgQ80ydgn2BGMfeTMyQuUvuV9CbnIOhEIVoQVfBBj9jOhMicZ5A', '<i>20th European Control Conference (ECC)</i>, 2022.'),
+    ('C10', '2022', '<b>A. Bahari Kordabad</b>, H. Nejatbakhsh Esfahani, W. Cai, and S. Gros', 'Quasi-Newton iteration in deterministic policy gradient', 'https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9867217&casa_token=rPUcxbN4KL4AAAAA:F_L0WX4BagmKeCxoIUSqr1P9cDnlNc-mNEzCSMv0FtAedFq-WshmI0I7DMCx0SH09O2DU7PlkQ', '<i>American Control Conference (ACC)</i>, 2022.'),
+    ('C9', '2021', 'W. Cai, H. Nejatbakhsh Esfahani, <b>A. Bahari Kordabad</b>, and S. Gros', 'Optimal management of the peak power penalty for smart grids using MPC-based reinforcement learning', 'https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9683333&casa_token=_HqLiFNW4-sAAAAA:diQ53ZqnSJGUPwL1Um_PZVZFsuIi7JaOrgwtTgDHOR38HsAEWLLkM3D0WlsThDfAspl0D6XTBw', '<i>60th Conference on Decision and Control (CDC)</i>, 2021.'),
+    ('C8', '2021', 'W. Cai, <b>A. Bahari Kordabad</b>, H. Nejatbakhsh Esfahani, A. M. Lekkas, and S. Gros', 'MPC-based reinforcement learning for a simplified freight mission of autonomous surface vehicles', 'https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9683750&casa_token=RjPuSds4iHEAAAAA:C7X56Ee9zXTOGjKQ3QyPU2TKy6-mPzSjjil_J_7AJThTw7iBzr4uC1olfa0spnNXSszYqiYBxw', '<i>60th Conference on Decision and Control (CDC)</i>, 2021.'),
+    ('C7', '2021', '<b>A. Bahari Kordabad</b>, W. Cai, and S. Gros', 'Multi-agent battery storage management using MPC-based reinforcement learning', 'https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9659202&casa_token=pnryLfxViFoAAAAA:6rB4AtRFiAWrBMnLFifVnHsQpMZCLzPSq71Pynok5nGEH66OtQf81gyyjTm0ZiG2NJuDcPZhVg', '<i>IEEE Conference on Control Technology and Applications (CCTA)</i>, 2021.'),
+    ('C6', '2021', '<b>A. Bahari Kordabad</b>, and S. Gros', 'Verification of dissipativity and evaluation of storage function in economic nonlinear MPC using Q-Learning', 'https://arxiv.org/pdf/2105.11313', '<i>7th IFAC Conference on Nonlinear Model Predictive Control</i>, 2021.'),
+    ('C5', '2021', 'H. Nejatbakhsh Esfahani, <b>A. Bahari Kordabad</b>, and S. Gros', 'Approximate robust NMPC using reinforcement learning', 'https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9655129&casa_token=1opvEjnEQR0AAAAA:d83iXGvYnIxF0IDEeZel3fFEaUMem1XNYAOeg15Vlz8QrhuCH1I64SNqxfYpXpps3yDAsDkLDw', '<i>19th European Control Conference (ECC)</i>, 2021.'),
+    ('C4', '2021', '<b>A. Bahari Kordabad</b>, H. Nejatbakhsh Esfahani, and S. Gros', 'Bias correction in deterministic policy gradient using robust MPC', 'https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9654962&casa_token=tBCKBTekWwAAAAAA:ZJXw6mMCl8RUF6PYlW9qASB-f7BTnDa91jW_wpHzSwogqd9hILAryXzyOVgJ-qyhjqPKjjHoNA', '<i>19th European Control Conference (ECC)</i>, 2021.'),
+    ('C3', '2021', '<b>A. Bahari Kordabad</b>, W. Cai, and S. Gros', 'MPC-based reinforcement learning for economic problems with application to battery storage', 'https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9654852&casa_token=2InQucucafEAAAAA:Ya1YCuFgf4zElB9TmGXByeZe3nan6cbpAJct2N-Tdj-bk-GoiN9l_lKnBMy3y9kfQ95f1vmCzw', '<i>19th European Control Conference (ECC)</i>, 2021.'),
+    ('C2', '2021', 'H. Nejatbakhsh Esfahani, <b>A. Bahari Kordabad</b>, and S. Gros', 'Reinforcement learning based on MPC/MHE for unmodeled and partially observable dynamics', 'https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9483399&casa_token=fRwEIa4CV7cAAAAA:83_tc2mN_iXV3Xx2bCXTaeraALYL-Ad6I7VEXRA5GrbOg8-_YB8dF1yo5Fu0Nz8fsUdQ_2n15A', '<i>American Control Conference (ACC)</i>, 2021.'),
+    ('C1', '2021', '<b>A. Bahari Kordabad</b>, H. Nejatbakhsh Esfahani, A. M. Lekkas, and S. Gros', 'Reinforcement learning based on scenario-tree MPC for ASVs', 'https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9483100&casa_token=YPvOQZyU09AAAAAA:woKw20OR8h-SG72Hs9xHsK-YXr_Wr0WnJb6QBWMt_kupfRZBcnWvERH5bJPmJJ0QAQnCSvdjpA', '<i>American Control Conference (ACC)</i>, 2021.'),
+]
 
-    <script type="text/javascript">
-        $(window).scroll(function() {
-            if ($(window).scrollTop() >= 200) {    // offset?
-               $(".left-menu-section").addClass("fixed");
-            } else { 
-                $(".left-menu-section").removeClass("fixed");
-            }
-        });
-    </script>
+def grouped_html(entries):
+    years = []
+    for e in entries:
+        if e[1] not in years:
+            years.append(e[1])
+    out = []
+    for y in years:
+        out.append(f'                <h3>{y}</h3>')
+        out.append('                <ul>')
+        for code, year, authors, title, url, venue in [x for x in entries if x[1] == y]:
+            out.append('                    <li>')
+            out.append(f'                        <p><b>[{code}]</b> {authors}, <a href="{escape(url, quote=True)}">&ldquo;{escape(title)}&rdquo;</a>, {venue}</p>')
+            out.append('                    </li>')
+        out.append('                </ul>')
+    return '\n'.join(out)
 
-
-       <style>
-        .profile-img{
+css = r'''
+        .profile-img {
             width: 128px;
             height: 128px;
             border-radius: 50%;
         }
-        .left-menu-section{
+        .main-section {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+        .left-menu-section {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; 
+            justify-content: center;
         }
-        div.menu-item{
-            width: 100%;
-        }
-        
-        .left-menu-section div a{
-            width: 100%;
-                padding: 9px;
-                background-color: #fff;
-                border-radius: 11px;
-                line-height: 2;
-                text-align: center;
-                margin-bottom: 10px;
-                display: inline-block;
-        }
-        #layout-menu{
-            min-width: 15%;
-        }
-        .fixed{
-            position: fixed;
-            left: 30px;
-            top:30px;
-            width: 14%;
-        }
-        table#tlayout {
-            border: none;
-            border-collapse: separate;
-            background: white;
-        }
-
-        body {
-            background: white;
-            font-family: Georgia, serif;
-            padding-bottom: 8px;
-            margin: 0;
-            padding: 0;
-        }
-
-
         #layout-menu {
-            position: -webkit-sticky;
-            /*-webkit-sticky; /* For Safari */
             position: sticky;
-            */ top: 0;
-            /* Stick to the top of the viewport */
-            z-index: 1000;
-            /* Ensures the menu stays above other content */
+            top: 20px;
+            min-width: 220px;
             background: #FFFFE0;
-            border: 1px solid #dddddd;
-            padding-top: 0.5em;
-            padding-left: 8px;
-            padding-right: 8px;
+            border-radius: 20px;
+            border: none;
+            padding: 2rem;
             font-size: 1.0em;
-            width: auto;
             white-space: nowrap;
             text-align: left;
             vertical-align: top;
+            z-index: 1000;
         }
-
-
-
-        #layout-menu td {
-            background: #f4f4f4;
-            vertical-align: top;
-        }
-
-        #layout-content {
-            /* padding-top: 0.0em; */
-            /* padding-left: 1.0em; */
-            /* padding-right: 1.0em; */
-            /* border: none; */
-            /* background: white; */
-            /* text-align: left; */
-            /* vertical-align: top; */
-        }
-
-        #layout-menu a {
-            line-height: 1.5em;
-        }
-
-        tt {
-            background: #ffffdd;
-        }
-
-        pre,
-        tt {
-            font-size: 90%;
-            font-family: monaco, monospace;
-        }
-
-        a,
-        a>tt {
-            color: #224b8d;
-            text-decoration: none;
-        }
-
-        a:hover {
-            border-bottom: 1px gray dotted;
-        }
-
-        #layout-menu a.current:link,
-        #layout-menu a.current:visited {
-            color: #022b6d;
-            border-bottom: 1px gray solid;
-        }
-
-        #layout-menu a:link,
-        #layout-menu a:visited,
-        #layout-menu a:hover {
-            color: #800080;
-            text-decoration: none;
-        }
-
-        #layout-menu a:hover {
-            text-decoration: none;
-        }
-
         div.menu-category {
+            color: #800080;
             border-bottom: 1px solid gray;
             margin-top: 0.8em;
             padding-top: 0.2em;
@@ -161,44 +103,59 @@
             font-weight: bold;
             text-decoration: none !important;
             margin-bottom: 1rem !important;
+            text-align: center;
         }
-
         div.menu-item {
+            width: 100%;
             padding-left: 16px;
             text-indent: -16px;
         }
-
+        .left-menu-section div a {
+            width: 100%;
+            padding: 9px;
+            background-color: #fff;
+            border-radius: 11px;
+            line-height: 2;
+            text-align: center;
+            margin-bottom: 10px;
+            display: inline-block;
+            box-sizing: border-box;
+        }
+        body {
+            background: white;
+            font-family: Georgia, serif;
+            margin: 0;
+            padding: 0;
+            color: #222222;
+        }
+        #layout-content {
+            flex: 1;
+            max-width: 930px;
+        }
+        a, a > tt {
+            color: #224b8d;
+            text-decoration: none;
+        }
+        a:hover {
+            border-bottom: 1px gray dotted;
+        }
+        #layout-menu a:link,
+        #layout-menu a:visited,
+        #layout-menu a:hover {
+            color: #800080;
+            text-decoration: none;
+        }
+        #layout-menu a.current:link,
+        #layout-menu a.current:visited {
+            color: #022b6d;
+            border-bottom: 1px gray solid;
+        }
         div#toptitle {
             padding-bottom: 0.2em;
             margin-bottom: 1.5em;
             border-bottom: 3px double gray;
         }
-
-        /* Reduce space if we begin the page with a title. */
-        div#toptitle+h2,
-        div#toptitle+h3 {
-            margin-top: -0.7em;
-        }
-
-        div#subtitle {
-            margin-top: 0.0em;
-            margin-bottom: 0.0em;
-            padding-top: 0em;
-            padding-bottom: 0.1em;
-        }
-
-        em {
-            font-style: italic;
-        }
-
-        strong {
-            font-weight: bold;
-        }
-
-
-        h1,
-        h2,
-        h3 {
+        h1, h2, h3 {
             color: #800080;
             margin-top: 0.7em;
             margin-bottom: 0.3em;
@@ -207,681 +164,96 @@
             padding-top: 0.5em;
             border-bottom: 1px solid #aaaaaa;
         }
-
-        h1 {
-            font-size: 165%;
-        }
-
-        h2 {
-            padding-top: 0.8em;
-            font-size: 125%;
-        }
-
-        h2+h3 {
-            padding-top: 0.2em;
-        }
-
-        h3 {
-            font-size: 110%;
-            border-bottom: none;
-        }
-
+        h1 { font-size: 165%; }
+        h2 { padding-top: 0.8em; font-size: 125%; }
+        h3 { font-size: 110%; border-bottom: none; }
         p {
             margin-top: 0.0em;
             margin-bottom: 0.8em;
             padding: 0;
-            line-height: 1.3;
+            line-height: 1.35;
         }
-
-        pre {
-            padding: 0;
-            margin: 0;
-        }
-
-        div#footer {
-            font-size: small;
-            border-top: 1px solid #c0c0c0;
-            padding-top: 0.1em;
-            margin-top: 4.0em;
-            color: #c0c0c0;
-        }
-
-        div#footer a {
-            color: #80a0b0;
-        }
-
-        div#footer-text {
-            float: left;
-            padding-bottom: 8px;
-        }
-
-        ul,
-        ol,
-        dl {
+        ul, ol, dl {
             margin-top: 0.2em;
             padding-top: 0;
             margin-bottom: 0.8em;
         }
-
-        dt {
-            margin-top: 0.5em;
-            margin-bottom: 0;
-        }
-
-        dl {
-            margin-left: 20px;
-        }
-
-        dd {
-            color: #222222;
-        }
-
-        dd>*:first-child {
-            margin-top: 0;
-        }
-
         ul {
             list-style-position: outside;
             list-style-type: square;
         }
-
-        p+ul,
-        p+ol {
-            margin-top: -0.5em;
+        li p {
+            margin-bottom: 0.55em;
         }
-
-        li ul,
-        li ol {
-            margin-top: -0.3em;
+        div#footer {
+            font-size: small;
+            border-top: 1px solid #c0c0c0;
+            padding-top: 0.4em;
+            margin-top: 4.0em;
+            color: #808080;
         }
-
-        ol {
-            list-style-position: outside;
-            list-style-type: decimal;
-        }
-
-        li p,
-        dd p {
-            margin-bottom: 0.3em;
-        }
-
-
-        ol ol {
-            list-style-type: lower-alpha;
-        }
-
-        ol ol ol {
-            list-style-type: lower-roman;
-        }
-
-        p+div.codeblock {
-            margin-top: -0.6em;
-        }
-
-        div.codeblock,
-        div.infoblock {
-            margin-right: 0%;
-            margin-top: 1.2em;
-            margin-bottom: 1.3em;
-        }
-
-        div.blocktitle {
-            font-weight: bold;
-            color: #cd7b62;
-            margin-top: 1.2em;
-            margin-bottom: 0.1em;
-        }
-
-        div.blockcontent {
-            border: 1px solid silver;
-            padding: 0.3em 0.5em;
-        }
-
-        div.infoblock>div.blockcontent {
-            background: #ffffee;
-        }
-
-        div.blockcontent p+ul,
-        div.blockcontent p+ol {
-            margin-top: 0.4em;
-        }
-
-        div.infoblock p {
-            margin-bottom: 0em;
-        }
-
-        div.infoblock li p,
-        div.infoblock dd p {
-            margin-bottom: 0.5em;
-        }
-
-        div.infoblock p+p {
-            margin-top: 0.8em;
-        }
-
-        div.codeblock>div.blockcontent {
-            background: #f6f6f6;
-        }
-
-        span.pycommand {
-            color: #000070;
-        }
-
-        span.statement {
-            color: #008800;
-        }
-
-        span.builtin {
-            color: #000088;
-        }
-
-        span.special {
-            color: #990000;
-        }
-
-        span.operator {
-            color: #880000;
-        }
-
-        span.error {
-            color: #aa0000;
-        }
-
-        span.comment,
-        span.comment>*,
-        span.string,
-        span.string>* {
-            color: #606060;
-        }
-
+        img { border: none; }
         @media print {
-            #layout-menu {
-                display: none;
-            }
+            #layout-menu { display: none; }
+            .main-section { display: block; padding: 0; }
         }
-
-        #fwtitle {
-            margin: 2px;
+        @media (max-width: 800px) {
+            .main-section { flex-direction: column; }
+            #layout-menu { position: static; width: auto; min-width: 0; }
         }
+'''
 
-        #fwtitle #toptitle {
-            padding-left: 0.5em;
-            margin-bottom: 0.5em;
-        }
-
-        #layout-content h1:first-child,
-        #layout-content h2:first-child,
-        #layout-content h3:first-child {
-            margin-top: -0.7em;
-        }
-
-        div#toptitle h1,
-        #layout-content div#toptitle h1 {
-            margin-bottom: 0.0em;
-            padding-bottom: 0.1em;
-            padding-top: 0;
-            margin-top: 0.5em;
-            border-bottom: none;
-        }
-
-        img.eq {
-            padding: 0;
-            padding-left: 0.1em;
-            padding-right: 0.1em;
-            margin: 0;
-        }
-
-        img.eqwl {
-            padding-left: 2em;
-            padding-top: 0.6em;
-            padding-bottom: 0.2em;
-            margin: 0;
-        }
-
-        table {
-            border: 2px solid black;
-            border-collapse: collapse;
-        }
-
-        td {
-            padding: 2px;
-            padding-left: 0.5em;
-            padding-right: 0.5em;
-            text-align: center;
-            border: 1px solid gray;
-        }
-
-        table+table {
-            margin-top: 1em;
-        }
-
-        tr.heading {
-            font-weight: bold;
-            border-bottom: 2px solid black;
-        }
-
-        img {
-            border: none;
-        }
-
-        table.imgtable,
-        table.imgtable td {
-            border: none;
-            text-align: left;
-        }
-    </style>
-
+html = f'''<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="jemdoc.css" type="text/css" />
+    <link rel="icon" href="ara.png" type="image/x-icon" />
+    <title>Publication</title>
     <style>
-        /* Style for the news container */
-        #news-container {
-            width: 500px;
-            /* Increased width */
-            height: 224px;
-            /* Same height as the photo */
-            border: 1px solid #ccc;
-            overflow-y: auto;
-            /* Adds a scrollbar for vertical overflow */
-            padding: 10px;
-            margin-top: 10px;
-            margin-left: 20px;
-            /* Pushes the news box a bit to the left */
-            box-sizing: border-box;
-        }
-
-        #news-container h3 {
-            margin-top: 0;
-            text-align: center;
-        }
-
-        #news-container ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-
-        /* Style adjustments for address and URL */
-        .contact-info {
-            white-space: pre-wrap;
-            /* Allows line breaks in addresses and URLs */
-        }
-        #layout-menu{
-            border-radius: 20px;
-            border: none;
-            padding: 2rem;
-        }
-        .main-section{
-            display: flex;
-            gap: 2rem;
-        } 
-
+{css}
     </style>
-
+</head>
 <body>
     <div class="main-section">
-    <table summary="Table for page layout." id="tlayout">
-        <tr valign="top">
-               <div id="layout-menu">
-                <div  class="left-menu-section">
-                    <img src="https://arashbaharik.github.io/ara.png" class="profile-img" alt="">
-                    <div class="menu-category">Arash Bahari Kordabad</div>
-                    <div class="menu-item"><a href="index.html">Home</a></div>
-                    <div class="menu-item"><a href="publication.html" class="current">Publication</a></div>
-                    <div class="menu-item"><a href="miscellaneous.html">Miscellaneous</a></div>
-                    <div class="menu-item"><a href="research.html">Research</a></div>
-                    <div class="menu-item"><a href="slides.html">Slides</a></div>
-                    <div class="menu-item"><a href="photos.html">Photos</a></div>
-                </div>
+        <div id="layout-menu">
+            <div class="left-menu-section">
+                <img src="https://arashbaharik.github.io/ara.png" class="profile-img" alt="Arash Bahari Kordabad" />
+                <div class="menu-category">Arash Bahari Kordabad</div>
+                <div class="menu-item"><a href="index.html">Home</a></div>
+                <div class="menu-item"><a href="publication.html" class="current">Publication</a></div>
+                <div class="menu-item"><a href="miscellaneous.html">Miscellaneous</a></div>
+                <div class="menu-item"><a href="research.html">Research</a></div>
+                <div class="menu-item"><a href="slides.html">Slides</a></div>
+                <div class="menu-item"><a href="photos.html">Photos</a></div>
             </div>
-            <div id="layout-content">
-                <div id="toptitle">
-                    <h1>Publication</h1>
-                </div>
+        </div>
 
-                <h2>2025</h2>
-                <ul>
-  <li>
-    <p>
-      [C19] <b>A. Bahari Kordabad</b>, A. Ghosh, S. Stroeve, and S. Soudjani,
-      <a href="https://www.sesarju.eu/sites/default/files/documents/sid/2025/papers/SIDs_2025_paper_49-final.pdf">
-        "Intent-Aware MPC for Aircraft Detect-and-Avoid with Response Delay: A Comparative Study with ACAS Xu."
-      </a>
-      <i>SESAR Innovation Days (SIDs)</i>, 2025.
-    </p>
-  </li>
-
-  <li>
-    <p>
-      [C18] <b>A. Bahari Kordabad</b>, A. Da Col, A. Ghosh, S. Stroeve, and S. Soudjani,
-      <a href="https://ieeexplore.ieee.org/abstract/document/11186903">
-        "Robust Model Predictive Control for Aircraft Intent-Aware Collision Avoidance."
-      </a>
-      <i>23rd European Control Conference (ECC)</i>, 2025.
-    </p>
-  </li>
-</ul>
-                
-
-
-                <h2>2024</h2>
-
-                <ul>
-                    <li>
-                        <p>
-                            [C17] <b>A. Bahari Kordabad</b>, E. E.Vlahakis, L. Lindemann, D. V. Dimarogonas, and S.
-                            Soudjani, 
-                            <a href="https://ieeexplore.ieee.org/document/10886437">
-                            "Distributionally Robust Control for Chance-Constrained Signal Temporal Logic
-                            Specifications," <i>IEEE Conference on Decision and Control (CDC)</i>, 2024. </a>
-                        </p>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li>
-                        <p>
-                            [C16] <b>A. Bahari Kordabad</b>, M. Charitidou, D. V. Dimarogonas, and S. Soudjani, <a
-                                href="https://ieeexplore.ieee.org/document/10591078">"Control Barrier Functions for
-                                Stochastic Systems under Signal Temporal Logic Tasks,"</a> <i>European Control
-                                Conference (ECC)</i>, 2024.
-                        </p>
-                    </li>
-                </ul>
-
-
-
-                <h2>2023</h2>
-                <ul>
-                    <li>
-                        <p>
-                            [J8] <b>A. Bahari Kordabad</b>, and S. Gros, <a
-                                href="https://link.springer.com/article/10.1007/s40435-023-01217-2">"Lyapunov-based
-                                robust optimal control for time-delay systems with application in milling process"</a>,
-                            <i> International Journal of Dynamics and Control</i>, 2023.
-                        </p>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li>
-                        <p>
-                            [C15] S. Sawant, D. Reinhardt, <b>A. Bahari Kordabad</b>, and S. Gros, "Model-free
-                            Data-driven Predictive Control Using Reinforcement Learning"</a>, <i>IEEE Conference on
-                                Decision and Control (CDC)</i>, 2023.
-                        </p>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li>
-                        <p>
-                            [J7] <b>A. Bahari Kordabad</b>, M. Zanon, and S. Gros, <a
-                                href="https://ieeexplore.ieee.org/document/10128704">"Equivalence of Optimality Criteria
-                                for Markov Decision Process and Model Predictive Control"</a>, <i>IEEE Transactions on
-                                Automatic Control</i>, 2023.
-                        </p>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li>
-                        <p>
-                            [C14] <b>A. Bahari Kordabad</b>, and S. Gros, <a
-                                href="https://ieeexplore.ieee.org/document/10178324">"Continuous-time Chance-constrained
-                                Stochastic Model Predictive Control using Multiple Shooting and CVaR"</a>, <i>European
-                                Control Conference (ECC)</i>, 2023.
-                        </p>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li>
-                        <p>
-                            [C13] <b>A. Bahari Kordabad</b>, and S. Gros, <a
-                                href="https://ieeexplore.ieee.org/document/10178359">"Bias correction of discounted
-                                optimal steady state using cost modification"</a>, <i>European Control Conference
-                                (ECC)</i>, 2023.
-                        </p>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li>
-                        <p>
-                            [C12] <b>A. Bahari Kordabad</b>, D. Reinhardt, A. S. Anand, and S. Gros, <a
-                                href="https://www.sciencedirect.com/science/article/pii/S2405896323009151">"Reinforcement
-                                Learning for MPC Fundamentals and Current Challenges"</a>, <i>IFAC World Congress
-                                2023</i>.
-                        </p>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li>
-                        <p>
-                            [J6] W. Cai, <b>A. Bahari Kordabad</b>, and S. Gros, <a
-                                href="https://doi.org/10.1016/j.engappai.2022.105793"> "Energy management in residential
-                                microgrid using model predictive control-based reinforcement learning and Shapley
-                                value"</a>, <i>Engineering Applications of Artificial Intelligence</i>, Volume 119, p
-                            105793, 2023. [<a
-                                href="  https://www.sciencedirect.com/science/article/pii/S0952197622007837/pdfft?md5=d54fec6ce1440276f3bc6ab22cd5bf80&pid=1-s2.0-S0952197622007837-main.pdf">PDF</a>]
-                        </p>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li>
-                        <p>
-                            [J5] H. Nejatbakhsh Esfahani, <b>A. Bahari Kordabad</b>, W. Cai, and S. Gros, <a
-                                href="https://www.sciencedirect.com/science/article/pii/S0947358023001085">
-                                "Learning-based State Estimation and Control using MHE and MPC Schemes with Imperfect
-                                Models"</a>, <i> European Journal of Control </i>, 2023.
-                        </p>
-                    </li>
-                </ul>
-
-
-                <h2>2022</h2>
-
-
-
-
-                <ul>
-                    <li>
-                        <p>
-                            [J4] K. Seel, <b>A. Bahari Kordabad</b>, S. Gros, J. Tommy Gravdah, <a
-                                href="https://ieeexplore.ieee.org/abstract/document/9944720"> "Convex Neural
-                                Network-based Cost Modifications for Learning Model Predictive Control"</a>, <i> IEEE
-                                Open Journal of Control Systems </i>, p 366-379, 2022. [<a
-                                href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9944720">PDF</a>]
-                        </p>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li>
-                        <p>
-                            [J3] <b>A. Bahari Kordabad</b>, R. Wisniewski, and S. Gros, <a
-                                href="https://ieeexplore.ieee.org/abstract/document/9982609"> "Safe Reinforcement
-                                Learning Using Wasserstein Distributionally Robust MPC and Chance Constraint"</a>, <i>
-                                IEEE Access </i>, Volume 10, p 130058 - 130067, 2022. [<a
-                                href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9982609">PDF</a>]
-                        </p>
-                    </li>
-                </ul>
-
-
-
-                <ul>
-                    <li>
-                        <p>
-                            [J2] <b>A. Bahari Kordabad</b>, and S. Gros, <a
-                                href="https://doi.org/10.1016/j.engappai.2022.105343">"Q-Learning of the Storage
-                                Function in Economic Nonlinear Model Predictive Control"</a>, <i>Engineering
-                                Applications of Artificial Intelligence</i>, Volume 116, p 105343, 2022 . [<a
-                                href="https://reader.elsevier.com/reader/sd/pii/S0952197622003694?token=5D988B80637D75E7AED9F3CDBAC0AFD6E8663D20D5035F938552C1E3200F64E76684823BDF638F4CF9793D96173CFC26&originRegion=eu-west-1&originCreation=20220907005638">PDF</a>]
-                        </p>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li>
-                        <p>
-                            [C11] <b>A. Bahari Kordabad</b>, and S. Gros, <a
-                                href="https://ieeexplore.ieee.org/document/9838064">"Functional stability of discounted
-                                MDPs using Economic MPC dissipativity theory"</a>, <i>European Control Conference
-                                (ECC)</i>, 2022. [<a href="https://arxiv.org/pdf/2203.16989.pdf">PDF</a>]
-                        </p>
-                    </li>
-                </ul>
-
-
-                <ul>
-                    <li>
-                        <p>
-                            [C10] <b>A. Bahari Kordabad</b>, H. Nejatbakhsh Esfahani, W.Cai and S. Gros, <a
-                                href="https://ieeexplore.ieee.org/document/9867217">"Quasi-Newton Iteration in
-                                Deterministic Policy Gradient"</a>, <i>American Control Conference (ACC)</i>, 2022. [<a
-                                href="https://arxiv.org/pdf/2203.13854.pdf">PDF</a>]
-                        </p>
-                    </li>
-                </ul>
-
-                <h2>2021</h2>
-
-                <ul>
-                    <li>
-                        <p>
-                            [C9] W.Cai, H. Nejatbakhsh Esfahani, <b>A. Bahari Kordabad</b>, and S. Gros, <a
-                                href="https://arxiv.org/abs/2108.01459">"Optimal Management of the Peak Power Penalty
-                                for Smart Grids Using MPC-based Reinforcement Learning"</a>, <i>60th Conference on
-                                Decision and Control (CDC)</i>, 2021.
-                            [<a href="https://arxiv.org/pdf/2108.01459.pdf">PDF</a>]
-                        </p>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li>
-                        <p>
-                            [C8] W. Cai, <b>A. Bahari Kordabad</b>, H. Nejatbakhsh Esfahani, A. M. Lekkas, and S. Gros,
-                            <a href="https://arxiv.org/abs/2106.08634">"MPC-based Reinforcement Learning for a
-                                Simplified Freight Mission of Autonomous Surface Vehicles"</a>, <i>60th Conference on
-                                Decision and Control (CDC)</i>, 2021.
-                            [<a href="https://arxiv.org/pdf/2106.08634.pdf">PDF</a>]
-                        </p>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li>
-                        <p>
-                            [C7] <b>A. Bahari Kordabad</b>, W. Cai, and S. Gros, <a
-                                href="https://arxiv.org/abs/2106.03541">"Multi-agent Battery Storage Management using
-                                MPC-based Reinforcement Learning"</a>, <i>IEEE Conference on Control Technology and
-                                Applications (CCTA)</i>, 2021.
-                            [<a href="https://arxiv.org/pdf/2106.03541.pdf">PDF</a>]
-                        </p>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li>
-                        <p>
-                            [C6] <b>A. Bahari Kordabad</b>, and S. Gros, <a
-                                href="https://doi.org/10.1016/j.ifacol.2021.08.562">"Verification of Dissipativity and
-                                Evaluation of Storage Function in Economic Nonlinear MPC using Q-Learning"</a>, <i>
-                                IFAC-PapersOnLine, vol. 54, no. 6, pp. 308–313, 7th IFAC Conferenceon Nonlinear Model
-                                Predictive Control NMPC </i>, 2021.
-                            [<a href="https://arxiv.org/pdf/2105.11313.pdf">PDF</a>]
-                        </p>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li>
-                        <p>
-                            [C5] H. Nejatbakhsh Esfahani, <b>A. Bahari Kordabad</b>, and S. Gros, <a
-                                href="https://arxiv.org/abs/2104.02743">"Approximate Robust NMPC using Reinforcement
-                                Learning"</a>, <i>European Control Conference (ECC)</i>, 2021.
-                            [<a href="https://arxiv.org/pdf/2104.02743.pdf">PDF</a>]
-                        </p>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li>
-                        <p>
-                            [C4] <b>A. Bahari Kordabad</b>, H. Nejatbakhsh Esfahani, and S. Gros, <a
-                                href="https://arxiv.org/abs/2104.02413">"Bias Correction in Deterministic Policy
-                                Gradient Using Robust MPC"</a>, <i>European Control Conference (ECC)</i>, 2021.
-                            [<a href="https://arxiv.org/pdf/2104.02413.pdf">PDF</a>]
-                        </p>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li>
-                        <p>
-                            [C3] <b>A. Bahari Kordabad</b>, W. Cai, and S. Gros, <a
-                                href="https://arxiv.org/abs/2104.02411">"MPC-based reinforcement learning for economic
-                                problems with application to battery storage"</a>, <i>European Control Conference
-                                (ECC)</i>, 2021.
-                            [<a href="https://arxiv.org/pdf/2104.02411.pdf">PDF</a>]
-
-                        </p>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li>
-                        <p>
-
-                            [C2] H. Nejatbakhsh Esfahani, <b>A. Bahari Kordabad</b>, and S. Gros, <a
-                                href="https://ieeexplore.ieee.org/document/9483399">"Reinforcement learning basedon
-                                MPC/MHE for unmodeled and partially observable dynamics"</a>, <i>American Control
-                                Conference (ACC)</i>, 2021.
-                            [<a href="https://arxiv.org/pdf/2103.11871.pdf">PDF</a>]
-
-                        </p>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li>
-                        <p>
-
-                            [C1]<b> A. Bahari Kordabad</b>, H. Nejatbakhsh Esfahani, A. M. Lekkas, and S. Gros,<a
-                                href="https://ieeexplore.ieee.org/document/9483100">"Reinforcement learning based on
-                                scenario-tree MPC for ASVs"</a>, <i>American Control Conference (ACC)</i>, 2021.
-                            [<a href="https://arxiv.org/pdf/2103.11949.pdf">PDF</a>]
-
-                        </p>
-                    </li>
-                </ul>
-
-
-                <h2>2020</h2>
-                <ul>
-                    <li>
-                        <p>
-
-                            [J1]<b> A. Bahari Kordabad</b>, and M. Boroushaki, <a
-                                href="https://jacm.scu.ac.ir/article_14664_0.html">"Emotional Learning Based Intelligent
-                                Controller for MIMO Peripheral Milling Process"</a>. <i>Journal of Applied and
-                                Computational Mechanics</i>, 6(3), 480-492, 2020.
-                            [<a
-                                href="https://jacm.scu.ac.ir/article_14664_ea890919d7e100969689ea5539724004.pdf">PDF</a>]
-                    </li>
-                </ul>
-                <div id="footer">
-                    <div id="footer-text">
-                        Last Update 2024-08-05.
-                    </div>
-                </div>
+        <div id="layout-content">
+            <div id="toptitle">
+                <h1>Publication</h1>
             </div>
-        </tr>
-    </table>
+
+            <h2>Journal Publications</h2>
+{grouped_html(journals)}
+
+            <h2>Conference Publications</h2>
+{grouped_html(conferences)}
+
+            <div id="footer">
+                <div id="footer-text">Last Update 2026-07-28.</div>
+            </div>
+        </div>
     </div>
 </body>
-
 </html>
+'''
 
+out = Path('/mnt/data/publication.html')
+out.write_text(html, encoding='utf-8')
+# basic sanity checks
+assert '<a href="<a href=' not in html
+assert html.count('<li>') == len(journals) + len(conferences)
+print(f'Wrote {out} with {len(journals)} journal entries and {len(conferences)} conference entries.')
