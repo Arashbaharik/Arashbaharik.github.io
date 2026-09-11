@@ -33,6 +33,13 @@ window.SITE = window.SITE || {};
 window.SITE.scholar = """
 
 
+def note(level, msg):
+    """Print, and in GitHub Actions also raise a visible annotation (notice/warning)."""
+    print(msg)
+    if os.environ.get("GITHUB_ACTIONS") == "true":
+        print("::%s title=Scholar stats::%s" % (level, msg))
+
+
 def fetch():
     req = urllib.request.Request(PROFILE, headers={
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -86,18 +93,18 @@ def main():
     try:
         data = parse(fetch())
     except Exception as err:  # blocked, offline, or layout change: keep the old file
-        print("Could not update Scholar stats: %s. Keeping the existing data." % err)
+        note("warning", "Could not update Scholar stats: %s. Keeping the existing data." % err)
         return 0
 
     old = read_existing()
     if old:
         # Guard against a half-rendered page: citations never drop sharply.
         if data["citations"] < 0.8 * old.get("citations", 0):
-            print("Suspicious drop (%s -> %s). Keeping the existing data." % (old.get("citations"), data["citations"]))
+            note("warning", "Suspicious drop (%s -> %s). Keeping the existing data." % (old.get("citations"), data["citations"]))
             return 0
         same = {k: v for k, v in old.items() if k != "updated"} == data
         if same:
-            print("No change: %d citations, h-index %d, i10-index %d." % (data["citations"], data["hIndex"], data["i10Index"]))
+            note("notice", "Fetched OK, no change: %d citations, h-index %d, i10-index %d." % (data["citations"], data["hIndex"], data["i10Index"]))
             return 0
 
     data["updated"] = datetime.date.today().isoformat()
@@ -107,7 +114,7 @@ def main():
         return 0
     with open(OUT, "w", encoding="utf-8", newline="\n") as fh:
         fh.write(HEADER + json.dumps(data, indent=2, ensure_ascii=False) + ";\n")
-    print("Wrote %s" % os.path.normpath(OUT))
+    note("notice", "Fetched OK and updated: %d citations, h-index %d, i10-index %d." % (data["citations"], data["hIndex"], data["i10Index"]))
     return 0
 
 
