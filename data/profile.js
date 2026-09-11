@@ -200,15 +200,6 @@ window.SITE.profile = {
         { en: "Joint papers: [Robust MPC for Aircraft Intent-Aware Collision Avoidance](https://arxiv.org/abs/2408.06999) and [Second-Order Policy Gradient Methods for the LQR](https://arxiv.org/abs/2511.02095).",
           de: "Gemeinsame Publikationen: [Robust MPC for Aircraft Intent-Aware Collision Avoidance](https://arxiv.org/abs/2408.06999) und [Second-Order Policy Gradient Methods for the LQR](https://arxiv.org/abs/2511.02095)." }
       ]
-    },
-    {
-      when: "2020 – 2023",
-      title: { en: "Mentoring new PhD students", de: "Mentoring neuer Doktorand:innen" },
-      org: "NTNU",
-      details: [
-        { en: "Helping them find their way in the academic environment and giving feedback on their work.",
-          de: "Orientierung im akademischen Umfeld und Feedback zu ihrer Arbeit." }
-      ]
     }
   ],
 
@@ -224,9 +215,12 @@ window.SITE.profile = {
     },
     {
       when: "2021",
-      title: { en: "Lecture: Stability of Perturbed Systems", de: "Vorlesung: Stabilität gestörter Systeme" },
+      title: { en: "Course section: Stability of Perturbed Systems", de: "Kursabschnitt: Stabilität gestörter Systeme" },
       org: { en: "NTNU, PhD course Advanced Nonlinear Systems (TK8103)", de: "NTNU, Doktorandenkurs Advanced Nonlinear Systems (TK8103)" },
-      details: []
+      details: [
+        { en: "Taught this part of the course with slides, illustrations and handwritten proofs.",
+          de: "Diesen Teil des Kurses mit Folien, Illustrationen und handschriftlichen Beweisen unterrichtet." }
+      ]
     },
     {
       when: "2017 – 2019",
