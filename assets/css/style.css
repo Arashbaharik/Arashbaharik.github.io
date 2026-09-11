@@ -1046,6 +1046,30 @@ address { font-style: normal; color: var(--muted); line-height: 1.6; }
 .lost h1 { margin: 0 0 1rem; font-size: var(--step-4); line-height: 1.05; font-weight: 600; letter-spacing: -0.015em; }
 .lost p { font-size: var(--step-1); margin: 0 0 1.5rem; }
 
+/* ---- Imprint / privacy ------------------------------------------------- */
+main.legal { padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter) 5rem; }
+.legal-inner { max-width: 44rem; margin: 0 auto; }
+.legal h1 {
+  margin: 0 0 2.5rem;
+  font-size: var(--step-3);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.legal h1 .sep { color: var(--accent); font-weight: 400; }
+.legal section {
+  margin-bottom: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: calc(var(--header-h) + 1rem);
+}
+.legal h2 { margin: 0 0 0.35rem; font-size: var(--step-2); font-weight: 600; line-height: 1.2; }
+.legal h3 { margin: 1.75rem 0 0.4rem; font-size: var(--step-0); font-weight: 600; }
+.legal p, .legal address { max-width: var(--measure); margin: 0 0 0.9rem; }
+.legal address { font-style: normal; line-height: 1.6; }
+.legal .legal-kicker { margin-bottom: 1.5rem; font-family: var(--mono); font-size: var(--step--1); color: var(--muted); }
+.legal-back { font-family: var(--mono); font-size: var(--step--1); color: var(--muted); }
+
 /* ---- Reduced motion ---------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within { scroll-behavior: auto; }

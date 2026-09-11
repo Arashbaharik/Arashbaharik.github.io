@@ -25,6 +25,9 @@ index.html            single page: hero + sections (career, research, publicatio
                       talks, honours, contact); static shells filled by JS.
                       News and About were removed at the owner's request (Sep 2026).
 404.html              GitHub Pages 404; root-relative paths; redirects old page URLs
+imprint.html          Impressum (DE + EN), § 5 DDG / § 18 MStV
+privacy.html          Datenschutzerklärung (DE + EN): GitHub Pages hosting, GoatCounter, localStorage.
+                      Update it whenever a service or data flow is added.
 favicon.ico
 .nojekyll            serve files as they are (no Jekyll build on GitHub Pages)
 google862b2454543b247b.html  Google Search Console verification: never delete

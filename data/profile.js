@@ -72,8 +72,8 @@ window.SITE.profile = {
 
   // Imprint and privacy pages. German law expects an imprint for most personal sites.
   legal: {
-    imprint: "imprint.html", // TODO: create this page or link to an existing imprint
-    privacy: "privacy.html"  // TODO: create this page or link to an existing privacy notice
+    imprint: "imprint.html",
+    privacy: "privacy.html"  // mentions GitHub Pages hosting and GoatCounter; update it if you add services
   },
 
   // Positions and education, newest first. `to: null` means "present".
