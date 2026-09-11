@@ -185,13 +185,78 @@ window.SITE.profile = {
 
   service: [
     { en: "Reviewer for ACC, ECC, CDC and NMPC, and for journals including [ISA Transactions](Certificate_ISATRA_Recognised.pdf) and [Engineering Applications of Artificial Intelligence](Certificate_EAAI_Recognised.pdf).",
-      de: "Gutachter für ACC, ECC, CDC und NMPC sowie für Zeitschriften wie [ISA Transactions](Certificate_ISATRA_Recognised.pdf) und [Engineering Applications of Artificial Intelligence](Certificate_EAAI_Recognised.pdf)." },
-    { en: "Teaching assistant, Automatic Control, Sharif University of Technology.",
-      de: "Lehrassistent für Regelungstechnik, Sharif University of Technology." },
-    { en: "Teaching assistant, Ordinary Differential Equations, University of Tabriz.",
-      de: "Lehrassistent für gewöhnliche Differentialgleichungen, University of Tabriz." },
-    { en: "Taught mathematics and physics to high-school students.",
-      de: "Unterricht in Mathematik und Physik für Schülerinnen und Schüler." }
+      de: "Gutachter für ACC, ECC, CDC und NMPC sowie für Zeitschriften wie [ISA Transactions](Certificate_ISATRA_Recognised.pdf) und [Engineering Applications of Artificial Intelligence](Certificate_EAAI_Recognised.pdf)." }
+  ],
+
+  // "Teaching & supervision" section. Newest first; `when` is free text.
+  supervision: [
+    {
+      when: { en: "since 2023", de: "seit 2023" },
+      title: { en: "Research interns", de: "Forschungspraktikanten" },
+      org: { en: "Max Planck Institute for Software Systems", de: "Max-Planck-Institut für Softwaresysteme" },
+      details: [
+        { en: "Two six-month internships: [Andrea Da Col](https://www.linkedin.com/in/andrea-da-col-059792223/), now a PhD student at KTH, and Amirreza Valaei.",
+          de: "Zwei sechsmonatige Praktika: [Andrea Da Col](https://www.linkedin.com/in/andrea-da-col-059792223/), heute Doktorand an der KTH, und Amirreza Valaei." },
+        { en: "Joint papers: [Robust MPC for Aircraft Intent-Aware Collision Avoidance](https://arxiv.org/abs/2408.06999) and [Second-Order Policy Gradient Methods for the LQR](https://arxiv.org/abs/2511.02095).",
+          de: "Gemeinsame Publikationen: [Robust MPC for Aircraft Intent-Aware Collision Avoidance](https://arxiv.org/abs/2408.06999) und [Second-Order Policy Gradient Methods for the LQR](https://arxiv.org/abs/2511.02095)." }
+      ]
+    },
+    {
+      when: "2020 – 2023",
+      title: { en: "Mentoring new PhD students", de: "Mentoring neuer Doktorand:innen" },
+      org: "NTNU",
+      details: [
+        { en: "Helping them find their way in the academic environment and giving feedback on their work.",
+          de: "Orientierung im akademischen Umfeld und Feedback zu ihrer Arbeit." }
+      ]
+    }
+  ],
+
+  teaching: [
+    {
+      when: "2022",
+      title: { en: "Textbook on reinforcement learning", de: "Lehrbuch zu Reinforcement Learning" },
+      org: { en: "NTNU, PhD course Topics in Systems and Control Theory (TK8111)", de: "NTNU, Doktorandenkurs Topics in Systems and Control Theory (TK8111)" },
+      details: [
+        { en: "Concise textbook for the self-study course, from foundations to recent advances; evaluated by a committee.",
+          de: "Kompaktes Lehrbuch für den Selbststudienkurs, von den Grundlagen bis zu aktuellen Entwicklungen; von einer Kommission begutachtet." }
+      ]
+    },
+    {
+      when: "2021",
+      title: { en: "Lecture: Stability of Perturbed Systems", de: "Vorlesung: Stabilität gestörter Systeme" },
+      org: { en: "NTNU, PhD course Advanced Nonlinear Systems (TK8103)", de: "NTNU, Doktorandenkurs Advanced Nonlinear Systems (TK8103)" },
+      details: []
+    },
+    {
+      when: "2017 – 2019",
+      title: { en: "Teaching assistant", de: "Lehrassistent" },
+      org: "Sharif University of Technology",
+      details: [
+        { en: "Mechanical Vibrations (2019) and Automatic Control", de: "Mechanische Schwingungen (2019) und Regelungstechnik" }
+      ]
+    },
+    {
+      when: "2017 – 2019",
+      title: { en: "High-school mathematics teacher and coordinator", de: "Mathematiklehrer und Koordinator (Oberstufe)" },
+      org: { en: "[Kanoon Farhangi Amoozesh](https://en.wikipedia.org/wiki/Kanoon_Farhangi_Amoozesh), Tehran", de: "[Kanoon Farhangi Amoozesh](https://en.wikipedia.org/wiki/Kanoon_Farhangi_Amoozesh), Teheran" },
+      details: [ { en: "Four semesters", de: "Vier Semester" } ]
+    },
+    {
+      when: "2015 – 2017",
+      title: { en: "High-school mathematics teacher", de: "Mathematiklehrer (Oberstufe)" },
+      org: { en: "SAYERI Private Educational Institution, Tabriz", de: "SAYERI Private Educational Institution, Täbris" },
+      details: [ { en: "Four semesters", de: "Vier Semester" } ]
+    },
+    {
+      when: "2014 – 2016",
+      title: { en: "Teaching assistant", de: "Lehrassistent" },
+      org: "University of Tabriz",
+      details: [
+        { en: "Calculus I and II, Ordinary Differential Equations, Engineering Mathematics",
+          de: "Analysis I und II, gewöhnliche Differentialgleichungen, Ingenieurmathematik" }
+      ]
+    }
   ],
 
   // Supervisors first, marked in parentheses; everyone else with their current title.

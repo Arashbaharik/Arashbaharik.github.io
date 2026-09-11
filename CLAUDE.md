@@ -22,7 +22,7 @@ hosted on GitHub Pages at https://arashbaharik.github.io/.
 
 ```
 index.html            single page: hero + sections (career, research, publications,
-                      talks, honours, contact); static shells filled by JS.
+                      talks, teaching, honours, contact); static shells filled by JS.
                       News and About were removed at the owner's request (Sep 2026).
 404.html              GitHub Pages 404; root-relative paths; redirects old page URLs
 imprint.html          Impressum (DE + EN), § 5 DDG / § 18 MStV
@@ -32,7 +32,7 @@ favicon.ico
 .nojekyll            serve files as they are (no Jekyll build on GitHub Pages)
 google862b2454543b247b.html  Google Search Console verification: never delete
 Certificate_*.pdf     reviewer certificates, kept at their old URLs (linked from profile.js)
-data/profile.js       window.SITE.profile: identity, links, career, projects,
+data/profile.js       window.SITE.profile: identity, links, career, projects, supervision, teaching,
                       honours, service, collaborators, awards, talks, slides, legal
 data/research.js      window.SITE.researchOverview (hero figure) + window.SITE.research (themes)
 data/publications.js  window.SITE.publications: see schema below

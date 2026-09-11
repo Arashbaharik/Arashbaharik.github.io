@@ -95,6 +95,11 @@ part is optional. Save the image in `assets/img/` (about 1200 px wide, JPEG).
                caption: { en: "Conference, October 2026, City", de: "Konferenz, Oktober 2026, Stadt" } } },
 ```
 
+## Teaching and supervision
+
+`supervision:` and `teaching:` in `data/profile.js`, newest first. Each entry has
+`when` (free text, e.g. `2021` or `since 2023`), `title`, `org` and a short `details` list.
+
 ## Collaborators
 
 `collaborators:` in `data/profile.js`. Supervisors first with the role in

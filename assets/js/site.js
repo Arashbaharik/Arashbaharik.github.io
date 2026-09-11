@@ -33,7 +33,8 @@
       copyBib: "Copy BibTeX", copied: "Copied", pressCtrlC: "Press Ctrl+C",
       related: "Related papers ({n})",
       talksH: "Talks & slides", talkPhotos: "Photos from talks", slides: "Slides",
-      honoursH: "Honours & service", honours: "Honours", service: "Reviewing & teaching", collaborators: "Collaborators",
+      honoursH: "Honours & service", honours: "Honours", service: "Reviewing", collaborators: "Collaborators",
+      teachingH: "Teaching & supervision", supervision: "Supervision", teaching: "Teaching",
       contactLead: "For collaborations, student projects or questions about a paper, email is the best way to reach me.",
       copy: "Copy", imprint: "Imprint", privacy: "Privacy", noTrackers: "No cookies, no trackers",
       anonStats: "No cookies, anonymous statistics", visits: "{n} visits", visitorStats: "Visitor statistics",
@@ -44,7 +45,7 @@
       langOther: "Deutsch", langOtherShort: "DE", langOtherCode: "de",
       goResearch: "Research overview; go to the Research section",
       rail_career: "Career", rail_research: "Research", rail_publications: "Publications",
-      rail_talks: "Talks", rail_honours: "Honours", rail_contact: "Contact"
+      rail_talks: "Talks", rail_teaching: "Teaching", rail_honours: "Honours", rail_contact: "Contact"
     },
     de: {
       skip: "Zum Inhalt springen", quickLinks: "Schnellzugriff", sections: "Abschnitte",
@@ -60,7 +61,8 @@
       copyBib: "BibTeX kopieren", copied: "Kopiert", pressCtrlC: "Strg+C drücken",
       related: "Zugehörige Publikationen ({n})",
       talksH: "Vorträge & Folien", talkPhotos: "Fotos von Vorträgen", slides: "Folien",
-      honoursH: "Auszeichnungen & Engagement", honours: "Auszeichnungen", service: "Gutachten & Lehre", collaborators: "Kooperationspartner",
+      honoursH: "Auszeichnungen & Engagement", honours: "Auszeichnungen", service: "Gutachtertätigkeit", collaborators: "Kooperationspartner",
+      teachingH: "Lehre & Betreuung", supervision: "Betreuung", teaching: "Lehre",
       contactLead: "Für Kooperationen, studentische Projekte oder Fragen zu einer Publikation erreichen Sie mich am besten per E-Mail.",
       copy: "Kopieren", imprint: "Impressum", privacy: "Datenschutz", noTrackers: "Keine Cookies, kein Tracking",
       anonStats: "Keine Cookies, anonyme Statistik", visits: "{n} Besuche", visitorStats: "Besucherstatistik",
@@ -71,7 +73,7 @@
       langOther: "English", langOtherShort: "EN", langOtherCode: "en",
       goResearch: "Forschungsüberblick; zum Abschnitt Forschung",
       rail_career: "Werdegang", rail_research: "Forschung", rail_publications: "Publikationen",
-      rail_talks: "Vorträge", rail_honours: "Auszeichnungen", rail_contact: "Kontakt"
+      rail_talks: "Vorträge", rail_teaching: "Lehre", rail_honours: "Auszeichnungen", rail_contact: "Kontakt"
     }
   };
 
@@ -551,6 +553,25 @@
     $("slide-list").previousElementSibling.hidden = !slides.length;
   }
 
+  /* Teaching and supervision use the same entry layout as the career list. */
+  function entriesHtml(list) {
+    return (list || []).map(function (e) {
+      return '<li><span class="when">' + esc(L(e.when) || "") + "</span><div>" +
+        "<h3>" + esc(L(e.title)) + "</h3>" +
+        (e.org ? '<p class="org">' + inline(e.org) + "</p>" : "") +
+        (e.details && e.details.length ? '<ul class="details">' + e.details.map(function (d) { return "<li>" + inline(d) + "</li>"; }).join("") + "</ul>" : "") +
+        "</div></li>";
+    }).join("");
+  }
+
+  function renderTeaching() {
+    $("supervision-list").innerHTML = entriesHtml(P.supervision);
+    $("teaching-list").innerHTML = entriesHtml(P.teaching);
+    $("supervision-list").previousElementSibling.hidden = !(P.supervision || []).length;
+    $("teaching-list").previousElementSibling.hidden = !(P.teaching || []).length;
+    $("teaching").hidden = !(P.supervision || []).length && !(P.teaching || []).length;
+  }
+
   function renderHonours() {
     $("awards").innerHTML = (P.awards || []).map(function (a) {
       var img = a.image
@@ -656,6 +677,7 @@
     renderResearch();
     renderPublications();
     renderTalks();
+    renderTeaching();
     renderHonours();
     renderContact();
   }
