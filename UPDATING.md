@@ -146,11 +146,13 @@ Privacy Control are skipped. Mention GoatCounter in your privacy page.
 ## Google Scholar numbers
 
 The card on the first screen (citations, h-index, i10-index, citations per year) reads
-`data/scholar.js`. A GitHub Action (`.github/workflows/scholar.yml`) refreshes it every day at
-04:17 UTC from your public Scholar profile and commits only when the numbers change.
-To refresh by hand: `python tools/update_scholar.py`, then commit and push. On GitHub you can
-also open **Actions → Update Google Scholar stats → Run workflow**. If Google blocks the
-request, the card simply keeps the last numbers.
+`data/scholar.js`. A Windows scheduled task on your computer, **Scholar stats update**, runs
+`tools/refresh_scholar.ps1` every Monday at 10:00 (or at the next start-up if the computer was
+off). It fetches your public Scholar profile and publishes the file only if the numbers changed;
+it never pushes other unpublished changes. Log: `%LOCALAPPDATA%\arash-site\scholar-refresh.log`.
+
+By hand: `python tools/update_scholar.py`, then commit and push. (Google blocks this request
+from GitHub's own servers, which is why it runs on your computer.)
 
 ## Other text
 

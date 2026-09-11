@@ -5,8 +5,9 @@ update_scholar.py: refresh data/scholar.js from the public Google Scholar profil
     python tools/update_scholar.py            # fetch and write if the numbers changed
     python tools/update_scholar.py --dry-run  # fetch and print only
 
-Runs daily in GitHub Actions (.github/workflows/scholar.yml) and can be run by
-hand. Standard library only. If Google blocks the request or the page layout
+Run weekly on the owner's computer by tools/refresh_scholar.ps1 (Windows task
+"Scholar stats update"); Google blocks the request from GitHub's servers. Can
+also be run by hand. Standard library only. If Google blocks the request or the page layout
 changes, the script leaves the existing file untouched and exits 0, so the site
 keeps showing the last good numbers.
 """
@@ -25,7 +26,7 @@ OUT = os.path.join(HERE, os.pardir, "data", "scholar.js")
 
 HEADER = """/*
  * Google Scholar statistics shown on the first screen.
- * Written by tools/update_scholar.py (GitHub Action, daily). Do not edit by hand;
+ * Written by tools/update_scholar.py (weekly Windows task). Do not edit by hand;
  * `updated` is the date the numbers last changed.
  */
 window.SITE = window.SITE || {};

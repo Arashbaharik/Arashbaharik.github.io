@@ -1,6 +1,6 @@
 /*
  * Google Scholar statistics shown on the first screen.
- * Written by tools/update_scholar.py (GitHub Action, daily). Do not edit by hand;
+ * Written by tools/update_scholar.py (weekly Windows task). Do not edit by hand;
  * `updated` is the date the numbers last changed.
  */
 window.SITE = window.SITE || {};
