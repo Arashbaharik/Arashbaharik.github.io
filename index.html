@@ -1,200 +1,306 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!doctype html>
+<html lang="en" data-theme="green">
 <head>
-    <meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <link rel="stylesheet" href="jemdoc.css" type="text/css" />
-    <link rel="icon" href="ara.png" type="image/x-icon" />
-    <title>Arash Bahari Kordabad</title>
-    <style type="text/css">
-        .profile-img{width:128px;height:128px;border-radius:50%;}
-        .main-section{display:flex;gap:2rem;align-items:flex-start;max-width:1280px;margin:0 auto;padding:1.5rem;}
-        .left-menu-section{display:flex;flex-direction:column;align-items:center;justify-content:center;}
-        div.menu-item{width:100%;padding-left:16px;text-indent:-16px;}
-        .left-menu-section div a{width:100%;padding:9px;background-color:#fff;border-radius:11px;line-height:2;text-align:center;margin-bottom:10px;display:inline-block;box-sizing:border-box;}
-        #layout-menu{position:sticky;top:30px;align-self:flex-start;min-width:220px;background:#FFFFE0;border-radius:20px;border:none;padding:2rem;font-size:1.0em;white-space:nowrap;text-align:left;vertical-align:top;box-sizing:border-box;z-index:10;}
-        body{background:white;font-family:Georgia,serif;padding-bottom:8px;margin:0;padding:0;color:#222222;}
-        #layout-content{flex:1;min-width:0;max-width:980px;padding-left:0;padding-right:1.0em;border:none;background:white;text-align:left;vertical-align:top;}
-        a,a>tt{color:#224b8d;text-decoration:none;} a:hover{border-bottom:1px gray dotted;}
-        #layout-menu a.current:link,#layout-menu a.current:visited{color:#022b6d;border-bottom:1px gray solid;}
-        #layout-menu a:link,#layout-menu a:visited,#layout-menu a:hover{color:#800080;text-decoration:none;}
-        div.menu-category{border-bottom:1px solid gray;margin-top:0.8em;padding-top:0.2em;padding-bottom:0.1em;font-weight:bold;text-decoration:none!important;margin-bottom:1rem!important;color:#800080;text-align:center;}
-        div#toptitle{padding-bottom:0.2em;margin-bottom:1.5em;border-bottom:3px double gray;}
-        h1,h2,h3{color:#800080;margin-top:0.7em;margin-bottom:0.3em;padding-bottom:0.2em;line-height:1.0;padding-top:0.5em;border-bottom:1px solid #aaaaaa;}
-        h1{font-size:165%;} h2{padding-top:0.8em;font-size:125%;} h3{font-size:110%;border-bottom:none;}
-        div#toptitle h1,#layout-content div#toptitle h1{margin-bottom:0.0em;padding-bottom:0.1em;padding-top:0;margin-top:0.5em;border-bottom:none;}
-        p{margin-top:0.0em;margin-bottom:0.8em;padding:0;line-height:1.3;}
-        ul,ol,dl{margin-top:0.2em;padding-top:0;margin-bottom:0.8em;} ul{list-style-position:outside;list-style-type:square;} li p,dd p{margin-bottom:0.3em;}
-        img{border:none;}
-        .intro-table,.exp-table{border:none;border-collapse:separate;margin-bottom:1.1em;width:100%;}
-        .intro-table td,.exp-table td{border:none;text-align:left;vertical-align:top;padding:0.2em 0.6em 0.2em 0;}
-        .intro-photo{width:206px;height:224px;object-fit:cover;}
-        .social-icons img{width:30px;height:30px;margin-right:1.0em;vertical-align:middle;}
-        .exp-table{border:1px solid #dddddd;border-radius:10px;background:#fffffb;padding:0.4em;box-sizing:border-box;}
-        .logo-cell{width:55px;}
-        .logo-cell img{max-width:48px;max-height:42px;object-fit:contain;}
-        .date{float:right;font-weight:bold;color:#333333;}
-        .teal{color:rgb(0,128,128);}
-        div#footer{font-size:small;border-top:1px solid #c0c0c0;padding-top:0.1em;margin-top:4.0em;color:#c0c0c0;}
-        div#footer-text{float:left;padding-bottom:8px;}
-        @media print{#layout-menu{display:none;}.main-section{display:block;padding:0;}}
-        @media (max-width:800px){.main-section{display:block;padding:1rem;}#layout-menu{position:static;min-width:0;width:auto;margin-bottom:1rem;}#layout-content{max-width:none;padding-right:0;}.intro-table td,.exp-table td{display:block;width:auto;}.date{float:none;display:block;margin-top:0.2em;}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arash Bahari Kordabad · Guarantees for Uncertain Systems under Complex Tasks</title>
+  <meta name="description" content="Arash Bahari Kordabad is a postdoctoral researcher at the Max Planck Institute for Software Systems (MPI-SWS) working on control with formal guarantees: signal temporal logic, stochastic certificates, model predictive control and reinforcement learning.">
+  <meta name="author" content="Arash Bahari Kordabad">
+  <link rel="canonical" href="https://arashbaharik.github.io/">
+  <meta name="theme-color" content="#0B3D2E">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="Arash Bahari Kordabad">
+  <meta property="og:title" content="Arash Bahari Kordabad · Guarantees for Uncertain Systems under Complex Tasks">
+  <meta property="og:description" content="Postdoctoral researcher at MPI-SWS. Signal temporal logic, stochastic certificates, model predictive control and reinforcement learning.">
+  <meta property="og:url" content="https://arashbaharik.github.io/">
+  <meta property="og:image" content="https://arashbaharik.github.io/assets/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Arash Bahari Kordabad, Guarantees for Uncertain Systems under Complex Tasks, next to an overview of his research">
+  <meta property="profile:first_name" content="Arash">
+  <meta property="profile:last_name" content="Bahari Kordabad">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+  <link rel="preload" href="assets/fonts/source-serif-4-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script>
+    /* Theme and motion flags, set before first paint. */
+    (function () {
+      var d = document.documentElement;
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "light" || t === "green") d.setAttribute("data-theme", t);
+      } catch (e) {}
+      try {
+        var q = /[?&]lang=(en|de)\b/.exec(location.search);
+        var l = q ? q[1] : localStorage.getItem("lang");
+        if (l === "de" || l === "en") d.lang = l;
+      } catch (e) {}
+      d.classList.add("js");
+      if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        d.classList.add("motion");
+        /* Failsafe: if the scripts never start, show everything. */
+        setTimeout(function () { if (!window.__siteReady) d.classList.remove("motion"); }, 3000);
+      }
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Arash Bahari Kordabad",
+    "givenName": "Arash",
+    "familyName": "Bahari Kordabad",
+    "jobTitle": "Postdoctoral Researcher",
+    "url": "https://arashbaharik.github.io/",
+    "image": "https://arashbaharik.github.io/assets/img/photo.jpg",
+    "email": "mailto:arashbk@mpi-sws.org",
+    "affiliation": {
+      "@type": "ResearchOrganization",
+      "name": "Max Planck Institute for Software Systems",
+      "url": "https://www.mpi-sws.org/"
+    },
+    "workLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Paul-Ehrlich-Straße 26",
+        "postalCode": "67663",
+        "addressLocality": "Kaiserslautern",
+        "addressCountry": "DE"
+      }
+    },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Norwegian University of Science and Technology" },
+      { "@type": "CollegeOrUniversity", "name": "Sharif University of Technology" },
+      { "@type": "CollegeOrUniversity", "name": "University of Tabriz" }
+    ],
+    "knowsAbout": [
+      "Signal Temporal Logic",
+      "Stochastic certificates",
+      "Control barrier functions",
+      "Model predictive control",
+      "Reinforcement learning",
+      "Formal verification"
+    ],
+    "sameAs": [
+      "https://scholar.google.com/citations?user=hEOInHkAAAAJ",
+      "https://www.researchgate.net/profile/Arash-Bahari-Kordabad",
+      "https://www.linkedin.com/in/arash-bahari/",
+      "https://twitter.com/kordabad",
+      "https://www.mpi-sws.org/people/arashbk"
+    ]
+  }
+  </script>
 </head>
 <body>
-    <div class="main-section">
-        <div id="layout-menu">
-            <div class="left-menu-section">
-                <img src="https://arashbaharik.github.io/ara.png" class="profile-img" alt="" />
-                <div class="menu-category">Arash Bahari Kordabad</div>
-                <div class="menu-item"><a href="index.html" class="current">Home</a></div>
-                <div class="menu-item"><a href="publication.html">Publication</a></div>
-                <div class="menu-item"><a href="miscellaneous.html">Miscellaneous</a></div>
-                <div class="menu-item"><a href="research.html">Research</a></div>
-                <div class="menu-item"><a href="slides.html">Slides</a></div>
-                <div class="menu-item"><a href="photos.html">Photos</a></div>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <a class="brand" href="#top">Arash Bahari Kordabad</a>
+    <span class="here" id="here" aria-hidden="true"></span>
+    <nav class="header-links" aria-label="Quick links" data-i18n-aria="quickLinks">
+      <a href="#publications" class="hide-sm" data-i18n="publications">Publications</a>
+      <a href="#contact" data-i18n="contact">Contact</a>
+      <a href="#" id="header-cv" hidden data-i18n="cv">CV</a>
+    </nav>
+    <button class="lang-toggle" id="lang-toggle" type="button" lang="de" aria-label="Deutsch">DE</button>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Use light theme" aria-pressed="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg>
+    </button>
+    <div class="progress" aria-hidden="true"></div>
+  </header>
+
+  <nav class="rail" id="rail" aria-label="Sections" data-i18n-aria="sections">
+    <svg aria-hidden="true" focusable="false">
+      <path class="tube"/>
+      <path class="path-future"/>
+      <path class="path-past"/>
+      <g class="nodes"></g>
+      <circle class="state-halo" r="10"/>
+      <circle class="state" r="4.5"/>
+    </svg>
+    <ol class="rail-links"></ol>
+  </nav>
+
+  <main id="main">
+    <noscript>
+      <div class="noscript">
+        <p>This site shows its content with JavaScript. The essentials:</p>
+        <ul>
+          <li>Arash Bahari Kordabad, Postdoctoral Researcher, Max Planck Institute for Software Systems, Kaiserslautern</li>
+          <li>Email: <a href="mailto:arashbk@mpi-sws.org">arashbk@mpi-sws.org</a></li>
+          <li>Publications: <a href="https://scholar.google.com/citations?user=hEOInHkAAAAJ&amp;hl=en">Google Scholar</a></li>
+          <!-- TODO: uncomment once cv.pdf is in the site root -->
+          <!-- <li><a href="cv.pdf">Curriculum vitae (PDF)</a></li> -->
+        </ul>
+      </div>
+    </noscript>
+
+    <section class="hero" id="top" aria-labelledby="name">
+      <div class="hero-canvas" aria-hidden="true"><canvas id="field"></canvas><canvas id="flow"></canvas></div>
+      <div class="hero-inner">
+        <div class="hero-text">
+          <figure class="portrait">
+            <img id="portrait" src="assets/img/photo.jpg" width="800" height="1000" alt="Portrait of Arash Bahari Kordabad" fetchpriority="high">
+          </figure>
+          <h1 id="name"><span class="given">Arash</span> Bahari Kordabad</h1>
+          <p class="tagline" id="tagline"></p>
+          <p class="affil" id="affil"></p>
+          <ul class="link-list" id="hero-links"></ul>
+        </div>
+        <figure class="hero-figure" id="hero-figure">
+          <a href="#research">
+            <img class="ov-dark" id="ov-dark" src="assets/img/research-overview.jpg" srcset="assets/img/research-overview-1000.jpg 1000w, assets/img/research-overview.jpg 2000w" sizes="(min-width: 70rem) 44rem, 100vw" width="2000" height="1244" alt="Research overview: optimization, learning and certificates steer a system through a specification with robust, probabilistic and almost-sure guarantees" fetchpriority="high">
+            <img class="ov-light" id="ov-light" src="assets/img/research-overview-light.jpg" srcset="assets/img/research-overview-light-1000.jpg 1000w, assets/img/research-overview-light.jpg 2000w" sizes="(min-width: 70rem) 44rem, 100vw" width="2000" height="1244" alt="Research overview: optimization, learning and certificates steer a system through a specification with robust, probabilistic and almost-sure guarantees" loading="lazy" decoding="async">
+          </a>
+        </figure>
+      </div>
+      <p class="spec" aria-hidden="true">&#9633; h(x) &ge; 0 &and; &#9671; &Vert;x&Vert; &le; &epsilon;</p>
+    </section>
+
+    <section class="stage" id="career" data-rail="Career" aria-labelledby="career-h">
+      <div class="stage-inner">
+        <div class="stage-head"><h2 id="career-h" data-i18n="careerH">Career &amp; education</h2><span class="rule"></span></div>
+        <ol class="career" id="career-list"></ol>
+        <h3 class="subhead" data-i18n="projects">Projects</h3>
+        <dl class="projects" id="project-list"></dl>
+      </div>
+    </section>
+
+    <section class="stage" id="research" data-rail="Research" aria-labelledby="research-h">
+      <div class="stage-inner">
+        <div class="stage-head"><h2 id="research-h" data-i18n="research">Research</h2><span class="rule"></span></div>
+        <p class="research-intro" id="research-intro"></p>
+        <ul class="themes" id="themes"></ul>
+      </div>
+    </section>
+
+    <section class="stage" id="publications" data-rail="Publications" aria-labelledby="pubs-h">
+      <div class="stage-inner">
+        <div class="stage-head"><h2 id="pubs-h" data-i18n="publications">Publications</h2><span class="rule"></span><span class="count" id="pub-count"></span></div>
+        <div class="pub-selected-wrap">
+          <h3 class="subhead" style="margin-top:0" data-i18n="selected">Selected</h3>
+          <ol class="pub-list pub-selected" id="pub-selected"></ol>
+        </div>
+        <div class="all-pubs">
+          <button class="all-pubs-toggle" id="all-pubs-toggle" type="button" aria-expanded="false" aria-controls="all-pubs-body">Browse all publications</button>
+          <div class="all-pubs-body" id="all-pubs-body" hidden>
+            <form class="pub-controls" id="pub-controls" role="search" onsubmit="return false">
+              <fieldset>
+                <legend data-i18n="type">Type</legend>
+                <div class="chips" id="type-chips"></div>
+              </fieldset>
+              <fieldset>
+                <legend data-i18n="theme">Theme</legend>
+                <div class="chips" id="theme-chips"></div>
+              </fieldset>
+              <div class="search">
+                <label class="label" for="pub-search" data-i18n="searchLabel">Search titles, authors and venues</label>
+                <input type="search" id="pub-search" autocomplete="off" spellcheck="false" placeholder="e.g. barrier, Automatica, Zanon" data-i18n-placeholder="searchPh">
+              </div>
+            </form>
+            <div class="pub-status-row">
+              <span id="pub-result" aria-live="polite"></span>
+              <button class="text-button" type="button" id="print-pubs" data-i18n="printList">Print list</button>
             </div>
+            <div id="pub-all"></div>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <div id="layout-content">
-            <div id="toptitle"><h1>Arash Bahari Kordabad</h1></div>
+    <section class="stage" id="talks" data-rail="Talks" aria-labelledby="talks-h">
+      <div class="stage-inner">
+        <div class="stage-head"><h2 id="talks-h" data-i18n="talksH">Talks &amp; slides</h2><span class="rule"></span></div>
+        <ol class="dated-list" id="talk-list"></ol>
+        <ul class="gallery" id="talk-gallery" aria-label="Photos from talks" data-i18n-aria="talkPhotos"></ul>
+        <h3 class="subhead" data-i18n="slides">Slides</h3>
+        <ul class="slides-list" id="slide-list"></ul>
+      </div>
+    </section>
 
-            <table class="intro-table">
-                <tr>
-                    <td><img src="ara.png" alt="Arash Bahari Kordabad" class="intro-photo" /></td>
-                    <td>
-                        <p>
-                            Arash Bahari Kordabad<br />
-                            Postdoctoral Researcher<br />
-                            <a href="https://www.mpi-sws.org/">Max Planck Institute for Software Systems</a><br />
-                            Email: <a href="mailto:arashbk@mpi-sws.org">arashbk@mpi-sws.org</a><br />
-                            Office: Room 515, Building G 26,<br />
-                            Paul-Ehrlich-Straße 26, 67663 Kaiserslautern,<br />
-                            Germany<br />
-                            URL: <a href="https://arashbaharik.github.io/">https://arashbaharik.github.io/</a><br />
-                            <a href="https://www.mpi-sws.org/people/arashbk">https://www.mpi-sws.org/people/arashbk</a>
-                        </p>
-                        <p class="social-icons">
-                            <a href="https://scholar.google.com/citations?user=hEOInHkAAAAJ&amp;hl=en"><img src="sch.png" alt="Google Scholar" /></a>
-                            <a href="https://www.researchgate.net/profile/Arash-Bahari-Kordabad"><img src="rg.png" alt="ResearchGate" /></a>
-                            <a href="https://www.linkedin.com/in/arash-bahari/"><img src="in.png" alt="LinkedIn" /></a>
-                            <a href="https://twitter.com/kordabad"><img src="tw.png" alt="Twitter" /></a>
-                        </p>
-                    </td>
-                </tr>
-            </table>
-
-            <h2>Research Interests</h2>
-            <p>My research interests primarily lie at the intersection of <strong>Markov Decision Processes (MDPs)</strong>, <strong>Economic Model Predictive Control (EMPC)</strong>, and <strong>Reinforcement Learning (RL)</strong>, with applications in <em>energy systems</em> and <em>autonomous vehicles</em>. Another key focus of my work is providing probabilistic guarantees for stochastic systems under <strong>temporal logic</strong> specifications. Additionally, my research encompasses <span class="teal">distributionally robust optimization</span>, <span class="teal">second-order RL algorithms</span>, and <span class="teal">data-driven MPC</span>.</p>
-
-            <h2>Education &amp; Research Experience</h2>
-
-            <table class="exp-table">
-                <tr>
-                    <td class="logo-cell"><img src="mpi.jpg" alt="MPI Logo" /></td>
-                    <td><strong>Max Planck Institute for Software Systems</strong>, Kaiserslautern, Germany<br />
-                        <a href="https://people.mpi-sws.org/~arashbk/">Postdoctoral Research Fellow</a>
-                        <span class="date">May 2023 - present</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <p><strong>Topic:</strong> Multi-agent awareness and control with temporal logic specifications</p>
-                        <p><strong>Supervisor:</strong> <a href="https://hycodev.com/ssoudjani">Prof. Sadegh Soudjani</a></p>
-                        <p><strong>Projects:</strong> <a href="https://www.symaware.eu/">SymAware</a> (funded by EIC, May 2023 - Sep. 2025); Auto-CyPheR (funded by ERC, Sep. 2025 - Sep. 2027)</p>
-                    </td>
-                </tr>
-            </table>
-
-            <table class="exp-table">
-                <tr>
-                    <td class="logo-cell"><img src="ntnu.png" alt="NTNU Logo" /></td>
-                    <td><strong>Norwegian University of Science and Technology (NTNU)</strong>, Trondheim, Norway<br />
-                        Ph.D., <a href="https://www.ntnu.edu/itk">Department of Engineering Cybernetics</a>
-                        <span class="date">Feb 2020 - Apr 2023</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <p><strong>Thesis Topic:</strong> &ldquo;Theoretical properties of learning-based MPC&rdquo;, <a href="https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/3062609">link</a></p>
-                        <p><strong>Supervisor:</strong> <a href="https://www.ntnu.edu/employees/sebastien.gros">Prof. Sébastien Gros</a></p>
-                        <p><strong>Co-Supervisor:</strong> <a href="https://www.ntnu.edu/employees/anastasios.lekkas">Prof. Anastasios Lekkas</a></p>
-                        <p><strong>Committee:</strong> Prof. Ole Morten Aamo, Prof. Lars Grüne, and Prof. Rolf Findeisen</p>
-                    </td>
-                </tr>
-            </table>
-
-            <table class="exp-table">
-                <tr>
-                    <td class="logo-cell"><img src="aau.png" alt="AAU Logo" /></td>
-                    <td><strong>Aalborg University</strong>, Aalborg, Denmark<br />
-                        <a href="https://vbn.aau.dk/da/activities/arash-bahari-kordabad">Visiting Ph.D. Researcher</a>, <a href="https://www.es.aau.dk/">Department of Electronic Systems</a>
-                        <span class="date">Nov 2021 - Aug 2022</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <p><strong>Research topic:</strong> Safe Reinforcement Learning</p>
-                        <p><strong>Host:</strong> <a href="https://vbn.aau.dk/da/persons/raf">Prof. Rafal Wisniewski</a></p>
-                    </td>
-                </tr>
-            </table>
-
-            <table class="exp-table">
-                <tr>
-                    <td class="logo-cell"><img src="SUT.png" alt="SUT Logo" /></td>
-                    <td><strong>Sharif University of Technology</strong>, Tehran, Iran<br />
-                        M.Sc., <a href="https://mech.sharif.ir/home">Department of Mechanical Engineering</a>
-                        <span class="date">Sep 2017 - Sep 2019</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <p><strong>Thesis Topic:</strong> &ldquo;Control of bifurcation and chatter suppression in peripheral milling process&rdquo;</p>
-                        <p><strong>Supervisor:</strong> <a href="https://mech.sharif.ir/~hamedmoradi/">Prof. Hamed Moradi</a></p>
-                        <p><strong>GPA:</strong> 19.41/20</p>
-                    </td>
-                </tr>
-            </table>
-
-            <table class="exp-table">
-                <tr>
-                    <td class="logo-cell"><img src="UOT.png" alt="UOT Logo" /></td>
-                    <td><strong>University of Tabriz</strong>, Tabriz, Iran<br />
-                        B.Sc., <a href="https://mechanic.tabrizu.ac.ir/en">Department of Mechanical Engineering</a>
-                        <span class="date">Sep 2013 - Sep 2017</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <p><strong>Thesis Topic:</strong> &ldquo;On the muscle models as viscoelastic material and comparison of force-length models for active skeletal muscle&rdquo;</p>
-                        <p><strong>Supervisor:</strong> <a href="https://asatid.tabrizu.ac.ir/en/pages/default.aspx?jahani">Prof. Kamal Jahani</a></p>
-                        <p><strong>GPA:</strong> 18.1/20</p>
-                    </td>
-                </tr>
-            </table>
-
-            <h2>Selected Publications (Top 5)</h2>
-                <ul>
-                    <li><strong>A. Bahari Kordabad</strong>, R. Majumdar, H. J. Motwani, S. Soudjani, <a href="https://arxiv.org/abs/2507.20194">&ldquo;On Certificates for Almost Sure Reachability in Stochastic Systems&rdquo;</a>, accepted for publication in <em>IEEE Transactions on Automatic Control (TAC)</em>, 2025.</li>
-                    <li><strong>A. Bahari Kordabad</strong>, E. E. Vlahakis, L. Lindemann, S. Gros, D. V. Dimarogonas, S. Soudjani, <a href="https://arxiv.org/abs/2503.09816">&ldquo;Data-Driven Distributionally Robust Control for Interacting Agents under Logical Constraints&rdquo;</a>, accepted for publication in <em>IEEE Transactions on Automatic Control (TAC)</em>, 2025.</li>
-                    <li><strong>A. Bahari Kordabad</strong>, A. Da Col, A. Ghosh, S. Stroeve, and S. Soudjani, <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11186903">&ldquo;Robust Model Predictive Control for Aircraft Intent-Aware Collision Avoidance&rdquo;</a>, <em>Proceedings of the European Control Conference (ECC)</em>, 2025.</li>
-                    <li><strong>A. Bahari Kordabad</strong>, M. Zanon, S. Gros, <a href="https://arxiv.org/pdf/2210.04302">&ldquo;Equivalence of optimality criteria for Markov decision process and model predictive control&rdquo;</a>, <em>IEEE Transactions on Automatic Control</em>, 2024.</li>
-                    <li><strong>A. Bahari Kordabad</strong>, D. Reinhardt, A. S. Anand, and S. Gros, <a href="https://www.researchgate.net/profile/Sebastien-Gros-2/publication/375841904_Reinforcement_Learning_for_MPC_Fundamentals_and_Current_Challenges/links/65630797b86a1d521b0c0bda/Reinforcement-Learning-for-MPC-Fundamentals-and-Current-Challenges.pdf">&ldquo;Reinforcement Learning for MPC fundamentals and current challenges&rdquo;</a>, <em>22nd IFAC World Congress</em>, 2023.</li>
-                </ul>
-
-            <h2>Selected Talks</h2>
-            <ul>
-                <li>&ldquo;Quasi-Newton Compatible Actor-Critic for Deterministic Policies,&rdquo; European Control Conference (ECC), Iceland. <span class="date">2026</span></li>
-                <li>&ldquo;Distributionally Robust Control for Chance-Constrained Signal Temporal Logic Specifications,&rdquo; IEEE Conference on Decision and Control (CDC), Milan, Italy. <span class="date">2024</span></li>
-                <li>&ldquo;Robust Model Predictive Control for Aircraft Intent-Aware Collision Avoidance,&rdquo; European Control Conference (ECC), Thessaloniki, Greece. <span class="date">2025</span></li>
-                <li>&ldquo;Reinforcement Learning for MPC: Fundamentals and Current Challenges&rdquo; in an invited session entitled <em>Recent Advances in Automated Learning and Calibration of MPC Policies</em>, IFAC, +75 audience, Japan. (<a href="https://arashbaharik.github.io/IFAC.jpg" target="_blank">photo</a>) <span class="date">July 2023</span></li>
-                <li>&ldquo;Introduction to optimization with temporal logic,&rdquo; NTNU, Trondheim, Norway. <span class="date">Mar 2023</span></li>
-                <li>&ldquo;Intersection of Reinforcement Learning and MPC,&rdquo; Eindhoven University of Technology, Netherlands, Host: Prof. Dinesh Krishnamoorthy. <span class="date">Feb 2023</span></li>
-            </ul>
-
-            <div id="footer"><div id="footer-text">Last Update 2026-07-28.</div></div>
+    <section class="stage" id="honours" data-rail="Honours" aria-labelledby="honours-h">
+      <div class="stage-inner">
+        <div class="stage-head"><h2 id="honours-h" data-i18n="honoursH">Honours &amp; service</h2><span class="rule"></span></div>
+        <div id="awards"></div>
+        <div class="two-col">
+          <div>
+            <h3 class="subhead" data-i18n="honours">Honours</h3>
+            <ul class="plain-list" id="honour-list"></ul>
+          </div>
+          <div>
+            <h3 class="subhead" data-i18n="service">Reviewing &amp; teaching</h3>
+            <ul class="plain-list" id="service-list"></ul>
+          </div>
         </div>
+        <h3 class="subhead" data-i18n="collaborators">Collaborators</h3>
+        <ul class="people" id="people-list"></ul>
+      </div>
+    </section>
+
+    <section class="stage" id="contact" data-rail="Contact" data-goal aria-labelledby="contact-h">
+      <div class="stage-inner">
+        <div class="stage-head"><h2 id="contact-h" data-i18n="contact">Contact</h2><span class="rule"></span></div>
+        <div class="contact">
+          <div>
+            <p class="lead" data-i18n="contactLead">For collaborations, student projects or questions about a paper, email is the best way to reach me.</p>
+            <div class="email-row">
+              <a class="email" id="email" href="mailto:arashbk@mpi-sws.org">arashbk@mpi-sws.org</a>
+              <button class="text-button copy-btn" type="button" id="copy-email" data-i18n="copy">Copy</button>
+            </div>
+            <address id="office"></address>
+          </div>
+          <ul class="link-list" id="contact-links"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <span>&copy; <span id="year">2026</span> Arash Bahari Kordabad</span>
+      <a id="imprint" href="imprint.html" data-i18n="imprint">Imprint</a>
+      <a id="privacy" href="privacy.html" data-i18n="privacy">Privacy</a>
+      <span class="spacer"></span>
+      <span id="privacy-note">No cookies, no trackers</span>
+      <span id="stats" hidden></span>
+      <span id="updated"></span>
     </div>
+  </footer>
+
+  <!-- Icon sprite -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <symbol id="i-scholar" viewBox="0 0 24 24"><path d="M2 9.5 12 4.5l10 5-10 5z"/><path d="M6 11.5v4.3c0 1.6 2.7 3 6 3s6-1.4 6-3v-4.3"/><path d="M22 9.5v5"/></symbol>
+    <symbol id="i-orcid" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M8.5 10v6.5"/><path d="M8.5 7.4v.1"/><path d="M11.5 16.5V8h2.2a4.25 4.25 0 0 1 0 8.5z"/></symbol>
+    <symbol id="i-dblp" viewBox="0 0 24 24"><path d="M5 5.5h14M5 10h14M5 14.5h9M5 19h11"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M8.5 7 3.5 12l5 5M15.5 7l5 5-5 5"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="1"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></symbol>
+    <symbol id="i-cv" viewBox="0 0 24 24"><path d="M6 3h8.5L19 7.5V21H6z"/><path d="M14 3v5h5"/><path d="M9 12h7M9 15.5h7M9 19h4"/></symbol>
+    <symbol id="i-researchgate" viewBox="0 0 24 24"><circle cx="6" cy="17" r="2.5"/><circle cx="18" cy="17" r="2.5"/><circle cx="12" cy="6.5" r="2.5"/><path d="M7.3 14.9 10.7 8.6M16.7 14.9 13.3 8.6M8.5 17h7"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="1.5"/><path d="M8 10.5V16.5M8 7.6v.1M11.5 16.5v-6M11.5 13a2.6 2.6 0 0 1 5 0v3.5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M5 4.5 19 19.5M19 4.5 5 19.5"/></symbol>
+    <symbol id="i-mpi" viewBox="0 0 24 24"><path d="M3 9.5 12 4l9 5.5"/><path d="M5.5 10v8M9.8 10v8M14.2 10v8M18.5 10v8M3 20h18"/></symbol>
+
+    <symbol id="g-tube" viewBox="0 0 64 44"><path d="M2 11c10-6 18 6 30 0s20-5 30 1" stroke-dasharray="2 3"/><path d="M2 33c10-6 18 6 30 0s20-5 30 1" stroke-dasharray="2 3"/><path d="M2 22c10-6 18 6 30 0s20-5 30 1" stroke-width="1.75"/><circle cx="62" cy="23" r="1.6" fill="currentColor"/></symbol>
+    <symbol id="g-levelsets" viewBox="0 0 64 44"><ellipse cx="32" cy="22" rx="29" ry="18.5"/><ellipse cx="32" cy="22" rx="19" ry="12"/><ellipse cx="32" cy="22" rx="9" ry="5.6"/><path d="M58 9c-9-6-27-5-30 5s9 12 7 8" stroke-width="1.75"/><circle cx="32" cy="22" r="1.6" fill="currentColor"/></symbol>
+    <symbol id="g-horizon" viewBox="0 0 64 44"><path d="M2 40h60"/><path d="M4 31c7-3 12-9 20-10" stroke-width="1.75"/><path d="M24 21c10-1 20-9 36-11" stroke-dasharray="2 3"/><path d="M24 6v34M52 6v34" stroke-dasharray="1 3"/><circle cx="24" cy="21" r="2" fill="currentColor"/></symbol>
+    <symbol id="g-loop" viewBox="0 0 64 44"><path d="M3 5c9 44 49 44 58 0"/><path d="M9 13 53 20 15 28 44 33 27 36" stroke-width="1.25" stroke-dasharray="2 2.5"/><circle cx="9" cy="13" r="1.6" fill="currentColor"/><circle cx="53" cy="20" r="1.6" fill="currentColor"/><circle cx="15" cy="28" r="1.6" fill="currentColor"/><circle cx="44" cy="33" r="1.6" fill="currentColor"/><circle cx="32" cy="37.5" r="2.2" fill="currentColor"/></symbol>
+  </svg>
+
+  <script src="data/profile.js" defer></script>
+  <script src="data/research.js" defer></script>
+  <script src="data/publications.js" defer></script>
+  <script src="assets/js/site.js" defer></script>
+  <script src="assets/js/rail.js" defer></script>
+  <script src="assets/js/hero.js" defer></script>
 </body>
 </html>

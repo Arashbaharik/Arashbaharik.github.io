@@ -1,0 +1,126 @@
+# CLAUDE.md
+
+Personal academic website of Arash Bahari Kordabad (postdoc, MPI-SWS),
+hosted on GitHub Pages at https://arashbaharik.github.io/.
+
+## Hard rules
+
+- Plain static HTML + CSS + vanilla JavaScript. **No frameworks, no npm, no build step.**
+  The repository is deployed as is.
+- Everything is self-hosted: fonts, KaTeX, images, and GoatCounter's count.js. **No CDNs, no
+  trackers, no other third-party requests** (site hosted from Germany; keep it GDPR-clean).
+  The single exception, requested by the owner: cookie-free GoatCounter statistics, active only when
+  `profile.analytics.goatcounter` is set (it skips localhost, Do Not Track and Global Privacy Control).
+  The only browser storage is `localStorage["theme"]` and `localStorage["lang"]`.
+- Content lives in `data/*.js` as `window.SITE.<name> = ...` and is loaded with
+  plain `<script>` tags, so the page also works from `file://`.
+- Never invent publications, venues, positions, co-authors, DOIs or links.
+  Use a `// TODO` in the data instead.
+- The owner writes in Persian; reply in Persian with technical terms in English.
+
+## Structure
+
+```
+index.html            single page: hero + sections (career, research, publications,
+                      talks, honours, contact); static shells filled by JS.
+                      News and About were removed at the owner's request (Sep 2026).
+404.html              GitHub Pages 404; root-relative paths; redirects old page URLs
+favicon.ico
+.nojekyll            serve files as they are (no Jekyll build on GitHub Pages)
+google862b2454543b247b.html  Google Search Console verification: never delete
+Certificate_*.pdf     reviewer certificates, kept at their old URLs (linked from profile.js)
+data/profile.js       window.SITE.profile: identity, links, career, projects,
+                      honours, service, collaborators, awards, talks, slides, legal
+data/research.js      window.SITE.researchOverview (hero figure) + window.SITE.research (themes)
+data/publications.js  window.SITE.publications: see schema below
+assets/css/style.css  all styles; tokens at the top
+assets/js/site.js     renders sections from window.SITE; EN/DE (UI strings at top), filters,
+                      BibTeX, theme toggle; re-renders everything on language change
+assets/js/rail.js     scroll "trajectory" rail (desktop), header progress (mobile),
+                      section reveal on scroll
+assets/js/hero.js     hero canvas: Lyapunov level sets + CBF-filtered trajectories
+assets/fonts/         Source Serif 4 (variable, opsz) + IBM Plex Mono, woff2, OFL
+assets/vendor/katex/  KaTeX 0.18.7, loaded lazily only if a title contains $...$
+assets/vendor/goatcounter/count.js  GoatCounter counter script (ISC), loaded only if configured
+assets/img/           photos, research overview, award certificate, og.png, icons
+assets/docs/          PDFs (certificates)
+tools/bib2js.py       BibTeX -> publications.js merger (stdlib only)
+UPDATING.md           human guide for routine updates
+```
+
+Inline markup in data strings: `[label](url)` becomes a link; everything else is escaped.
+
+Languages: every data text is a string or `{ en, de }` (`L()` in site.js picks one);
+static HTML text uses `data-i18n` / `data-i18n-placeholder` / `data-i18n-aria` keys from
+the `UI` table. Dates are `YYYY-MM` strings formatted per language. `?lang=de` forces German.
+The rail reads labels from `data-rail`, which site.js rewrites; rail.js listens for `langchange`.
+
+## Publication schema
+
+```js
+{
+  "id": "unique-key",               // also the BibTeX key
+  "title": "May contain $\\LaTeX$",
+  "authors": ["A. Bahari Kordabad", "S. Soudjani"],  // initials + surname
+  "venue": "Journal or conference name",
+  "volume": "14", "number": "3", "pages": "1–6", "article": "105793",  // optional
+  "year": 2026,
+  "type": "journal" | "conference" | "preprint",
+  "status": null | "accepted" | "submitted",
+  "award": "optional award text",
+  "themes": ["stl", "certificates", "mpc", "rl"],    // ids from data/research.js
+  "selected": true | false,
+  "links": { "pdf", "arxiv", "doi" (bare), "publisher", "code" },  // all optional
+  "bibtex": "optional raw BibTeX"   // otherwise generated in the browser
+}
+```
+
+`tools/bib2js.py` rewrites `data/publications.js` (keeping the header comment);
+it matches by DOI, else normalized title, and only fills missing fields.
+
+## Design tokens
+
+Palette (green theme is the default; the toggle switches the whole page, hero included).
+The hero research figure has one image per theme, each painted on that theme's ground
+(`research-overview.jpg` on Fir, `research-overview-light.jpg` on `#F3F6F2`); blend modes
+`lighten` / `darken` make the ground vanish. Do not mask or fade it (owner's request).
+
+| Token | Hex | Use |
+|---|---|---|
+| Fir | `#0B3D2E` | background |
+| Moss | `#14493A` | raised surfaces |
+| Contour | `#2C6A55` | hairlines, level sets |
+| Lichen | `#E6EFE8` | text |
+| Sage | `#A8C4B6` | secondary text |
+| Brass | `#D8B25C` | accent, trajectories, focus |
+
+Light theme: bg `#F3F6F2`, raised `#E6EDE7`, text `#0B3D2E`, muted `#4A6358`,
+accent `#7C5A10`. All text pairs meet WCAG AA.
+
+Type: Source Serif 4 for text and headings (`font-optical-sizing: auto`);
+IBM Plex Mono for metadata (dates, venues, links, labels). Scale: 13 / 17 / 20 / 26 /
+~36 / fluid name. Body measure at most 68ch.
+
+Avoid: cards with soft shadows, all-caps eyebrow labels, 01/02 numbering, arrows on
+links, neon accents. Hairline rules and whitespace do the structuring.
+
+## Behaviour to preserve
+
+- `html.js` and `html.motion` are set in the `<head>`; sections are only hidden
+  for the reveal when `motion` is on, and a 3 s failsafe removes it if scripts fail.
+- `prefers-reduced-motion`: no reveal, no animation; the hero draws a static frame.
+- The hero canvas pauses off-screen and in background tabs.
+- Print: header, rail and controls hidden; "Print list" prints only publications.
+- Keep `index.html` JSON-LD (`Person`) in sync with `data/profile.js` by hand.
+
+## Publishing
+
+This folder is a git clone of github.com/Arashbaharik/Arashbaharik.github.io (branch `main`).
+GitHub Pages deploys `main` as is. Workflow: edit, preview, `git add -A`, commit, `git push`.
+Always show the owner the change list and get an OK before pushing (it updates the live site).
+
+## Local preview
+
+```bash
+python -m http.server 8000
+```

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" data-theme="green">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found · Arash Bahari Kordabad</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0B3D2E">
+  <!-- Root-relative paths: GitHub Pages serves this page for any missing URL, at any depth. -->
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script>
+    /* Pages of the previous site now live as sections of the single page. */
+    (function () {
+      var old = {
+        "/publication.html": "/#publications",
+        "/research.html": "/#research",
+        "/miscellaneous.html": "/#honours",
+        "/slides.html": "/#talks",
+        "/photos.html": "/#talks",
+        "/index.html": "/"
+      };
+      var to = old[location.pathname.toLowerCase()];
+      if (to) location.replace(to);
+    })();
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "light" || t === "green") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/">Arash Bahari Kordabad</a>
+  </header>
+  <main class="lost hero">
+    <div class="hero-canvas" aria-hidden="true" data-origin="0.72,0.5"><canvas id="field"></canvas><canvas id="flow"></canvas></div>
+    <div class="lost-inner">
+      <p class="code">404 · h(x) &lt; 0</p>
+      <h1>This state is not reachable.</h1>
+      <p>The page you asked for lies outside the safe set. It may have moved when the site was redesigned.</p>
+      <ul class="link-list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#publications">Publications</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </div>
+  </main>
+  <script src="/assets/js/hero.js" defer></script>
+</body>
+</html>
