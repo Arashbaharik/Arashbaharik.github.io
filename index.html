@@ -139,8 +139,6 @@
           <li>Arash Bahari Kordabad, Postdoctoral Researcher, Max Planck Institute for Software Systems, Kaiserslautern</li>
           <li>Email: <a href="mailto:arashbk@mpi-sws.org">arashbk@mpi-sws.org</a></li>
           <li>Publications: <a href="https://scholar.google.com/citations?user=hEOInHkAAAAJ&amp;hl=en">Google Scholar</a></li>
-          <!-- TODO: uncomment once cv.pdf is in the site root -->
-          <!-- <li><a href="cv.pdf">Curriculum vitae (PDF)</a></li> -->
         </ul>
       </div>
     </noscript>
@@ -157,12 +155,24 @@
           <p class="affil" id="affil"></p>
           <ul class="link-list" id="hero-links"></ul>
         </div>
+        <div class="hero-side">
+        <aside class="scholar-card" id="scholar" aria-labelledby="scholar-h" hidden>
+          <div class="scholar-head">
+            <h2 class="scholar-title" id="scholar-h"><a id="scholar-link" href="https://scholar.google.com/citations?user=hEOInHkAAAAJ&amp;hl=en">Google Scholar</a></h2>
+            <span class="scholar-updated" id="scholar-updated"></span>
+          </div>
+          <dl class="scholar-stats" id="scholar-stats"></dl>
+          <div class="scholar-chart" id="scholar-chart">
+            <div class="scholar-tip" id="scholar-tip" aria-hidden="true" hidden></div>
+          </div>
+        </aside>
         <figure class="hero-figure" id="hero-figure">
           <a href="#research">
             <img class="ov-dark" id="ov-dark" src="assets/img/research-overview.jpg" srcset="assets/img/research-overview-1000.jpg 1000w, assets/img/research-overview.jpg 2000w" sizes="(min-width: 70rem) 44rem, 100vw" width="2000" height="1244" alt="Research overview: optimization, learning and certificates steer a system through a specification with robust, probabilistic and almost-sure guarantees" fetchpriority="high">
             <img class="ov-light" id="ov-light" src="assets/img/research-overview-light.jpg" srcset="assets/img/research-overview-light-1000.jpg 1000w, assets/img/research-overview-light.jpg 2000w" sizes="(min-width: 70rem) 44rem, 100vw" width="2000" height="1244" alt="Research overview: optimization, learning and certificates steer a system through a specification with robust, probabilistic and almost-sure guarantees" loading="lazy" decoding="async">
           </a>
         </figure>
+        </div>
       </div>
       <p class="spec" aria-hidden="true">&#9633; h(x) &ge; 0 &and; &#9671; &Vert;x&Vert; &le; &epsilon;</p>
     </section>
@@ -308,6 +318,7 @@
 
   <script src="data/profile.js" defer></script>
   <script src="data/research.js" defer></script>
+  <script src="data/scholar.js" defer></script>
   <script src="data/publications.js" defer></script>
   <script src="assets/js/site.js" defer></script>
   <script src="assets/js/rail.js" defer></script>

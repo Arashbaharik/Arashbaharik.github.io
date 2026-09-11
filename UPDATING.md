@@ -143,6 +143,15 @@ per country (location), browser and referring site.
 Visits from localhost are never counted, and visitors who send Do Not Track or Global
 Privacy Control are skipped. Mention GoatCounter in your privacy page.
 
+## Google Scholar numbers
+
+The card on the first screen (citations, h-index, i10-index, citations per year) reads
+`data/scholar.js`. A GitHub Action (`.github/workflows/scholar.yml`) refreshes it every day at
+04:17 UTC from your public Scholar profile and commits only when the numbers change.
+To refresh by hand: `python tools/update_scholar.py`, then commit and push. On GitHub you can
+also open **Actions → Update Google Scholar stats → Run workflow**. If Google blocks the
+request, the card simply keeps the last numbers.
+
 ## Other text
 
 - Tagline, links, career, projects, honours, collaborators, talks, slides: `data/profile.js`

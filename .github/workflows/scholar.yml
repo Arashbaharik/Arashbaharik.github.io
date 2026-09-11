@@ -1,0 +1,51 @@
+# Refresh the Google Scholar numbers on the site once a day.
+# Commits data/scholar.js only when the numbers changed; if Google blocks the
+# request, the job keeps the previous numbers and ends without error.
+name: Update Google Scholar stats
+
+on:
+  schedule:
+    - cron: "17 4 * * *"      # every day at 04:17 UTC
+  workflow_dispatch:            # "Run workflow" button on GitHub
+  push:
+    branches: [main]
+    paths:
+      - tools/update_scholar.py
+      - .github/workflows/scholar.yml
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: scholar-stats
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch Scholar stats
+        run: python tools/update_scholar.py
+
+      - name: Commit and publish if changed
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if git diff --quiet -- data/scholar.js; then
+            echo "Numbers unchanged, nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/scholar.js
+          git commit -m "Update Scholar stats"
+          git push
+          # Ask GitHub Pages to rebuild (commits made by this token may not trigger it).
+          gh api --method POST "repos/${{ github.repository }}/pages/builds" || true

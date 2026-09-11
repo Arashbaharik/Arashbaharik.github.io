@@ -35,6 +35,8 @@
       talksH: "Talks & slides", talkPhotos: "Photos from talks", slides: "Slides",
       honoursH: "Honours & service", honours: "Honours", service: "Reviewing", collaborators: "Collaborators",
       teachingH: "Teaching & supervision", supervision: "Supervision", teaching: "Teaching",
+      citations: "Citations", hIndex: "h-index", i10Index: "i10-index", perYear: "Citations per year",
+      citationsIn: "{y}: {n} citations", soFar: "so far",
       contactLead: "For collaborations, student projects or questions about a paper, email is the best way to reach me.",
       copy: "Copy", imprint: "Imprint", privacy: "Privacy", noTrackers: "No cookies, no trackers",
       anonStats: "No cookies, anonymous statistics", visits: "{n} visits", visitorStats: "Visitor statistics",
@@ -63,6 +65,8 @@
       talksH: "Vorträge & Folien", talkPhotos: "Fotos von Vorträgen", slides: "Folien",
       honoursH: "Auszeichnungen & Engagement", honours: "Auszeichnungen", service: "Gutachtertätigkeit", collaborators: "Kooperationspartner",
       teachingH: "Lehre & Betreuung", supervision: "Betreuung", teaching: "Lehre",
+      citations: "Zitationen", hIndex: "h-Index", i10Index: "i10-Index", perYear: "Zitationen pro Jahr",
+      citationsIn: "{y}: {n} Zitationen", soFar: "bisher",
       contactLead: "Für Kooperationen, studentische Projekte oder Fragen zu einer Publikation erreichen Sie mich am besten per E-Mail.",
       copy: "Kopieren", imprint: "Impressum", privacy: "Datenschutz", noTrackers: "Keine Cookies, kein Tracking",
       anonStats: "Keine Cookies, anonyme Statistik", visits: "{n} Besuche", visitorStats: "Besucherstatistik",
@@ -553,6 +557,112 @@
     $("slide-list").previousElementSibling.hidden = !slides.length;
   }
 
+  /* ---- Google Scholar card ---------------------------------------------- */
+
+  var NS = "http://www.w3.org/2000/svg";
+
+  /* A round axis top: 1, 2, 2.5 or 5 times a power of ten, so the scale has a clean middle tick. */
+  function niceTop(max) {
+    var half = Math.max(1, max / 2);
+    var mag = Math.pow(10, Math.floor(Math.log(half) / Math.LN10));
+    var steps = [1, 2, 2.5, 5, 10];
+    for (var i = 0; i < steps.length; i++) if (steps[i] * mag >= half) return 2 * steps[i] * mag;
+    return 2 * half;
+  }
+
+  function svgEl(name, attrs, text) {
+    var el = document.createElementNS(NS, name);
+    for (var k in attrs) el.setAttribute(k, attrs[k]);
+    if (text != null) el.textContent = text;
+    return el;
+  }
+
+  function renderScholar() {
+    var D = S.scholar;
+    var card = $("scholar");
+    if (!D || !D.perYear || !D.perYear.length) { card.hidden = true; return; }
+    card.hidden = false;
+    var nf = new Intl.NumberFormat(lang === "de" ? "de-DE" : "en-US");
+    if (D.profile) $("scholar-link").href = D.profile;
+    $("scholar-updated").textContent = D.updated ? t("updated", { d: formatDate(D.updated) }) : "";
+    $("scholar-stats").innerHTML = [["citations", D.citations], ["hIndex", D.hIndex], ["i10Index", D.i10Index]].map(function (s) {
+      return "<div><dt>" + t(s[0]) + "</dt><dd>" + (s[1] != null ? nf.format(s[1]) : "–") + "</dd></div>";
+    }).join("");
+
+    /* Columns with a little depth. The front face is the data: its height is
+       exactly proportional to the count; the top and side faces are shading. */
+    var years = D.perYear;
+    var W = 300, H = 128, padL = 2, padR = 30, padT = 20, padB = 18;
+    var DX = 6, DY = 4;
+    var n = years.length;
+    var slot = (W - padL - padR) / n;
+    var bw = Math.min(20, slot * 0.5);
+    var max = Math.max.apply(null, years.map(function (y) { return y.count; }).concat([1]));
+    var top = niceTop(max);
+    var base = H - padB;
+    function yOf(v) { return padT + (base - padT) * (1 - v / top); }
+    var partialYear = D.updated ? parseInt(D.updated.slice(0, 4), 10) : null;
+
+    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "group", "aria-label": t("perYear") });
+    svg.appendChild(svgEl("title", {}, t("perYear")));
+    [top / 2, top].forEach(function (v) {
+      svg.appendChild(svgEl("line", { class: "grid", x1: padL, x2: W - padR + DX, y1: yOf(v), y2: yOf(v) }));
+      svg.appendChild(svgEl("text", { class: "tick", x: W - padR + DX + 4, y: yOf(v) + 3.5 }, nf.format(v)));
+    });
+
+    var peakIndex = 0;
+    years.forEach(function (y, i) { if (y.count > years[peakIndex].count) peakIndex = i; });
+
+    years.forEach(function (y, i) {
+      var x = padL + slot * i + (slot - bw - DX) / 2;
+      var yt = yOf(y.count);
+      var partial = y.year === partialYear;
+      var label = t("citationsIn", { y: y.year, n: nf.format(y.count) }) + (partial ? " (" + t("soFar") + ")" : "");
+      var g = svgEl("g", { class: "bar" + (partial ? " is-partial" : ""), tabindex: "0", role: "img", "aria-label": label, "data-tip": label });
+      g.style.setProperty("--i", i);
+      g.appendChild(svgEl("rect", { class: "hit", x: padL + slot * i, y: padT - DY, width: slot, height: base - padT + DY }));
+      if (y.count > 0) {
+        var shape = svgEl("g", { class: "shape" });
+        shape.appendChild(svgEl("polygon", { class: "face-side", points: [x + bw, yt, x + bw + DX, yt - DY, x + bw + DX, base - DY, x + bw, base].join(" ") }));
+        shape.appendChild(svgEl("polygon", { class: "face-top", points: [x, yt, x + DX, yt - DY, x + bw + DX, yt - DY, x + bw, yt].join(" ") }));
+        shape.appendChild(svgEl("rect", { class: "face-front", x: x, y: yt, width: bw, height: base - yt }));
+        g.appendChild(shape);
+      }
+      g.appendChild(svgEl("text", { class: "year", x: x + bw / 2, y: H - 4, "text-anchor": "middle" }, String(y.year)));
+      if (i === peakIndex) g.appendChild(svgEl("text", { class: "peak", x: x + (bw + DX) / 2, y: yt - DY - 5, "text-anchor": "middle" }, nf.format(y.count)));
+      svg.appendChild(g);
+    });
+    svg.appendChild(svgEl("line", { class: "baseline", x1: padL, x2: W - padR + DX, y1: base, y2: base }));
+
+    var chart = $("scholar-chart");
+    var old = chart.querySelector("svg");
+    var drawn = chart.classList.contains("is-drawn");
+    if (old) chart.replaceChild(svg, old); else chart.insertBefore(svg, chart.firstChild);
+    if (!drawn) {
+      requestAnimationFrame(function () { requestAnimationFrame(function () { chart.classList.add("is-drawn"); }); });
+    }
+  }
+
+  function initScholarTips() {
+    var chart = $("scholar-chart");
+    var tip = $("scholar-tip");
+    function show(bar) {
+      if (!bar) return;
+      var box = chart.getBoundingClientRect();
+      var shape = bar.querySelector(".shape") || bar;
+      var r = shape.getBoundingClientRect();
+      tip.textContent = bar.getAttribute("data-tip");
+      tip.style.left = (r.left + r.width / 2 - box.left) + "px";
+      tip.style.top = (r.top - box.top - 6) + "px";
+      tip.hidden = false;
+    }
+    function hide() { tip.hidden = true; }
+    chart.addEventListener("mouseover", function (e) { show(e.target.closest(".bar")); });
+    chart.addEventListener("mouseleave", hide);
+    chart.addEventListener("focusin", function (e) { show(e.target.closest(".bar")); });
+    chart.addEventListener("focusout", hide);
+  }
+
   /* Teaching and supervision use the same entry layout as the career list. */
   function entriesHtml(list) {
     return (list || []).map(function (e) {
@@ -673,6 +783,7 @@
   function renderAll() {
     applyStatic();
     renderHero();
+    renderScholar();
     renderCareer();
     renderResearch();
     renderPublications();
@@ -696,6 +807,8 @@
   /* ---- listeners (attached once) ---------------------------------------- */
 
   function initOnce() {
+    initScholarTips();
+
     $("theme-toggle").addEventListener("click", function () {
       var next = root.getAttribute("data-theme") === "light" ? "green" : "light";
       root.setAttribute("data-theme", next);
