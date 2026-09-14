@@ -7,12 +7,12 @@ window.SITE = window.SITE || {};
 
 window.SITE.scholar = {
   "profile": "https://scholar.google.com/citations?user=hEOInHkAAAAJ&hl=en",
-  "citations": 626,
-  "citationsSince": 624,
+  "citations": 628,
+  "citationsSince": 626,
   "hIndex": 15,
   "hIndexSince": 15,
-  "i10Index": 16,
-  "i10IndexSince": 16,
+  "i10Index": 17,
+  "i10IndexSince": 17,
   "since": 2021,
   "perYear": [
     {
@@ -37,8 +37,8 @@ window.SITE.scholar = {
     },
     {
       "year": 2026,
-      "count": 123
+      "count": 125
     }
   ],
-  "updated": "2026-09-11"
+  "updated": "2026-09-14"
 };
