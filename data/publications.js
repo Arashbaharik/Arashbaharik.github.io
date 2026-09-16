@@ -40,7 +40,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["stl"],
     "selected": false,
-    "links": { "doi": "10.1109/LCSYS.2026.3699405", "arxiv": "https://arxiv.org/abs/2602.17434", "publisher": "https://ieeexplore.ieee.org/abstract/document/11547164" }
+    "links": { "doi": "10.1109/lcsys.2026.3699405", "arxiv": "https://arxiv.org/abs/2602.17434" }
   },
   {
     "id": "baharikordabad2026continuous",
@@ -67,7 +67,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["mpc"],
     "selected": false,
-    "links": { "doi": "10.3390/jmse14030315", "publisher": "https://www.mdpi.com/2077-1312/14/3/315" }
+    "links": { "doi": "10.3390/jmse14030315" }
   },
   {
     "id": "baharikordabad2026quasinewton",
@@ -79,14 +79,14 @@ window.SITE.publications = [
     "status": null,
     "themes": ["rl"],
     "selected": false,
-    "links": { "arxiv": "https://arxiv.org/abs/2511.09509" }
+    "links": { "publisher": "https://ieeexplore.ieee.org/document/11625359", "arxiv": "https://arxiv.org/abs/2511.09509" }
   },
   {
     "id": "valaei2025secondorder",
     "title": "Second-Order Policy Gradient Methods for the Linear Quadratic Regulator",
     "authors": ["A. Valaei", "A. Bahari Kordabad", "S. Soudjani"],
     "venue": "Engineering Applications of Artificial Intelligence",
-    "year": 2025,
+    "year": 2026,
     "type": "journal",
     "status": "accepted",
     "themes": ["rl"],
@@ -98,24 +98,26 @@ window.SITE.publications = [
     "title": "Sum-of-Squares Certificates for Almost-Sure Reachability of Stochastic Polynomial Systems",
     "authors": ["A. Bahari Kordabad", "R. Majumdar", "S. Soudjani"],
     "venue": "Nonlinear Analysis: Hybrid Systems",
-    "year": 2025,
+    "volume": "62",
+    "article": "101796",
+    "year": 2026,
     "type": "journal",
-    "status": "accepted",
+    "status": null,
     "themes": ["certificates"],
     "selected": false,
-    "links": { "arxiv": "https://arxiv.org/abs/2510.25513" }
+    "links": { "doi": "10.1016/j.nahs.2026.101796", "arxiv": "https://arxiv.org/abs/2510.25513" }
   },
   {
     "id": "baharikordabad2025certificates",
     "title": "On Certificates for Almost Sure Reachability in Stochastic Systems",
     "authors": ["A. Bahari Kordabad", "R. Majumdar", "H. J. Motwani", "S. Soudjani"],
     "venue": "IEEE Transactions on Automatic Control",
-    "year": 2025,
+    "year": 2026,
     "type": "journal",
-    "status": "accepted",
+    "status": null,
     "themes": ["certificates"],
     "selected": true,
-    "links": { "arxiv": "https://arxiv.org/abs/2507.20194" }
+    "links": { "doi": "10.1109/tac.2026.3719559", "arxiv": "https://arxiv.org/abs/2507.20194" }
   },
   {
     "id": "baharikordabad2025datadriven",
@@ -151,7 +153,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["mpc"],
     "selected": true,
-    "links": { "arxiv": "https://arxiv.org/abs/2408.06999", "publisher": "https://ieeexplore.ieee.org/document/11186903" }
+    "links": { "doi": "10.23919/ecc65951.2025.11186903", "arxiv": "https://arxiv.org/abs/2408.06999" }
   },
   {
     "id": "anand2024optimality",
@@ -159,8 +161,8 @@ window.SITE.publications = [
     "authors": ["A. S. Anand", "A. Bahari Kordabad", "M. Zanon", "S. Gros"],
     "venue": "Automatica",
     "year": 2024,
-    "type": "journal",
-    "status": "accepted",
+    "type": "preprint",
+    "status": "submitted",
     "themes": ["mpc", "rl"],
     "selected": false,
     "links": { "arxiv": "https://arxiv.org/abs/2412.18268" }
@@ -175,7 +177,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["mpc", "rl"],
     "selected": true,
-    "links": { "arxiv": "https://arxiv.org/abs/2210.04302" }
+    "links": { "doi": "10.1109/tac.2023.3277309", "arxiv": "https://arxiv.org/abs/2210.04302" }
   },
   {
     "id": "baharikordabad2024lyapunov",
@@ -187,7 +189,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["certificates"],
     "selected": false,
-    "links": { "pdf": "https://www.researchgate.net/profile/Arash-Bahari-Kordabad/publication/371109231_Lyapunov-based_robust_optimal_control_for_time-delay_systems_with_application_in_milling_process/links/647d10512cad460a1bf2e633/Lyapunov-based-robust-optimal-control-for-time-delay-systems-with-application-in-milling-process.pdf" }
+    "links": { "doi": "10.1007/s40435-023-01217-2" }
   },
   {
     "id": "baharikordabad2024drstl",
@@ -199,7 +201,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["stl"],
     "selected": false,
-    "links": { "arxiv": "https://arxiv.org/abs/2409.03855", "publisher": "https://ieeexplore.ieee.org/document/10886437" }
+    "links": { "doi": "10.1109/cdc56724.2024.10886437", "arxiv": "https://arxiv.org/abs/2409.03855" }
   },
   {
     "id": "baharikordabad2024cbf",
@@ -211,7 +213,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["stl", "certificates"],
     "selected": false,
-    "links": { "publisher": "https://ieeexplore.ieee.org/document/10591078" }
+    "links": { "doi": "10.23919/ecc64448.2024.10591078" }
   },
   {
     "id": "cai2023microgrid",
@@ -226,7 +228,7 @@ window.SITE.publications = [
     "award": "EAAI Paper Prize Award 2026",
     "themes": ["rl", "mpc"],
     "selected": true,
-    "links": { "doi": "10.1016/j.engappai.2022.105793", "publisher": "https://www.sciencedirect.com/science/article/pii/S0952197622007837" }
+    "links": { "doi": "10.1016/j.engappai.2022.105793" }
   },
   {
     "id": "nejatbakhsh2023mhe",
@@ -238,7 +240,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["rl", "mpc"],
     "selected": false,
-    "links": { "publisher": "https://www.sciencedirect.com/science/article/pii/S0947358023001085" }
+    "links": { "doi": "10.1016/j.ejcon.2023.100880" }
   },
   {
     "id": "sawant2023modelfree",
@@ -250,7 +252,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["rl", "mpc"],
     "selected": false,
-    "links": { "publisher": "https://www.researchgate.net/publication/371517205_Model-free_Data-driven_Predictive_Control_Using_Reinforcement_Learning" }
+    "links": { "doi": "10.1109/cdc49753.2023.10383431" }
   },
   {
     "id": "baharikordabad2023rlmpc",
@@ -262,7 +264,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["rl", "mpc"],
     "selected": true,
-    "links": { "pdf": "https://www.researchgate.net/profile/Sebastien-Gros-2/publication/375841904_Reinforcement_Learning_for_MPC_Fundamentals_and_Current_Challenges/links/65630797b86a1d521b0c0bda/Reinforcement-Learning-for-MPC-Fundamentals-and-Current-Challenges.pdf" }
+    "links": { "doi": "10.1016/j.ifacol.2023.10.548" }
   },
   {
     "id": "baharikordabad2023cvar",
@@ -274,7 +276,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["mpc"],
     "selected": false,
-    "links": { "publisher": "https://ieeexplore.ieee.org/document/10178324" }
+    "links": { "doi": "10.23919/ecc57647.2023.10178324" }
   },
   {
     "id": "baharikordabad2023bias",
@@ -286,7 +288,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["rl", "mpc"],
     "selected": false,
-    "links": { "publisher": "https://ieeexplore.ieee.org/document/10178359" }
+    "links": { "doi": "10.23919/ecc57647.2023.10178359" }
   },
   {
     "id": "seel2022convex",
@@ -298,7 +300,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["rl", "mpc"],
     "selected": false,
-    "links": { "publisher": "https://ieeexplore.ieee.org/document/9944720" }
+    "links": { "doi": "10.1109/ojcsys.2022.3221063" }
   },
   {
     "id": "baharikordabad2022saferl",
@@ -310,7 +312,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["rl", "mpc"],
     "selected": false,
-    "links": { "publisher": "https://ieeexplore.ieee.org/document/9982609" }
+    "links": { "doi": "10.1109/access.2022.3228922" }
   },
   {
     "id": "baharikordabad2022storage",
@@ -322,7 +324,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["rl", "mpc"],
     "selected": false,
-    "links": { "publisher": "https://www.sciencedirect.com/science/article/pii/S0952197622003694" }
+    "links": { "doi": "10.1016/j.engappai.2022.105343" }
   },
   {
     "id": "baharikordabad2022functional",
@@ -334,7 +336,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["mpc", "rl"],
     "selected": false,
-    "links": { "arxiv": "https://arxiv.org/abs/2203.16989", "publisher": "https://ieeexplore.ieee.org/document/9838064" }
+    "links": { "doi": "10.23919/ecc55457.2022.9838064", "arxiv": "https://arxiv.org/abs/2203.16989" }
   },
   {
     "id": "baharikordabad2022quasinewton",
@@ -346,7 +348,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["rl"],
     "selected": false,
-    "links": { "arxiv": "https://arxiv.org/abs/2203.13854", "publisher": "https://ieeexplore.ieee.org/document/9867217" }
+    "links": { "doi": "10.23919/acc53348.2022.9867217", "arxiv": "https://arxiv.org/abs/2203.13854" }
   },
   {
     "id": "cai2021peak",
@@ -358,7 +360,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["rl", "mpc"],
     "selected": false,
-    "links": { "arxiv": "https://arxiv.org/abs/2108.01459", "publisher": "https://ieeexplore.ieee.org/document/9683333" }
+    "links": { "doi": "10.1109/cdc45484.2021.9683333", "arxiv": "https://arxiv.org/abs/2108.01459" }
   },
   {
     "id": "cai2021freight",
@@ -370,7 +372,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["rl", "mpc"],
     "selected": false,
-    "links": { "arxiv": "https://arxiv.org/abs/2106.08634", "publisher": "https://ieeexplore.ieee.org/document/9683750" }
+    "links": { "doi": "10.1109/cdc45484.2021.9683750", "arxiv": "https://arxiv.org/abs/2106.08634" }
   },
   {
     "id": "baharikordabad2021multiagent",
@@ -382,7 +384,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["rl", "mpc"],
     "selected": false,
-    "links": { "arxiv": "https://arxiv.org/abs/2106.03541", "publisher": "https://ieeexplore.ieee.org/document/9659202" }
+    "links": { "doi": "10.1109/ccta48906.2021.9659202", "arxiv": "https://arxiv.org/abs/2106.03541" }
   },
   {
     "id": "baharikordabad2021dissipativity",
@@ -394,7 +396,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["rl", "mpc"],
     "selected": false,
-    "links": { "arxiv": "https://arxiv.org/abs/2105.11313" }
+    "links": { "doi": "10.1016/j.ifacol.2021.08.562", "arxiv": "https://arxiv.org/abs/2105.11313" }
   },
   {
     "id": "nejatbakhsh2021robust",
@@ -406,7 +408,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["rl", "mpc"],
     "selected": false,
-    "links": { "arxiv": "https://arxiv.org/abs/2104.02743", "publisher": "https://ieeexplore.ieee.org/document/9655129" }
+    "links": { "doi": "10.23919/ecc54610.2021.9655129", "arxiv": "https://arxiv.org/abs/2104.02743" }
   },
   {
     "id": "baharikordabad2021bias",
@@ -418,7 +420,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["rl", "mpc"],
     "selected": false,
-    "links": { "arxiv": "https://arxiv.org/abs/2104.02413", "publisher": "https://ieeexplore.ieee.org/document/9654962" }
+    "links": { "doi": "10.23919/ecc54610.2021.9654962", "arxiv": "https://arxiv.org/abs/2104.02413" }
   },
   {
     "id": "baharikordabad2021economic",
@@ -430,7 +432,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["rl", "mpc"],
     "selected": false,
-    "links": { "arxiv": "https://arxiv.org/abs/2104.02411", "publisher": "https://ieeexplore.ieee.org/document/9654852" }
+    "links": { "doi": "10.23919/ecc54610.2021.9654852", "arxiv": "https://arxiv.org/abs/2104.02411" }
   },
   {
     "id": "nejatbakhsh2021mhe",
@@ -442,7 +444,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["rl", "mpc"],
     "selected": false,
-    "links": { "arxiv": "https://arxiv.org/abs/2103.11871", "publisher": "https://ieeexplore.ieee.org/document/9483399" }
+    "links": { "doi": "10.23919/acc50511.2021.9483399", "arxiv": "https://arxiv.org/abs/2103.11871" }
   },
   {
     "id": "baharikordabad2021scenario",
@@ -454,7 +456,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["rl", "mpc"],
     "selected": false,
-    "links": { "arxiv": "https://arxiv.org/abs/2103.11949", "publisher": "https://ieeexplore.ieee.org/document/9483100" }
+    "links": { "doi": "10.23919/acc50511.2021.9483100", "arxiv": "https://arxiv.org/abs/2103.11949" }
   },
   {
     "id": "baharikordabad2019emotional",
@@ -466,6 +468,6 @@ window.SITE.publications = [
     "status": null,
     "themes": [],
     "selected": false,
-    "links": { "pdf": "https://jacm.scu.ac.ir/article_14664_ea890919d7e100969689ea5539724004.pdf" }
+    "links": { "doi": "10.22055/jacm.2019.30188.1696" }
   }
 ];
