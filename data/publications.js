@@ -104,7 +104,7 @@ window.SITE.publications = [
     "type": "journal",
     "status": null,
     "themes": ["certificates"],
-    "selected": false,
+    "selected": true,
     "links": { "doi": "10.1016/j.nahs.2026.101796", "arxiv": "https://arxiv.org/abs/2510.25513" }
   },
   {
@@ -128,7 +128,7 @@ window.SITE.publications = [
     "type": "preprint",
     "status": "submitted",
     "themes": ["stl", "mpc"],
-    "selected": true,
+    "selected": false,
     "links": { "arxiv": "https://arxiv.org/abs/2503.09816" }
   },
   {
@@ -200,7 +200,7 @@ window.SITE.publications = [
     "type": "conference",
     "status": null,
     "themes": ["stl"],
-    "selected": false,
+    "selected": true,
     "links": { "doi": "10.1109/cdc56724.2024.10886437", "arxiv": "https://arxiv.org/abs/2409.03855" }
   },
   {
@@ -227,7 +227,7 @@ window.SITE.publications = [
     "status": null,
     "award": "EAAI Paper Prize Award 2026",
     "themes": ["rl", "mpc"],
-    "selected": true,
+    "selected": false,
     "links": { "doi": "10.1016/j.engappai.2022.105793" }
   },
   {
