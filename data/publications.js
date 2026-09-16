@@ -8,7 +8,7 @@
  *   selected: true shows the paper under "Selected publications"
  *   volume, number, pages, article: optional strings (article = article number)
  *   award:    optional, e.g. "Best Paper Award"; shown next to the venue
- *   links:    any of pdf, arxiv, doi (bare DOI, e.g. "10.1109/..."), publisher, code
+ *   links:    any of pdf, arxiv, doi (bare DOI "10.1109/...", or a publisher URL if none exists), publisher, code
  *   bibtex:   optional raw BibTeX; if missing, the "BibTeX" button builds one
  *
  * Titles may contain inline LaTeX between $...$ (rendered with KaTeX).
@@ -79,7 +79,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["rl"],
     "selected": false,
-    "links": { "publisher": "https://ieeexplore.ieee.org/document/11625359", "arxiv": "https://arxiv.org/abs/2511.09509" }
+    "links": { "doi": "https://ieeexplore.ieee.org/document/11625359", "arxiv": "https://arxiv.org/abs/2511.09509" }
   },
   {
     "id": "valaei2025secondorder",
@@ -125,8 +125,8 @@ window.SITE.publications = [
     "authors": ["A. Bahari Kordabad", "E. E. Vlahakis", "L. Lindemann", "S. Gros", "D. V. Dimarogonas", "S. Soudjani"],
     "venue": "IEEE Transactions on Automatic Control",
     "year": 2025,
-    "type": "journal",
-    "status": "accepted",
+    "type": "preprint",
+    "status": "submitted",
     "themes": ["stl", "mpc"],
     "selected": true,
     "links": { "arxiv": "https://arxiv.org/abs/2503.09816" }
@@ -141,7 +141,7 @@ window.SITE.publications = [
     "status": null,
     "themes": ["mpc"],
     "selected": false,
-    "links": { "arxiv": "https://arxiv.org/abs/2503.23518", "pdf": "https://www.sesarju.eu/sites/default/files/documents/sid/2025/papers/SIDs_2025_paper_49-final.pdf" }
+    "links": { "doi": "https://www.sesarju.eu/sites/default/files/documents/sid/2025/papers/SIDs_2025_paper_49-final.pdf", "arxiv": "https://arxiv.org/abs/2503.23518" }
   },
   {
     "id": "baharikordabad2025aircraft",

@@ -335,7 +335,8 @@
     var items = ['<li class="kind">' + esc(t(p.type) || p.type || "") + "</li>"];
     if (Lk.pdf) items.push('<li><a href="' + esc(Lk.pdf) + '">PDF</a></li>');
     if (Lk.arxiv) items.push('<li><a href="' + esc(Lk.arxiv) + '">arXiv</a></li>');
-    if (Lk.doi) items.push('<li><a href="https://doi.org/' + esc(Lk.doi) + '">DOI</a></li>');
+    /* `doi` is a bare DOI, or a full publisher URL when no DOI is registered. */
+    if (Lk.doi) items.push('<li><a href="' + esc(/^https?:/.test(Lk.doi) ? Lk.doi : "https://doi.org/" + Lk.doi) + '">DOI</a></li>');
     if (Lk.publisher) items.push('<li><a href="' + esc(Lk.publisher) + '">' + publisherLabel(Lk.publisher) + "</a></li>");
     if (Lk.code) items.push('<li><a href="' + esc(Lk.code) + '">Code</a></li>');
     items.push('<li><button class="text-button" type="button" data-bib="' + esc(p.id) + '">' + t("copyBib") + "</button></li>");
@@ -378,13 +379,15 @@
     if (p.pages || p.article) f.push(["pages", p.pages || p.article]);
     f.push(["year", String(p.year)]);
     var Lk = p.links || {};
-    if (Lk.doi) f.push(["doi", Lk.doi]);
+    var realDoi = Lk.doi && !/^https?:/.test(Lk.doi);
+    if (realDoi) f.push(["doi", Lk.doi]);
     var arx = Lk.arxiv && /arxiv\.org\/(?:abs|pdf)\/([^?#\s]+)/.exec(Lk.arxiv);
     if (arx) { f.push(["eprint", arx[1].replace(/\.pdf$/, "")]); f.push(["archivePrefix", "arXiv"]); }
     if (p.status === "submitted") f.push(["note", "Submitted to " + texEscape(p.venue || "")]);
     if (p.status === "accepted") f.push(["note", "Accepted for publication"]);
     var url = Lk.publisher || Lk.arxiv || Lk.pdf;
-    if (url && !Lk.doi) f.push(["url", url]);
+    if (Lk.doi && !realDoi) url = Lk.doi;
+    if (url && !realDoi) f.push(["url", url]);
     return "@" + type + "{" + p.id + ",\n" + f.map(function (kv) {
       return "  " + kv[0] + " = {" + kv[1] + "}";
     }).join(",\n") + "\n}";
