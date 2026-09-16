@@ -152,7 +152,7 @@ window.SITE.publications = [
     "type": "conference",
     "status": null,
     "themes": ["mpc"],
-    "selected": true,
+    "selected": false,
     "links": { "doi": "10.23919/ecc65951.2025.11186903", "arxiv": "https://arxiv.org/abs/2408.06999" }
   },
   {
@@ -323,7 +323,7 @@ window.SITE.publications = [
     "type": "journal",
     "status": null,
     "themes": ["rl", "mpc"],
-    "selected": false,
+    "selected": true,
     "links": { "doi": "10.1016/j.engappai.2022.105343" }
   },
   {
