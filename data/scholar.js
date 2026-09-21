@@ -7,8 +7,8 @@ window.SITE = window.SITE || {};
 
 window.SITE.scholar = {
   "profile": "https://scholar.google.com/citations?user=hEOInHkAAAAJ&hl=en",
-  "citations": 628,
-  "citationsSince": 626,
+  "citations": 632,
+  "citationsSince": 630,
   "hIndex": 15,
   "hIndexSince": 15,
   "i10Index": 17,
@@ -37,8 +37,8 @@ window.SITE.scholar = {
     },
     {
       "year": 2026,
-      "count": 125
+      "count": 129
     }
   ],
-  "updated": "2026-09-14"
+  "updated": "2026-09-21"
 };
