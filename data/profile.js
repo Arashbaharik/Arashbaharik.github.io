@@ -36,8 +36,8 @@ window.SITE.profile = {
     height: 1000
   },
 
-  // Put your CV in the site root as cv.pdf, then change null to "cv.pdf".
-  cv: null, // TODO
+  // The CV lives in the site root; overwrite cv.pdf to publish a new version.
+  cv: "cv.pdf",
 
   email: "arashbk@mpi-sws.org",
   office: [
