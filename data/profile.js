@@ -102,10 +102,7 @@ window.SITE.profile = {
       details: [
         { en: "Research topic: safe reinforcement learning", de: "Forschungsthema: sicheres Reinforcement Learning" },
         { en: "Host: [Prof. Rafal Wisniewski](https://vbn.aau.dk/da/persons/raf)", de: "Gastgeber: [Prof. Rafal Wisniewski](https://vbn.aau.dk/da/persons/raf)" }
-      ],
-      photo: { src: "assets/img/aau-visit-2022.jpg", width: 800, height: 603,
-        alt: { en: "Arash with a colleague in an office at Aalborg University", de: "Arash mit einem Kollegen in einem Büro der Aalborg University" },
-        caption: { en: "Visiting Aalborg University, June 2022", de: "Forschungsaufenthalt an der Aalborg University, Juni 2022" } }
+      ]
     },
     {
       from: "2020-02", to: "2023-04",
@@ -120,10 +117,7 @@ window.SITE.profile = {
           de: "Betreuer: [Prof. Sébastien Gros](https://www.ntnu.edu/employees/sebastien.gros); Zweitbetreuer: [Prof. Anastasios Lekkas](https://www.ntnu.edu/employees/anastasios.lekkas)" },
         { en: "Committee: Prof. Ole Morten Aamo, Prof. Lars Grüne, Prof. Rolf Findeisen",
           de: "Prüfungskommission: Prof. Ole Morten Aamo, Prof. Lars Grüne, Prof. Rolf Findeisen" }
-      ],
-      photo: { src: "assets/img/phd-defence-2023.jpg", width: 960, height: 401,
-        alt: { en: "Arash with the PhD committee and supervisors after the defence at NTNU", de: "Arash mit Prüfungskommission und Betreuern nach der Verteidigung an der NTNU" },
-        caption: { en: "PhD defence, March 2023, Trondheim", de: "Verteidigung der Dissertation, März 2023, Trondheim" } }
+      ]
     },
     {
       from: "2017-09", to: "2019-09",
@@ -136,10 +130,7 @@ window.SITE.profile = {
           de: "Masterarbeit: „Control of bifurcation and chatter suppression in peripheral milling process“" },
         { en: "Supervisor: [Prof. Hamed Moradi](https://mech.sharif.ir/~hamedmoradi/)", de: "Betreuer: [Prof. Hamed Moradi](https://mech.sharif.ir/~hamedmoradi/)" },
         { en: "GPA 19.41 / 20", de: "Notendurchschnitt 19,41 / 20" }
-      ],
-      photo: { src: "assets/img/msc-defence-2019.jpg", width: 800, height: 599,
-        alt: { en: "Arash presenting his MSc thesis in a seminar room", de: "Arash präsentiert seine Masterarbeit in einem Seminarraum" },
-        caption: { en: "MSc defence, July 2019, Tehran", de: "Verteidigung der Masterarbeit, Juli 2019, Teheran" } }
+      ]
     },
     {
       from: "2013-09", to: "2017-09",
@@ -336,6 +327,19 @@ window.SITE.profile = {
       venue: { en: "NTNU, Trondheim, Norway", de: "NTNU, Trondheim, Norwegen" } },
     { date: "2023-02", title: "Intersection of Reinforcement Learning and MPC",
       venue: { en: "Eindhoven University of Technology, Netherlands. Host: Prof. Dinesh Krishnamoorthy", de: "Eindhoven University of Technology, Niederlande. Gastgeber: Prof. Dinesh Krishnamoorthy" } }
+  ],
+
+  // Photos from the career, shown in the gallery under "Talks & slides".
+  photos: [
+    { src: "assets/img/phd-defence-2023.jpg", width: 960, height: 401,
+      alt: { en: "Arash with the PhD committee and supervisors after the defence at NTNU", de: "Arash mit Prüfungskommission und Betreuern nach der Verteidigung an der NTNU" },
+      caption: { en: "PhD defence, NTNU, March 2023, Trondheim", de: "Verteidigung der Dissertation, NTNU, März 2023, Trondheim" } },
+    { src: "assets/img/aau-visit-2022.jpg", width: 800, height: 603,
+      alt: { en: "Arash with a colleague in an office at Aalborg University", de: "Arash mit einem Kollegen in einem Büro der Aalborg University" },
+      caption: { en: "Research visit, Aalborg University, June 2022, Aalborg", de: "Forschungsaufenthalt, Aalborg University, Juni 2022, Aalborg" } },
+    { src: "assets/img/msc-defence-2019.jpg", width: 800, height: 599,
+      alt: { en: "Arash presenting his MSc thesis in a seminar room", de: "Arash präsentiert seine Masterarbeit in einem Seminarraum" },
+      caption: { en: "MSc defence, Sharif University of Technology, July 2019, Tehran", de: "Verteidigung der Masterarbeit, Sharif University of Technology, Juli 2019, Teheran" } }
   ],
 
   // Slide decks hosted on OneDrive.

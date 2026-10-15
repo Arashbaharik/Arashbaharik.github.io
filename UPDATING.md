@@ -100,6 +100,12 @@ part is optional. Save the image in `assets/img/` (about 1200 px wide, JPEG).
 `supervision:` and `teaching:` in `data/profile.js`, newest first. Each entry has
 `when` (free text, e.g. `2021` or `since 2023`), `title`, `org` and a short `details` list.
 
+## Photos
+
+Photos appear in one gallery under "Talks & slides": a photo attached to a talk
+(`talks[].photo`) and the career photos in `photos:` in `data/profile.js`. Each one has
+`src`, `width`, `height`, `alt` and the `caption` shown under it.
+
 ## Collaborators
 
 `collaborators:` in `data/profile.js`. Supervisors first with the role in
@@ -142,17 +148,6 @@ per country (location), browser and referring site.
 
 Visits from localhost are never counted, and visitors who send Do Not Track or Global
 Privacy Control are skipped. Mention GoatCounter in your privacy page.
-
-## Google Scholar numbers
-
-The card on the first screen (citations, h-index, i10-index, citations per year) reads
-`data/scholar.js`. A Windows scheduled task on your computer, **Scholar stats update**, runs
-`tools/refresh_scholar.ps1` every Monday at 10:00 (or at the next start-up if the computer was
-off). It fetches your public Scholar profile and publishes the file only if the numbers changed;
-it never pushes other unpublished changes. Log: `%LOCALAPPDATA%\arash-site\scholar-refresh.log`.
-
-By hand: `python tools/update_scholar.py`, then commit and push. (Google blocks this request
-from GitHub's own servers, which is why it runs on your computer.)
 
 ## Other text
 
